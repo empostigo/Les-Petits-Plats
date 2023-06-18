@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/empostigo/Les-Petits-Plats/issues"
   },
-  "homepage": "https://github.com/empostigo/Les-Petits-Plats#readme"
+  "homepage": "https://github.com/empostigo/Les-Petits-Plats#readme",
+  "devDependencies": {
+    "sass": "^1.63.4"
+  }
 }
