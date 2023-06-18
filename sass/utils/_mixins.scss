@@ -1,0 +1,35 @@
+/// Position mixin:
+/// @param {String} $p [absolute] - absolute or relative
+/// @param {Number} $t - top position
+/// @param {Number} $r - right position
+/// @param {Number} $b - bottom position
+/// @param {Number} $l - left position
+
+@mixin position($p: absolute, $t: "", $r: "", $b: "", $l: "") {
+  position: #{$p};
+
+  @if $p == absolute or $p == relative {
+    @if $t {
+      top: #{$t};
+    }
+
+    @if $r {
+      right: #{$r};
+    }
+
+    @if $b {
+      bottom: #{$b};
+    }
+
+    @if $l {
+      left: #{$l};
+    }
+  }
+
+  @if $p == absolute and $t == "" and $r == "" and $b == "" and $l == "" {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}

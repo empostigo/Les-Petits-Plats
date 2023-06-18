@@ -1,0 +1,20 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  position: relative;
+}
+.header__background {
+  width: 100%;
+}
+.header__logo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+/*# sourceMappingURL=style.css.map */
