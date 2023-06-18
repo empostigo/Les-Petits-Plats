@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/empostigo/Les-Petits-Plats#readme",
   "devDependencies": {
+    "eslint": "^8.43.0",
     "sass": "^1.63.4"
   }
 }
