@@ -1,0 +1,23 @@
+{
+  "name": "les-petits-plats",
+  "version": "1.0.0",
+  "description": "Projet 7 - OC",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/empostigo/Les-Petits-Plats.git"
+  },
+  "keywords": [
+    "algo",
+    "search"
+  ],
+  "author": "empostigo",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/empostigo/Les-Petits-Plats/issues"
+  },
+  "homepage": "https://github.com/empostigo/Les-Petits-Plats#readme"
+}
