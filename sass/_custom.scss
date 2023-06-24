@@ -1,3 +1,6 @@
+// Add some properties to bootstrap
+
+// Required to extend properties classes
 @import "bootstrap/scss/functions";
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/variables-dark";
@@ -5,7 +8,28 @@
 @import "bootstrap/scss/mixins";
 @import "bootstrap/scss/utilities";
 
-// Add h1 yellow color to text-* color class
+// Colors, "c" stands for custom
+// variables:
+$cyellow: #ffd15b;
+
+// map:
+$ccolors: (
+  "cyellow": $cyellow,
+);
+
+$colors: map-merge($colors, $ccolors);
+
+// theme-color-variables, "bootstrap/scss/_variables.scss"
+$search: $white;
+// Add to $theme-colors
+$search-color: (
+  "search": $search,
+);
+
+$theme-colors: map-merge($theme-colors, $search-color);
+
+// Add :
+// h1 yellow color to text-* color class
 $utilities: map-merge(
   $utilities,
   (
@@ -17,7 +41,67 @@ $utilities: map-merge(
             map-merge(
               map-get(map-get($utilities, "color"), "values"),
               (
-                h1: #ffd15b,
+                h1: $cyellow,
+              )
+            ),
+        )
+      ),
+  )
+);
+
+// magnifying glass icon black background color #1b1b1b, bg-search
+$utilities: map-merge(
+  $utilities,
+  (
+    "background-color":
+      map-merge(
+        map-get($utilities, "background-color"),
+        (
+          values:
+            map-merge(
+              map-get(map-get($utilities, "background-color"), "values"),
+              (
+                search: transparent,
+              )
+            ),
+        )
+      ),
+  )
+);
+
+// Logo padding in header
+$utilities: map-merge(
+  $utilities,
+  (
+    "padding":
+      map-merge(
+        map-get($utilities, "padding"),
+        (
+          values:
+            map-merge(
+              map-get(map-get($utilities, "padding"), "values"),
+              (
+                logo: 50px 0 0 70px,
+              )
+            ),
+        )
+      ),
+  )
+);
+
+// Figma mocking border-radius
+$utilities: map-merge(
+  $utilities,
+  (
+    "rounded":
+      map-merge(
+        map-get($utilities, "rounded"),
+        (
+          values:
+            map-merge(
+              map-get(map-get($utilities, "rounded"), "values"),
+              (
+                35: 11px,
               )
             ),
         )
