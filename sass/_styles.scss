@@ -1,4 +1,32 @@
-.bgi-url {
-  background-image: url("/assets/header/search-button.svg");
-  background-repeat: no-repeat;
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+
+h1 {
+  font-family: "Anton", sans-serif;
 }
+
+// search button images transition
+.search-img {
+  opacity: 1;
+  transition: opacity 500ms ease-out;
+
+  &:hover {
+    opacity: 0;
+  }
+
+  &--hovered {
+    opacity: 0;
+    transition: opacity 500ms ease-out;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.form-control {
+  &::placeholder {
+    color: #7a7a7a !important;
+  }
+}
+
+@import "bootstrap/scss/utilities/api";

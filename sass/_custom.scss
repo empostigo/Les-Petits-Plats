@@ -12,16 +12,18 @@
 // variables:
 $cyellow: #ffd15b;
 
+/*
 // map:
 $ccolors: (
   "cyellow": $cyellow,
 );
 
 $colors: map-merge($colors, $ccolors);
+*/
 
 // theme-color-variables, "bootstrap/scss/_variables.scss"
 $search: $white;
-// Add to $theme-colors
+// Add to $theme-colors for search button white background
 $search-color: (
   "search": $search,
 );
@@ -49,7 +51,7 @@ $utilities: map-merge(
   )
 );
 
-// magnifying glass icon black background color #1b1b1b, bg-search
+// white background for search button
 $utilities: map-merge(
   $utilities,
   (
@@ -61,7 +63,67 @@ $utilities: map-merge(
             map-merge(
               map-get(map-get($utilities, "background-color"), "values"),
               (
-                search: transparent,
+                search: $white,
+              )
+            ),
+        )
+      ),
+  )
+);
+
+// search form height
+$utilities: map-merge(
+  $utilities,
+  (
+    "height":
+      map-merge(
+        map-get($utilities, "height"),
+        (
+          values:
+            map-merge(
+              map-get(map-get($utilities, "height"), "values"),
+              (
+                form: 70px,
+              )
+            ),
+        )
+      ),
+  )
+);
+
+// inner circles icon negative margin
+$utilities: map-merge(
+  $utilities,
+  (
+    "margin-bottom":
+      map-merge(
+        map-get($utilities, "margin-bottom"),
+        (
+          values:
+            map-merge(
+              map-get(map-get($utilities, "margin-bottom"), "values"),
+              (
+                circles: -4px,
+              )
+            ),
+        )
+      ),
+  )
+);
+
+// h1 + form positionning
+$utilities: map-merge(
+  $utilities,
+  (
+    "margin-top":
+      map-merge(
+        map-get($utilities, "margin-top"),
+        (
+          values:
+            map-merge(
+              map-get(map-get($utilities, "margin-top"), "values"),
+              (
+                6: 25vh,
               )
             ),
         )
@@ -89,6 +151,26 @@ $utilities: map-merge(
   )
 );
 
+// input start text
+$utilities: map-merge(
+  $utilities,
+  (
+    "padding-start":
+      map-merge(
+        map-get($utilities, "padding-start"),
+        (
+          values:
+            map-merge(
+              map-get(map-get($utilities, "padding-start"), "values"),
+              (
+                text: 36px,
+              )
+            ),
+        )
+      ),
+  )
+);
+
 // Figma mocking border-radius
 $utilities: map-merge(
   $utilities,
@@ -109,4 +191,38 @@ $utilities: map-merge(
   )
 );
 
-@import "bootstrap/scss/utilities/api";
+// font-size: 44px
+$utilities: map-merge(
+  $utilities,
+  (
+    "font-size":
+      map-merge(
+        map-get($utilities, "font-size"),
+        (
+          values:
+            map-merge(
+              map-get(map-get($utilities, "font-size"), "values"),
+              (
+                0: 44px,
+              )
+            ),
+        )
+      ),
+  )
+);
+
+// extended classes
+// Put button at right in form-floating
+.floating-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  height: 100%; // allow textareas
+  padding: $form-floating-padding-y $form-floating-padding-x;
+  overflow: hidden;
+  text-align: start;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border: $input-border-width solid transparent; // Required for aligning label's text with the input as it affects inner box model
+}

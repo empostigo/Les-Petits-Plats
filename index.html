@@ -10,31 +10,33 @@
 
 <body>
 
-  <header class="">
+  <header class="vh-100">
     <img class="img-fluid position-absolute z-n1" src="/assets/header/lampos-aritonang-24gR_9lCdes-unsplash 1.png"
       alt="Image d'arrière plan - Header">
-    <div class="px-0">
+    <div class="px-0 mx-auto">
       <div class="p-logo">
         <img class="" src="/assets/logo/Les petits plats.png" alt="Logo - Les Petits Plats">
-        <img class="" src="/assets/header/inner-circle.svg" alt="Icon de l'en-tête" height="28" width="28">
+        <img class="mb-circles" src="/assets/header/inner-circle.svg" alt="Icon de l'en-tête" height="28" width="28">
       </div>
-      <div class="vstack gap-3 col-8 mx-auto">
-        <h1 class="text-h1 text-center text-uppercase">cherchez parmi plus de 1500 recettes<br>du
+      <div class="row col-8 gap-4 mx-auto mt-6 h-100">
+        <h1 class="text-h1 text-center text-uppercase fs-0 lh-base">cherchez parmi plus de 1500 recettes<br>du
           quotidien,
           simples
           et
           délicieuses</h1>
-        <form id="searchForm" class="form-floating" style="height: 70px;" action="">
-          <input id="searchInput" class="form-control h-100 p-1 rounded-35" type="text"
+        <form id="searchForm" class="form-floating h-form" action="">
+          <input id="searchInput" class="form-control h-100 p-1 rounded-35 ps-text" type="text"
             placeholder="Rechercher une recette, un ingrédient, ...">
-          <button class="bg-search floating-right rounded p-2" for="searchform">
-            <img class="" src="/assets/header/search-button.svg" alt="">
+          <button class="bg-search floating-right rounded-35 p-2">
+            <img class="search-img" src="/assets/header/search-button.svg" alt="">
+            <img class="search-img--hovered position-absolute end-0 me-2" src="/assets/header/hover-search-button.svg"
+              alt="">
           </button>
         </form>
       </div>
     </div>
   </header>
-  <main class="">
+  <main class="container mt-5">
     <div class="">
       <div class="">ingrédients</div>
       <div class="">appareils</div>
