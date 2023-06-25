@@ -12,15 +12,6 @@
 // variables:
 $cyellow: #ffd15b;
 
-/*
-// map:
-$ccolors: (
-  "cyellow": $cyellow,
-);
-
-$colors: map-merge($colors, $ccolors);
-*/
-
 // theme-color-variables, "bootstrap/scss/_variables.scss"
 $search: $white;
 // Add to $theme-colors for search button white background
@@ -30,7 +21,8 @@ $search-color: (
 
 $theme-colors: map-merge($theme-colors, $search-color);
 
-// Add :
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
 // h1 yellow color to text-* color class
 $utilities: map-merge(
   $utilities,
@@ -51,6 +43,8 @@ $utilities: map-merge(
   )
 );
 
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
 // white background for search button
 $utilities: map-merge(
   $utilities,
@@ -71,6 +65,8 @@ $utilities: map-merge(
   )
 );
 
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
 // search form height
 $utilities: map-merge(
   $utilities,
@@ -91,6 +87,8 @@ $utilities: map-merge(
   )
 );
 
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
 // inner circles icon negative margin
 $utilities: map-merge(
   $utilities,
@@ -111,19 +109,21 @@ $utilities: map-merge(
   )
 );
 
-// h1 + form positionning
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+// erasing input cross margin
 $utilities: map-merge(
   $utilities,
   (
-    "margin-top":
+    "margin":
       map-merge(
-        map-get($utilities, "margin-top"),
+        map-get($utilities, "margin"),
         (
           values:
             map-merge(
-              map-get(map-get($utilities, "margin-top"), "values"),
+              map-get(map-get($utilities, "margin"), "values"),
               (
-                6: 25vh,
+                cross: 0 84px 24px 0,
               )
             ),
         )
@@ -131,26 +131,8 @@ $utilities: map-merge(
   )
 );
 
-// Logo padding in header
-$utilities: map-merge(
-  $utilities,
-  (
-    "padding":
-      map-merge(
-        map-get($utilities, "padding"),
-        (
-          values:
-            map-merge(
-              map-get(map-get($utilities, "padding"), "values"),
-              (
-                logo: 50px 0 0 70px,
-              )
-            ),
-        )
-      ),
-  )
-);
-
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
 // input start text
 $utilities: map-merge(
   $utilities,
@@ -171,6 +153,8 @@ $utilities: map-merge(
   )
 );
 
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
 // Figma mocking border-radius
 $utilities: map-merge(
   $utilities,
@@ -184,26 +168,6 @@ $utilities: map-merge(
               map-get(map-get($utilities, "rounded"), "values"),
               (
                 35: 11px,
-              )
-            ),
-        )
-      ),
-  )
-);
-
-// font-size: 44px
-$utilities: map-merge(
-  $utilities,
-  (
-    "font-size":
-      map-merge(
-        map-get($utilities, "font-size"),
-        (
-          values:
-            map-merge(
-              map-get(map-get($utilities, "font-size"), "values"),
-              (
-                0: 44px,
               )
             ),
         )
