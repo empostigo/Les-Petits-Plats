@@ -11717,6 +11717,16 @@ textarea.form-control-lg {
   color: #7a7a7a !important;
 }
 
+.header {
+  background: url(/assets/header/lampos-aritonang-24gR_9lCdes-unsplash\ 1.png) no-repeat;
+  background-size: 100%;
+  padding-bottom: 20px;
+}
+
+.main {
+  margin-top: 20px;
+}
+
 .align-baseline {
   vertical-align: baseline !important;
 }
