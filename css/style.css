@@ -1,24 +1,10 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Anton&family=Manrope&display=swap");
-.floating-right {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 2;
-  height: 100%;
-  padding: 1rem 0.75rem;
-  overflow: hidden;
-  text-align: start;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  border: var(--bs-border-width) solid transparent;
-}
-
 /*!
  * Bootstrap  v5.3.0 (https://getbootstrap.com/)
  * Copyright 2011-2023 The Bootstrap Authors
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500&display=swap");
 :root,
 [data-bs-theme=light] {
   --bs-blue: #0d6efd;
@@ -8198,6 +8184,10 @@ textarea.form-control-lg {
   gap: 3rem !important;
 }
 
+.gap-select {
+  gap: 7% !important;
+}
+
 .row-gap-1 {
   row-gap: 0.25rem !important;
 }
@@ -9532,6 +9522,9 @@ textarea.form-control-lg {
   .gap-sm-5 {
     gap: 3rem !important;
   }
+  .gap-sm-select {
+    gap: 7% !important;
+  }
   .row-gap-sm-1 {
     row-gap: 0.25rem !important;
   }
@@ -10035,6 +10028,9 @@ textarea.form-control-lg {
   }
   .gap-md-5 {
     gap: 3rem !important;
+  }
+  .gap-md-select {
+    gap: 7% !important;
   }
   .row-gap-md-1 {
     row-gap: 0.25rem !important;
@@ -10540,6 +10536,9 @@ textarea.form-control-lg {
   .gap-lg-5 {
     gap: 3rem !important;
   }
+  .gap-lg-select {
+    gap: 7% !important;
+  }
   .row-gap-lg-1 {
     row-gap: 0.25rem !important;
   }
@@ -11043,6 +11042,9 @@ textarea.form-control-lg {
   }
   .gap-xl-5 {
     gap: 3rem !important;
+  }
+  .gap-xl-select {
+    gap: 7% !important;
   }
   .row-gap-xl-1 {
     row-gap: 0.25rem !important;
@@ -11548,6 +11550,9 @@ textarea.form-control-lg {
   .gap-xxl-5 {
     gap: 3rem !important;
   }
+  .gap-xxl-select {
+    gap: 7% !important;
+  }
   .row-gap-xxl-1 {
     row-gap: 0.25rem !important;
   }
@@ -11637,6 +11642,11 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+body {
+  font-family: "Anton", sans-serif;
+  background-color: #e5e5e5;
+}
+
 .p-logo {
   max-width: max-content;
   padding-top: 20px;
@@ -11673,7 +11683,6 @@ textarea.form-control-lg {
   }
 }
 .fs-0 {
-  font-family: "Anton", sans-serif;
   font-size: 14px;
   padding: 0;
 }
@@ -11710,6 +11719,20 @@ textarea.form-control-lg {
   opacity: 1;
 }
 
+.floating-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  height: 100%;
+  padding: 1rem 0.75rem;
+  overflow: hidden;
+  text-align: start;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border: var(--bs-border-width) solid transparent;
+}
+
 .form-control {
   font-family: "Manrope", sans-serif;
 }
@@ -11720,11 +11743,26 @@ textarea.form-control-lg {
 .header {
   background: url(/assets/header/lampos-aritonang-24gR_9lCdes-unsplash\ 1.png) no-repeat;
   background-size: 100%;
-  padding-bottom: 20px;
 }
 
+@media (min-width: 576px) {
+  .header {
+    padding-bottom: 20px;
+  }
+}
+@media (min-width: 992px) {
+  .header {
+    padding-bottom: 10%;
+  }
+}
 .main {
-  margin-top: 20px;
+  margin: 20px 8% 0 8%;
+}
+
+.select {
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  width: 23%;
 }
 
 .align-baseline {
@@ -12787,6 +12825,10 @@ textarea.form-control-lg {
   gap: 3rem !important;
 }
 
+.gap-select {
+  gap: 7% !important;
+}
+
 .row-gap-1 {
   row-gap: 0.25rem !important;
 }
@@ -14121,6 +14163,9 @@ textarea.form-control-lg {
   .gap-sm-5 {
     gap: 3rem !important;
   }
+  .gap-sm-select {
+    gap: 7% !important;
+  }
   .row-gap-sm-1 {
     row-gap: 0.25rem !important;
   }
@@ -14624,6 +14669,9 @@ textarea.form-control-lg {
   }
   .gap-md-5 {
     gap: 3rem !important;
+  }
+  .gap-md-select {
+    gap: 7% !important;
   }
   .row-gap-md-1 {
     row-gap: 0.25rem !important;
@@ -15129,6 +15177,9 @@ textarea.form-control-lg {
   .gap-lg-5 {
     gap: 3rem !important;
   }
+  .gap-lg-select {
+    gap: 7% !important;
+  }
   .row-gap-lg-1 {
     row-gap: 0.25rem !important;
   }
@@ -15633,6 +15684,9 @@ textarea.form-control-lg {
   .gap-xl-5 {
     gap: 3rem !important;
   }
+  .gap-xl-select {
+    gap: 7% !important;
+  }
   .row-gap-xl-1 {
     row-gap: 0.25rem !important;
   }
@@ -16136,6 +16190,9 @@ textarea.form-control-lg {
   }
   .gap-xxl-5 {
     gap: 3rem !important;
+  }
+  .gap-xxl-select {
+    gap: 7% !important;
   }
   .row-gap-xxl-1 {
     row-gap: 0.25rem !important;

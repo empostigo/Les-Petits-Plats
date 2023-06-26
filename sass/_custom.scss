@@ -133,7 +133,7 @@ $utilities: map-merge(
 
 /////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////
-// input start text
+/// input start text, main padding
 $utilities: map-merge(
   $utilities,
   (
@@ -146,6 +146,28 @@ $utilities: map-merge(
               map-get(map-get($utilities, "padding-start"), "values"),
               (
                 text: 36px,
+              )
+            ),
+        )
+      ),
+  )
+);
+
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+/// select gap
+$utilities: map-merge(
+  $utilities,
+  (
+    "gap":
+      map-merge(
+        map-get($utilities, "gap"),
+        (
+          values:
+            map-merge(
+              map-get(map-get($utilities, "gap"), "values"),
+              (
+                select: 7%,
               )
             ),
         )
@@ -174,19 +196,3 @@ $utilities: map-merge(
       ),
   )
 );
-
-// extended classes
-// Put button at right in form-floating
-.floating-right {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 2;
-  height: 100%; // allow textareas
-  padding: $form-floating-padding-y $form-floating-padding-x;
-  overflow: hidden;
-  text-align: start;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  border: $input-border-width solid transparent; // Required for aligning label's text with the input as it affects inner box model
-}
