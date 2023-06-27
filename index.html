@@ -25,7 +25,7 @@
         <form id="searchForm" class="form-floating h-form" action="">
           <input id="searchInput" class="form-control h-100 p-1 rounded-35 ps-text" type="text"
             placeholder="Rechercher une recette, un ingrédient, ...">
-          <img class="position-absolute bottom-0 end-0 m-cross" src="/assets/header/cross.svg" alt="">
+          <img class="position-absolute bottom-0 end-0 m-cross opacity-0" src="/assets/header/cross.svg" alt="">
           <button class="bg-search floating-right rounded-35 p-2">
             <img class="search-img" src="/assets/header/search-button.svg" alt="">
             <img class="search-img--hovered position-absolute end-0 me-2" src="/assets/header/hover-search-button.svg"
@@ -37,21 +37,30 @@
   </header>
   <main id="main" class="main">
     <div class="row">
-      <div class="row col-12 order-2 order-sm-1 col-sm-9 gap-select">
-        <button class="col-3 btn btn-search rounded-35 my-3 select text-start">Ingrédients
+      <div class="row col-12 order-2 order-md-1 col-md-9 gap-select">
+        <button
+          class="col-3 btn btn-search rounded-35 my-3 py-3 select fs-button text-start position-relative">Ingrédients
+          <img class="float-end mt-2" src="/assets/selects/down.svg" alt="">
+          <img class="position-absolute end-0 me-1 mt-2 pe-2 opacity-0" src="/assets/selects/up.svg" alt="">
           <ul class="d-none">
           </ul>
         </button>
-        <button class="col-3 btn btn-search rounded-35 my-3 select text-start">Appareils
+        <button
+          class="col-3 btn btn-search rounded-35 my-3 py-3 select fs-button text-start position-relative">Appareils
+          <img class="float-end mt-2" src="/assets/selects/down.svg" alt="">
+          <img class="position-absolute end-0 me-1 mt-2 pe-2 opacity-0" src="/assets/selects/up.svg" alt="">
           <ul class="d-none">
           </ul>
         </button>
-        <button class="col-3 btn btn-search rounded-35 my-3 select text-start">Ustensiles
+        <button
+          class="col-3 btn btn-search rounded-35 my-3 py-3 select fs-button text-start position-relative">Ustensiles
+          <img class="float-end mt-2" src="/assets/selects/down.svg" alt="">
+          <img class="position-absolute end-0 me-1 mt-2 pe-2 opacity-0" src="/assets/selects/up.svg" alt="">
           <ul class="d-none">
           </ul>
         </button>
       </div>
-      <span class="col-3 order-1 order-sm-2 text-center my-3 pt-1 fs-5 align-middle">1500 recettes</span>
+      <span class="col col-md-3 order-1 order-md-2 text-center text-md-end my-md-3 py-md-3 fs-5">1500 recettes</span>
     </div>
     <div class=""></div>
   </main>

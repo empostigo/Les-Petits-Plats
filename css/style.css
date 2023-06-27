@@ -11750,7 +11750,7 @@ body {
     padding-bottom: 20px;
   }
 }
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   .header {
     padding-bottom: 10%;
   }
@@ -11762,9 +11762,23 @@ body {
 .select {
   font-family: "Manrope", sans-serif;
   font-weight: 500;
-  width: 23%;
+  width: 28%;
 }
 
+@media (min-width: 1200px) {
+  .select {
+    width: 200px;
+  }
+}
+.fs-button {
+  font-size: 12px;
+}
+
+@media (min-width: 576px) {
+  .fs-button {
+    font-size: 16px;
+  }
+}
 .align-baseline {
   vertical-align: baseline !important;
 }
