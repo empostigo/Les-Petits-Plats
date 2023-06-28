@@ -11779,6 +11779,14 @@ body {
     font-size: 16px;
   }
 }
+.img-height {
+  height: 254px;
+}
+
+.desc-height {
+  height: 478px;
+}
+
 .align-baseline {
   vertical-align: baseline !important;
 }
