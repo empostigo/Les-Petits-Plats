@@ -10,28 +10,30 @@
 
 <body>
 
-  <header class="header">
-    <div class="px-0 mx-auto">
+  <header class="header container-fluid">
+    <div class="row">
       <div class="p-logo">
-        <img class="" src="/assets/logo/Les-petits-plats.png" alt="Logo - Les Petits Plats">
+        <img src="/assets/logo/Les-petits-plats.png" alt="Logo - Les Petits Plats">
         <img class="mb-circles" src="/assets/header/inner-circle.svg" alt="Icon de l'en-tête" height="28" width="28">
       </div>
-      <div class="row col-8 mx-auto h-100 spacing">
-        <h1 class="text-h1 text-center text-uppercase fs-0 lh-base">cherchez parmi plus de 1500 recettes<br>du
-          quotidien,
-          simples
-          et
-          délicieuses</h1>
-        <form id="searchForm" class="form-floating h-form" action="">
-          <input id="searchInput" class="form-control h-100 p-1 rounded-35 ps-text" type="text"
-            placeholder="Rechercher une recette, un ingrédient, ...">
-          <img class="position-absolute bottom-0 end-0 m-cross opacity-0" src="/assets/header/cross.svg" alt="">
-          <button class="bg-search floating-right rounded-35 p-2">
-            <img class="search-img" src="/assets/header/search-button.svg" alt="">
-            <img class="search-img--hovered position-absolute end-0 me-2" src="/assets/header/hover-search-button.svg"
-              alt="">
-          </button>
-        </form>
+      <div class="row">
+        <div class="col-8 mx-auto spacing">
+          <h1 class="text-h1 text-center text-uppercase fs-0 lh-base mb-h1">cherchez parmi plus de 1500 recettes<br>du
+            quotidien,
+            simples
+            et
+            délicieuses</h1>
+          <form id="searchForm" class="form-floating h-form" action="">
+            <input id="searchInput" class="form-control h-100 p-1 rounded-35 ps-text" type="text"
+              placeholder="Rechercher une recette, un ingrédient, ...">
+            <img class="position-absolute bottom-0 end-0 m-cross opacity-0" src="/assets/header/cross.svg" alt="">
+            <button class="bg-search floating-right rounded-35 p-2">
+              <img class="search-img" src="/assets/header/search-button.svg" alt="">
+              <img class="search-img--hovered position-absolute end-0 me-2" src="/assets/header/hover-search-button.svg"
+                alt="">
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   </header>

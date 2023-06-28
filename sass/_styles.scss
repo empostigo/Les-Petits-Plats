@@ -12,7 +12,6 @@ body {
 /////////////////////////////////////////////////////////////
 /// Logo padding
 .p-logo {
-  max-width: max-content;
   padding-top: 20px;
   padding-left: calc((100% - 214px) / 2);
 }
@@ -72,6 +71,7 @@ body {
 @media (min-width: 768px) {
   .fs-0 {
     font-size: 33px;
+    min-width: 502px;
   }
 }
 
@@ -134,8 +134,10 @@ body {
 .header {
   background: url(/assets/header/meal.png) no-repeat;
   background-size: 100%;
+  padding-bottom: 10%;
 }
 
+/*
 @media (min-width: 576px) {
   .header {
     padding-bottom: 20px;
@@ -147,7 +149,7 @@ body {
     padding-bottom: 10%;
   }
 }
-
+*/
 .main {
   margin: 20px 8% 0 8%;
 }
