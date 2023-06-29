@@ -8,9 +8,17 @@ body {
   background-color: #e5e5e5;
 }
 
+/* //////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+/// header */
 .header {
   background: url(/assets/header/meal.png) no-repeat;
   padding-bottom: 10%;
+}
+
+.inner-circle {
+  height: 28px;
+  width: 28px;
 }
 
 /* Logo padding */
@@ -54,21 +62,70 @@ body {
   }
 }
 
+/* //////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+/* form */
 .custom-form {
-  height: 70px;
+  height: 50px;
 }
+
+@media (min-width: 576px) {
+  .custom-form {
+    height: 56px;
+  }
+}
+
+@media (min-width: 992px) {
+  .custom-form {
+    height: 70px;
+  }
+}
+
+/* input */
 .custom-input {
+  font-family: "Manrope", sans-serif;
+  font-size: 12px;
   border-radius: 11px;
-  padding-left: 36px !important;
-}
-
-.custom-search {
-  background-color: white;
-}
-
-.custom-search {
+  padding-left: 16px;
   border: none;
-  border-radius: 11px;
+  outline: none;
+}
+
+@media (min-width: 576px) {
+  .custom-input {
+    font-size: 14px;
+    padding-left: 26px;
+  }
+}
+
+@media (min-width: 768px) {
+  .custom-input {
+    font-size: 1em;
+    padding-left: 36px;
+  }
+}
+
+.cross {
+  height: 14px;
+  position: absolute;
+  top: 1.25em;
+  right: 4em;
+}
+
+@media (min-width: 576px) {
+  .cross {
+    height: 16px;
+    top: 1.35em;
+    right: 4.5em;
+  }
+}
+
+@media (min-width: 992px) {
+  .cross {
+    height: 17px;
+    top: 1.9em;
+    right: 5em;
+  }
 }
 
 /* search button images transition */
@@ -96,45 +153,29 @@ body {
   background-color: white;
   top: 0;
   right: 0;
+  border: none;
+  border-radius: 11px;
   z-index: 2;
-  height: 100%;
-  overflow: hidden;
-  text-align: start;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  border: 2px solid transparent;
 }
 
-.form-control {
-  font-family: "Manrope", sans-serif;
-}
-
-.form-control::placeholder {
-  color: #7a7a7a !important;
-}
-
-.cross {
-  margin: 0 84px 24px 0;
-}
-
+/* //////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+/// main */
 .select {
   font-family: "Manrope", sans-serif;
   font-weight: 500;
   font-size: 12px;
   background-color: white;
   border-radius: 11px;
-  width: 25%;
+}
+
+.select:hover {
+  background-color: white;
 }
 
 @media (min-width: 576px) {
   .select {
     font-size: 16px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .select {
-    width: 200px;
   }
 }
 
