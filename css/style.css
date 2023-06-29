@@ -113,6 +113,10 @@ body {
   color: #7a7a7a !important;
 }
 
+.cross {
+  margin: 0 84px 24px 0;
+}
+
 .select {
   font-family: "Manrope", sans-serif;
   font-weight: 500;
