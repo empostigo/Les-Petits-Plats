@@ -102,7 +102,7 @@ body {
   text-align: start;
   text-overflow: ellipsis;
   white-space: nowrap;
-  border: $input-border-width solid transparent;
+  border: 2px solid transparent;
 }
 
 .form-control {
