@@ -8,6 +8,11 @@ body {
   background-color: #e5e5e5;
 }
 
+.header {
+  background: url(/assets/header/meal.png) no-repeat;
+  padding-bottom: 10%;
+}
+
 /* Logo padding */
 .p-logo {
   padding-top: 30px;
@@ -108,14 +113,19 @@ body {
   color: #7a7a7a !important;
 }
 
-.main {
-  margin: 200px 8% 0 8%;
-}
-
 .select {
   font-family: "Manrope", sans-serif;
   font-weight: 500;
-  width: 28%;
+  font-size: 12px;
+  background-color: white;
+  border-radius: 11px;
+  width: 25%;
+}
+
+@media (min-width: 576px) {
+  .select {
+    font-size: 16px;
+  }
 }
 
 @media (min-width: 1200px) {
