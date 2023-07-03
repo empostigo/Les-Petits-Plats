@@ -1,0 +1,37 @@
+.card {
+  height: 730px;
+
+  &__img {
+    height: 254px;
+    object-fit: cover;
+  }
+
+  &__desc {
+    height: 478px;
+    font-family: $font-secondary;
+  }
+
+  &__h2 {
+    font-family: $font-body;
+    font-size: 18px;
+    font-weight: 400;
+  }
+
+  &__h3 {
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  &__text {
+    font-size: 14px;
+  }
+
+  &__h4 {
+    font-size: 14px;
+  }
+
+  &__quantity {
+    font-size: 14px;
+    font-weight: 400;
+  }
+}

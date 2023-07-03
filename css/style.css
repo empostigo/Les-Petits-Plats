@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;700&display=swap");
 /* //////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////
 /// font family */
@@ -8,81 +7,54 @@ body {
   background-color: #e5e5e5;
 }
 
-/* //////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////
-/// header */
 .header {
   background: url(/assets/header/meal.png) no-repeat;
   padding-bottom: 10%;
+  /* logo circles */
+  /* h1 */
+  /* search form */
+  /* search input */
+  /* erasing input text cross */
+  /* button at the right of input */
+  /* transition when hovering button */
 }
-
-.inner-circle {
+.header__inner-circles {
   height: 28px;
   width: 28px;
 }
-
-/* Logo padding */
-.p-logo {
-  padding-top: 30px;
-}
-
-@media (min-width: 576px) {
-  .p-logo {
-    padding: 20px 0 0 20px;
-  }
-}
-
-@media (min-width: 768px) {
-  .p-logo {
-    padding: 50px 0 0 70px;
-  }
-}
-
-/* h1 */
-.heading {
+.header__heading {
   font-size: 1em;
   color: #ffd15b;
 }
-
 @media (min-width: 576px) {
-  .heading {
+  .header__heading {
     font-size: 22px;
   }
 }
-
 @media (min-width: 768px) {
-  .heading {
+  .header__heading {
     font-size: 33px;
   }
 }
-
 @media (min-width: 992px) {
-  .heading {
+  .header__heading {
     font-size: 44px;
   }
 }
-
-/* //////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////
-/* form */
-.custom-form {
+.header__form {
   height: 50px;
 }
-
 @media (min-width: 576px) {
-  .custom-form {
+  .header__form {
     height: 56px;
   }
 }
-
 @media (min-width: 992px) {
-  .custom-form {
+  .header__form {
     height: 70px;
   }
 }
-
-/* input */
-.custom-input {
+.header__input {
   font-family: "Manrope", sans-serif;
   font-size: 12px;
   border-radius: 11px;
@@ -90,65 +62,39 @@ body {
   border: none;
   outline: none;
 }
-
 @media (min-width: 576px) {
-  .custom-input {
+  .header__input {
     font-size: 14px;
     padding-left: 26px;
   }
 }
-
 @media (min-width: 768px) {
-  .custom-input {
+  .header__input {
     font-size: 1em;
     padding-left: 36px;
   }
 }
-
-.cross {
+.header__cross {
   height: 14px;
   position: absolute;
   top: 1.25em;
   right: 4em;
 }
-
 @media (min-width: 576px) {
-  .cross {
+  .header__cross {
     height: 16px;
     top: 1.35em;
     right: 4.5em;
   }
 }
-
 @media (min-width: 992px) {
-  .cross {
+  .header__cross {
     height: 17px;
     top: 1.9em;
     right: 5em;
   }
 }
-
-/* search button images transition */
-.search-img {
-  opacity: 1;
-  transition: opacity 500ms ease-out;
-}
-
-.search-img:hover {
-  opacity: 0;
-}
-
-.search-img--hovered {
-  opacity: 0;
-  transition: opacity 500ms ease-out;
-}
-
-.search-img--hovered:hover {
-  opacity: 1;
-}
-
-/* Put button at right in form-floating */
-.floating-right {
+.header__floating-right {
   position: absolute;
   background-color: white;
   top: 0;
@@ -157,10 +103,21 @@ body {
   border-radius: 11px;
   z-index: 2;
 }
+.header__search-img {
+  opacity: 1;
+  transition: opacity 500ms ease-out;
+}
+.header__search-img:hover {
+  opacity: 0;
+}
+.header__search-img--hovered {
+  opacity: 0;
+  transition: opacity 500ms ease-out;
+}
+.header__search-img--hovered:hover {
+  opacity: 1;
+}
 
-/* //////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////
-/// main */
 .select {
   font-family: "Manrope", sans-serif;
   font-weight: 500;
@@ -168,31 +125,44 @@ body {
   background-color: white;
   border-radius: 11px;
 }
-
 .select:hover {
   background-color: white;
 }
-
 @media (min-width: 576px) {
   .select {
     font-size: 16px;
   }
 }
 
-.fs-button {
-  font-size: 12px;
+.card {
+  height: 730px;
 }
-
-@media (min-width: 576px) {
-  .fs-button {
-    font-size: 16px;
-  }
-}
-
-.img-height {
+.card__img {
   height: 254px;
+  object-fit: cover;
+}
+.card__desc {
+  height: 478px;
+  font-family: "Manrope", sans-serif;
+}
+.card__h2 {
+  font-family: "Anton", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+}
+.card__h3 {
+  font-size: 12px;
+  font-weight: 700;
+}
+.card__text {
+  font-size: 14px;
+}
+.card__h4 {
+  font-size: 14px;
+}
+.card__quantity {
+  font-size: 14px;
+  font-weight: 400;
 }
 
-.desc-height {
-  height: 478px;
-}
+/*# sourceMappingURL=style.css.map */

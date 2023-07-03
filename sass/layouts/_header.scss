@@ -1,0 +1,111 @@
+.header {
+  background: url(/assets/header/meal.png) no-repeat;
+  padding-bottom: 10%;
+
+  /* logo circles */
+  &__inner-circles {
+    height: 28px;
+    width: 28px;
+  }
+
+  /* h1 */
+  &__heading {
+    font-size: 1em;
+    color: $h1-colour;
+
+    @media (min-width: 576px) {
+      font-size: 22px;
+    }
+
+    @media (min-width: 768px) {
+      font-size: 33px;
+    }
+
+    @media (min-width: 992px) {
+      font-size: 44px;
+    }
+  }
+
+  /* search form */
+  &__form {
+    height: 50px;
+
+    @media (min-width: 576px) {
+      height: 56px;
+    }
+
+    @media (min-width: 992px) {
+      height: 70px;
+    }
+  }
+
+  /* search input */
+  &__input {
+    font-family: "Manrope", sans-serif;
+    font-size: 12px;
+    border-radius: 11px;
+    padding-left: 16px;
+    border: none;
+    outline: none;
+
+    @media (min-width: 576px) {
+      font-size: 14px;
+      padding-left: 26px;
+    }
+
+    @media (min-width: 768px) {
+      font-size: 1em;
+      padding-left: 36px;
+    }
+  }
+
+  /* erasing input text cross */
+  &__cross {
+    height: 14px;
+    position: absolute;
+    top: 1.25em;
+    right: 4em;
+
+    @media (min-width: 576px) {
+      height: 16px;
+      top: 1.35em;
+      right: 4.5em;
+    }
+
+    @media (min-width: 992px) {
+      height: 17px;
+      top: 1.9em;
+      right: 5em;
+    }
+  }
+
+  /* button at the right of input */
+  &__floating-right {
+    position: absolute;
+    background-color: white;
+    top: 0;
+    right: 0;
+    border: none;
+    border-radius: 11px;
+    z-index: 2;
+  }
+
+  /* transition when hovering button */
+  &__search-img {
+    opacity: 1;
+    transition: opacity 500ms ease-out;
+
+    &:hover {
+      opacity: 0;
+    }
+
+    &--hovered {
+      opacity: 0;
+      transition: opacity 500ms ease-out;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}

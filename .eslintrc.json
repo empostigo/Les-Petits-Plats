@@ -3,7 +3,7 @@
     "browser": true,
     "es2021": true
   },
-  "extends": "xo",
+  "extends": "airbnb",
   "overrides": [],
   "parserOptions": {
     "ecmaVersion": "latest",
@@ -15,7 +15,7 @@
     "no-console": "off",
     "consistent-return": "warn",
     "indent": ["error", 2],
-    //  "import/extensions": ["error", "always"],
+    "import/extensions": ["error", "always"],
     "no-constructor-return": "off",
     "no-underscore-dangle": "off" /* disable this rule for Factory Pattern*/,
     "no-plusplus": "off",
