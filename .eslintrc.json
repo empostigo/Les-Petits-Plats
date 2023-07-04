@@ -3,7 +3,7 @@
     "browser": true,
     "es2021": true
   },
-  "extends": "airbnb",
+  "extends": "airbnb-base",
   "overrides": [],
   "parserOptions": {
     "ecmaVersion": "latest",
@@ -19,6 +19,7 @@
     "no-constructor-return": "off",
     "no-underscore-dangle": "off" /* disable this rule for Factory Pattern*/,
     "no-plusplus": "off",
+    "arrow-parens": ["error", "as-needed"],
     "no-param-reassign": "warn"
   }
 }
