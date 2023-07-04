@@ -5,19 +5,16 @@ export default class Card {
     this.cardInfos = cardInfos
     this.ingredientsArray = this.cardInfos.ingredients.map(
       i => `<div class="col-6 card__ingredients">
-          <h4 class="card__h4">${i.ingredient}</h4>
-         <p class="card__quantity">${i.quantity ? i.quantity : ""} ${
-        i.unit ? i.unit : ""
-      }</p>
-        </div>`,
+              <h4 class="card__h4">${i.ingredient}</h4>
+              <p class="card__quantity">
+                ${i.quantity ? i.quantity : ""} ${i.unit ? i.unit : ""}
+              </p>
+            </div>`
     )
   }
 
   get cardIngredients() {
-    let domIngredients = ""
-    for (const i of this.ingredientsArray) domIngredients += i
-
-    return domIngredients
+    return "".concat(...this.ingredientsArray)
   }
 
   cardDom() {

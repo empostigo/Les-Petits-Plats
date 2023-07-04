@@ -20,6 +20,7 @@
     "no-underscore-dangle": "off" /* disable this rule for Factory Pattern*/,
     "no-plusplus": "off",
     "arrow-parens": ["error", "as-needed"],
+    "comma-dangle": ["error", "never"],
     "no-param-reassign": "warn"
   }
 }
