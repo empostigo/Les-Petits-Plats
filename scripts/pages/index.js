@@ -8,5 +8,5 @@ const dom = document.getElementById("cardDom")
 dom.innerHTML = "".concat(...recipes.map(r => new Card(r).cardDom()))
 
 // DEBUG
-const ingredients = new DataProcessing(recipes).concatenatedIngredients
+const ingredients = new DataProcessing(recipes).allRecipeTerms
 console.log(ingredients)

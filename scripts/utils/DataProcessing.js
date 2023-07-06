@@ -12,7 +12,7 @@ export default class DataProcessing {
 
   // split sentences in words array
   get splitIngredient() {
-    const re = /(?<='*)[\p{L}]{3,}$/u
+    const re = /(?<='*)[\p{L}]{3,}(?=\)*)/u
     return this.ingredientsList.map(ingredient =>
       ingredient.map(i =>
         i
@@ -20,6 +20,8 @@ export default class DataProcessing {
           .filter(expr => expr.match(re))
           // keep "olive" instead of "d'olive"
           .map(i => i.split("'").filter(i => i.match(re)))
+          .flat()
+          .map(i => i.split(")").filter(i => i.match(re)))
           .flat()
       )
     )
@@ -34,5 +36,38 @@ export default class DataProcessing {
         // remove duplicates
         .map(i => [...new Set(i)])
     )
+  }
+
+  // get appliances list ([])
+  get appliancesList() {
+    return this.recipesArray.map(recipe => recipe.appliance)
+  }
+
+  get concatenatedAppliances() {
+    return this.appliancesList.map(appliance =>
+      appliance
+        .split(" ")
+        .filter(a => a.length > 2)
+        .flat()
+    )
+  }
+
+  get ustensilsList() {
+    return this.recipesArray.map(recipe =>
+      recipe.ustensils
+        .map(ustensil => ustensil.split(" ").filter(u => u.length > 2))
+        .flat()
+    )
+  }
+
+  get allRecipeTerms() {
+    return this.concatenatedIngredients
+      .map((item, index) =>
+        item.concat(
+          this.concatenatedAppliances[index],
+          this.ustensilsList[index]
+        )
+      )
+      .map(i => [...new Set(i)])
   }
 }
