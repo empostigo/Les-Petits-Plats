@@ -12,7 +12,7 @@ export default class DataProcessing {
 
   // split sentences in words array
   get splitIngredient() {
-    const re = /(?<='*)[\p{L}]{3,}(?=\)*)/u
+    const re = /((?<='?)[\p{L}](?!\){1})){3,}/u
     return this.ingredientsList.map(ingredient =>
       ingredient.map(i =>
         i
@@ -69,5 +69,6 @@ export default class DataProcessing {
         )
       )
       .map(i => [...new Set(i)])
+      .map(i => i.sort((a, b) => a.toUpperCase() > b.toUpperCase()))
   }
 }
