@@ -156,6 +156,7 @@ body {
 }
 .card__text {
   font-size: 14px;
+  height: 100px;
 }
 .card__h4 {
   font-size: 14px;
