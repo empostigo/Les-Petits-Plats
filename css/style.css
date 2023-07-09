@@ -133,6 +133,52 @@ body {
     font-size: 16px;
   }
 }
+@media (min-width: 992px) {
+  .select__input-wrapper {
+    height: 36px;
+  }
+}
+.select__cross {
+  position: absolute;
+  top: 8px;
+  right: 34px;
+}
+@media (min-width: 576px) {
+  .select__cross {
+    top: 12px;
+  }
+}
+@media (min-width: 992px) {
+  .select__cross {
+    top: 14px;
+  }
+}
+.select__search-icon {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  height: 12px;
+}
+@media (min-width: 576px) {
+  .select__search-icon {
+    top: 8px;
+    height: 14px;
+  }
+}
+@media (min-width: 992px) {
+  .select__search-icon {
+    top: 11px;
+    height: 14px;
+  }
+}
+.select__li {
+  list-style: none;
+  font-size: 14px;
+  font-weight: 400;
+}
+.select__li::first-letter {
+  text-transform: uppercase;
+}
 
 .card {
   height: 730px;

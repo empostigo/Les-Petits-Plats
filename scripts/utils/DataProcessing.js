@@ -10,6 +10,11 @@ export default class DataProcessing {
     )
   }
 
+  // Get all recipes ingredients in a unique array
+  get wholeRecipesIngredients() {
+    return [...new Set(this.ingredientsList.flat().map(i => i.toLowerCase()))]
+  }
+
   // split sentences in words array
   get splitIngredient() {
     const re = /((?<='?)[\p{L}](?!\){1})){3,}/u
@@ -40,7 +45,7 @@ export default class DataProcessing {
 
   // get appliances list ([])
   get appliancesList() {
-    return this.recipesArray.map(recipe => recipe.appliance)
+    return [...new Set(this.recipesArray.map(recipe => recipe.appliance))]
   }
 
   get concatenatedAppliances() {
@@ -52,12 +57,27 @@ export default class DataProcessing {
     )
   }
 
+  get ustensils() {
+    return [
+      ...new Set(
+        this.recipesArray
+          .map(recipe => recipe.ustensils)
+          .flat()
+          .map(u => u.toLowerCase())
+      ),
+    ]
+  }
+
   get ustensilsList() {
-    return this.recipesArray.map(recipe =>
-      recipe.ustensils
-        .map(ustensil => ustensil.split(" ").filter(u => u.length > 2))
-        .flat()
-    )
+    return [
+      ...new Set(
+        this.recipesArray.map(recipe =>
+          recipe.ustensils
+            .map(ustensil => ustensil.split(" ").filter(u => u.length > 2))
+            .flat()
+        )
+      ),
+    ]
   }
 
   get allRecipeTerms() {

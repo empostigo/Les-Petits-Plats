@@ -1,15 +1,15 @@
-import DataProcessing from "../utils/DataProcessing.js"
-
 export default class Select {
   constructor(selectId) {
     this.selectId = selectId
+    this.itemsList = this.selectId.concat("List")
   }
 
-  set itemsList(itemsArray) {
-    this.itemsList = itemsArray
-  }
+  fillSelectElement(itemsArray) {
+    const ulElement = document.getElementById(this.itemsList)
 
-  get itemsList() {
-    return this.selectId.concat("List")
+    const liElements = itemsArray
+      .map(item => `<li class="select__li">${item}</li>`)
+      .join("\n")
+    ulElement.insertAdjacentHTML("beforeEnd", liElements)
   }
 }

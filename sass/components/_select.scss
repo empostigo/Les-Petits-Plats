@@ -12,4 +12,53 @@
   @media (min-width: 576px) {
     font-size: 16px;
   }
+
+  &__input-wrapper {
+    @media (min-width: 992px) {
+      height: 36px;
+    }
+  }
+
+  &__cross {
+    position: absolute;
+    top: 8px;
+    right: 34px;
+
+    @media (min-width: 576px) {
+      top: 12px;
+    }
+
+    @media (min-width: 992px) {
+      top: 14px;
+    }
+  }
+
+  &__search {
+    &-icon {
+      position: absolute;
+      top: 6px;
+      right: 10px;
+      height: 12px;
+
+      @media (min-width: 576px) {
+        top: 8px;
+        height: 14px;
+      }
+
+      @media (min-width: 992px) {
+        top: 11px;
+        height: 14px;
+      }
+    }
+  }
+
+  &__li {
+    list-style: none;
+    font-size: 14px;
+    font-weight: 400;
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
 }
