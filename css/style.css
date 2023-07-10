@@ -124,8 +124,12 @@ body {
   font-size: 12px;
   background-color: white;
   border-radius: 11px;
+  overflow: hidden;
 }
-.select:hover {
+.select--closed {
+  max-height: 54px;
+}
+.select__button {
   background-color: white;
 }
 @media (min-width: 576px) {
@@ -137,6 +141,12 @@ body {
   .select__input-wrapper {
     height: 36px;
   }
+}
+.select__icon-down {
+  opacity: 1;
+}
+.select__icon-up {
+  opacity: 0;
 }
 .select__cross {
   position: absolute;
@@ -174,10 +184,14 @@ body {
 .select__li {
   list-style: none;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 4001336;
 }
 .select__li::first-letter {
   text-transform: uppercase;
+}
+.select__li-wrapper {
+  max-height: 200px;
+  overflow: auto;
 }
 
 .card {

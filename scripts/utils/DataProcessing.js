@@ -6,13 +6,15 @@ export default class DataProcessing {
   // Get ingredients[]
   get ingredientsList() {
     return this.recipesArray.map(recipe =>
-      recipe.ingredients.map(i => i.ingredient)
+      recipe.ingredients
+        .map(ingredient => ingredient.ingredient)
+        .map(i => i.toLowerCase())
     )
   }
 
   // Get all recipes ingredients in a unique array
   get wholeRecipesIngredients() {
-    return [...new Set(this.ingredientsList.flat().map(i => i.toLowerCase()))]
+    return [...new Set(this.ingredientsList.flat())]
   }
 
   // split sentences in words array

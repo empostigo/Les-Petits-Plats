@@ -18,6 +18,6 @@ ingredients.fillSelectElement(recipeTerms.wholeRecipesIngredients)
 appliances.fillSelectElement(recipeTerms.appliancesList)
 ustensils.fillSelectElement(recipeTerms.ustensils)
 
+Select.renderSelect(ingredients, appliances, ustensils)
+
 // DEBUG
-console.log(recipeTerms.ustensils)
-console.log(recipeTerms.wholeRecipesIngredients)

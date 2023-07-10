@@ -4,8 +4,13 @@
   font-size: 12px;
   background-color: white;
   border-radius: 11px;
+  overflow: hidden;
 
-  &:hover {
+  &--closed {
+    max-height: 54px;
+  }
+
+  &__button {
     background-color: white;
   }
 
@@ -16,6 +21,16 @@
   &__input-wrapper {
     @media (min-width: 992px) {
       height: 36px;
+    }
+  }
+
+  &__icon {
+    &-down {
+      opacity: 1;
+    }
+
+    &-up {
+      opacity: 0;
     }
   }
 
@@ -55,10 +70,15 @@
   &__li {
     list-style: none;
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 4001336;
 
     &::first-letter {
       text-transform: uppercase;
+    }
+
+    &-wrapper {
+      max-height: 200px;
+      overflow: auto;
     }
   }
 }
