@@ -10,7 +10,7 @@ export default class Select {
 
   fillSelectElement(itemsArray) {
     const div = document.createElement("div")
-    div.classList = ("select__li-wrapper", "px-2")
+    div.classList.add("select__li-wrapper", "px-2")
     this.ulElement.append(div)
 
     const liElements = itemsArray
