@@ -132,6 +132,17 @@ body {
   border-radius: 11px;
   max-width: 200px;
   overflow: hidden;
+  /*
+    &__icon {
+      &-down {
+        opacity: 1;
+      }
+
+      &-up {
+        opacity: 0;
+      }
+    }
+  */
 }
 @media (min-width: 576px) {
   .select {
@@ -153,9 +164,6 @@ body {
   .select__input-wrapper {
     height: 36px;
   }
-}
-.select__icon-down {
-  opacity: 1;
 }
 .select__cross {
   position: absolute;
