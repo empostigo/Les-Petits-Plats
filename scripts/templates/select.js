@@ -1,9 +1,11 @@
 export default class Select {
   constructor(selectId) {
+    this.selectWrapper = document.getElementById("selectWrapper")
     this.selectId = document.getElementById(selectId)
     this.buttonElement = document.getElementById(selectId.concat("Button"))
     this.formElement = document.getElementById(selectId.concat("Form"))
     this.ulElement = document.getElementById(selectId.concat("List"))
+    this.nbRecipes = document.getElementById("nbRecipes")
   }
 
   fillSelectElement(itemsArray) {

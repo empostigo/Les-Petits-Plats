@@ -4,18 +4,23 @@
   font-size: 12px;
   background-color: white;
   border-radius: 11px;
+  max-width: 200px;
   overflow: hidden;
 
+  @media (min-width: 576px) {
+    font-size: 16px;
+  }
+
   &--closed {
-    max-height: 54px;
+    max-height: 50px;
+
+    @media (min-width: 576px) {
+      max-height: 54px;
+    }
   }
 
   &__button {
     background-color: white;
-  }
-
-  @media (min-width: 576px) {
-    font-size: 16px;
   }
 
   &__input-wrapper {
@@ -30,7 +35,7 @@
     }
 
     &-up {
-      opacity: 0;
+      // opacity: 0;
     }
   }
 

@@ -118,24 +118,36 @@ body {
   opacity: 1;
 }
 
+.cards {
+  position: absolute;
+  top: 130px;
+  padding-bottom: 200px;
+}
+
 .select {
   font-family: "Manrope", sans-serif;
   font-weight: 500;
   font-size: 12px;
   background-color: white;
   border-radius: 11px;
+  max-width: 200px;
   overflow: hidden;
-}
-.select--closed {
-  max-height: 54px;
-}
-.select__button {
-  background-color: white;
 }
 @media (min-width: 576px) {
   .select {
     font-size: 16px;
   }
+}
+.select--closed {
+  max-height: 50px;
+}
+@media (min-width: 576px) {
+  .select--closed {
+    max-height: 54px;
+  }
+}
+.select__button {
+  background-color: white;
 }
 @media (min-width: 992px) {
   .select__input-wrapper {
@@ -144,9 +156,6 @@ body {
 }
 .select__icon-down {
   opacity: 1;
-}
-.select__icon-up {
-  opacity: 0;
 }
 .select__cross {
   position: absolute;
