@@ -165,17 +165,19 @@ body {
 @media (min-width: 576px) {
   .select__cross {
     top: 12px;
+    right: 40px;
   }
 }
 @media (min-width: 992px) {
   .select__cross {
     top: 14px;
+    right: 44px;
   }
 }
 .select__search-icon {
   position: absolute;
   top: 6px;
-  right: 10px;
+  right: 16px;
   height: 12px;
 }
 @media (min-width: 576px) {
@@ -187,6 +189,7 @@ body {
 @media (min-width: 992px) {
   .select__search-icon {
     top: 11px;
+    right: 20px;
     height: 14px;
   }
 }
