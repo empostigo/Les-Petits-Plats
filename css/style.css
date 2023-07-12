@@ -132,6 +132,8 @@ body {
   border-radius: 11px;
   max-width: 200px;
   overflow: hidden;
+  max-height: 400px;
+  transition: max-height 500ms ease-out;
   /*
     &__icon {
       &-down {
@@ -159,6 +161,9 @@ body {
 }
 .select__button {
   background-color: white;
+}
+.select__input-wrapper {
+  transition: opacity 500ms ease-out 50ms;
 }
 @media (min-width: 992px) {
   .select__input-wrapper {
@@ -201,10 +206,18 @@ body {
     height: 14px;
   }
 }
+.select__ul {
+  transition: opacity 500ms ease-out 50ms;
+}
 .select__li {
   list-style: none;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 4001336;
+}
+@media (min-width: 576px) {
+  .select__li {
+    font-size: 1em;
+  }
 }
 .select__li::first-letter {
   text-transform: uppercase;

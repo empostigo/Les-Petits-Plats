@@ -37,7 +37,8 @@
     <div id="selectWrapper" class="row pb-3 pb-md-0 pt-md-3">
       <div
         class="col-12 order-2 order-md-1 col-md-9 d-flex justify-content-between justify-content-md-start gap-2 gap-md-4 gap-lg-5">
-        <div id="ingredients" class="d-flex flex-column bg-white w-100 px-1 px-sm-2 select select--closed">
+        <div id="ingredients" data-flag="0"
+          class="d-flex flex-column bg-white w-100 px-1 px-sm-2 select select--closed">
           <button id="ingredientsButton" class="border-0 px-2 py-3 text-start position-relative select__button">
             Ingrédients
             <img id="ingredientsDown" class="float-end mt-1 mt-sm-2 select__icon-down" src="/assets/select/down.svg"
@@ -46,15 +47,15 @@
               class="float-end position-absolute end-0 mt-1 mt-sm-2 me-2 opacity-0 select__icon-up"
               src="/assets/select/up.svg" alt="">
           </button>
-          <form id="ingredientsForm" class="mt-2 mb-3 px-2 d-none position-relative select__input-wrapper">
+          <form id="ingredientsForm" class="mt-2 mb-3 px-2 position-relative opacity-0 select__input-wrapper">
             <input class="h-100 w-100 select__search" type="text">
             <img class="select__cross" src="/assets/select/input-cross.svg" alt="Effacer">
             <img class="select__search-icon" src="/assets/select/input.svg" alt="Rechercher">
           </form>
-          <ul id="ingredientsList" class="ps-0 d-none">
+          <ul id="ingredientsList" class="ps-0 opacity-0 select__ul">
           </ul>
         </div>
-        <div id="appliances" class="d-flex flex-column bg-white w-100 px-1 px-sm-2 select select--closed">
+        <div id="appliances" data-flag="0" class="d-flex flex-column bg-white w-100 px-1 px-sm-2 select select--closed">
           <button id="appliancesButton"
             class="border-0 px-2 py-3 text-start position-relative select__button">Appliances
             <img id="appliancesDown" class="float-end mt-1 mt-sm-2 select__icon-down" src="/assets/select/down.svg"
@@ -62,15 +63,15 @@
             <img id="appliancesUp" class="float-end position-absolute end-0 mt-1 mt-sm-2 me-2 opacity-0 select__icon-up"
               src="/assets/select/up.svg" alt="">
           </button>
-          <form id="appliancesForm" class="mt-2 mb-3 px-2 d-none position-relative select__input-wrapper">
+          <form id="appliancesForm" class="mt-2 mb-3 px-2 position-relative opacity-0 select__input-wrapper">
             <input class="h-100 w-100 select__search" type="text">
             <img class="select__cross" src="/assets/select/input-cross.svg" alt="Effacer">
             <img class="select__search-icon" src="/assets/select/input.svg" alt="Rechercher">
           </form>
-          <ul id="appliancesList" class="ps-0 d-none">
+          <ul id="appliancesList" class="ps-0 opacity-0 select__ul">
           </ul>
         </div>
-        <div id="ustensils" class="d-flex flex-column bg-white w-100 px-1 px-sm-2 select select--closed">
+        <div id="ustensils" data-flag="0" class="d-flex flex-column bg-white w-100 px-1 px-sm-2 select select--closed">
           <button id="ustensilsButton" class="border-0 px-2 py-3 text-start position-relative select__button">
             Ustensiles
             <img id="ustensilsDown" class="float-end mt-1 mt-sm-2 select__icon-down" src="/assets/select/down.svg"
@@ -78,12 +79,12 @@
             <img id="ustensilsUp" class="float-end position-absolute end-0 mt-1 mt-sm-2 me-2 opacity-0 select__icon-up"
               src="/assets/select/up.svg" alt="">
           </button>
-          <form id="ustensilsForm" class="mt-2 mb-3 px-2 d-none position-relative select__input-wrapper">
+          <form id="ustensilsForm" class="mt-2 mb-3 px-2 position-relative opacity-0 select__input-wrapper">
             <input class="h-100 w-100 select__search" type="text">
             <img class="select__cross" src="/assets/select/input-cross.svg" alt="Effacer">
             <img class="select__search-icon" src="/assets/select/input.svg" alt="Rechercher">
           </form>
-          <ul id="ustensilsList" class="ps-0 d-none">
+          <ul id="ustensilsList" class="ps-0 opacity-0 select__ul">
           </ul>
         </div>
       </div>

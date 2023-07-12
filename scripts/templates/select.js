@@ -2,9 +2,11 @@ export default class Select {
   constructor(selectId) {
     this.selectWrapper = document.getElementById("selectWrapper")
     this.selectId = document.getElementById(selectId)
+
     this.buttonElement = document.getElementById(selectId.concat("Button"))
     this.buttonDown = document.getElementById(selectId.concat("Down"))
     this.buttonUp = document.getElementById(selectId.concat("Up"))
+
     this.formElement = document.getElementById(selectId.concat("Form"))
     this.ulElement = document.getElementById(selectId.concat("List"))
     this.nbRecipes = document.getElementById("nbRecipes")
@@ -23,26 +25,30 @@ export default class Select {
 
   dropDownSelect() {
     this.selectId.classList.remove("select--closed")
+
     this.buttonDown.classList.add("opacity-0")
     this.buttonUp.classList.remove("opacity-0")
-    this.formElement.classList.remove("d-none")
-    this.ulElement.classList.remove("d-none")
+
+    this.formElement.classList.remove("opacity-0")
+    this.ulElement.classList.remove("opacity-0")
   }
 
   closeSelect() {
     this.selectId.classList.add("select--closed")
+
     this.buttonDown.classList.remove("opacity-0")
     this.buttonUp.classList.add("opacity-0")
-    this.formElement.classList.add("d-none")
-    this.ulElement.classList.add("d-none")
+
+    this.formElement.classList.add("opacity-0")
+    this.ulElement.classList.add("opacity-0")
   }
 
   static renderSelect(...selectElements) {
     for (let element of selectElements) {
       let flag = 0
-      element.buttonElement.addEventListener("click", () =>
+      element.buttonElement.addEventListener("click", () => {
         flag++ % 2 === 0 ? element.dropDownSelect() : element.closeSelect()
-      )
+      })
     }
   }
 }
