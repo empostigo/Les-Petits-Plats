@@ -39,7 +39,8 @@
         class="col-12 order-2 order-md-1 col-md-9 d-flex justify-content-between justify-content-md-start gap-2 gap-md-4 gap-lg-5">
         <div id="ingredients" data-flag="0"
           class="d-flex flex-column bg-white w-100 px-1 px-sm-2 select select--closed">
-          <button id="ingredientsButton" class="border-0 px-2 py-3 text-start position-relative select__button">
+          <button id="ingredientsButton" data-state="closed"
+            class="border-0 px-2 py-3 text-start position-relative select__button">
             Ingrédients
             <img id="ingredientsDown" class="float-end mt-1 mt-sm-2 select__icon-down" src="/assets/select/down.svg"
               alt="">
@@ -48,7 +49,7 @@
               src="/assets/select/up.svg" alt="">
           </button>
           <form id="ingredientsForm" class="mt-2 mb-3 px-2 position-relative opacity-0 select__input-wrapper">
-            <input id="ingredientsInput" class="h-100 w-100 select__search" data-state="notFocusable" type="text">
+            <input id="ingredientsInput" class="h-100 w-100 select__search" type="text">
             <img class="select__cross" src="/assets/select/input-cross.svg" alt="Effacer">
             <img class="select__search-icon" src="/assets/select/input.svg" alt="Rechercher">
           </form>
@@ -56,7 +57,7 @@
           </ul>
         </div>
         <div id="appliances" data-flag="0" class="d-flex flex-column bg-white w-100 px-1 px-sm-2 select select--closed">
-          <button id="appliancesButton"
+          <button id="appliancesButton" data-state="closed"
             class="border-0 px-2 py-3 text-start position-relative select__button">Appliances
             <img id="appliancesDown" class="float-end mt-1 mt-sm-2 select__icon-down" src="/assets/select/down.svg"
               alt="">
@@ -64,7 +65,7 @@
               src="/assets/select/up.svg" alt="">
           </button>
           <form id="appliancesForm" class="mt-2 mb-3 px-2 position-relative opacity-0 select__input-wrapper">
-            <input id="appliancesInput" class="h-100 w-100 select__search" data-state="notFocusable" type="text">
+            <input id="appliancesInput" class="h-100 w-100 select__search" type="text">
             <img class="select__cross" src="/assets/select/input-cross.svg" alt="Effacer">
             <img class="select__search-icon" src="/assets/select/input.svg" alt="Rechercher">
           </form>
@@ -72,7 +73,8 @@
           </ul>
         </div>
         <div id="ustensils" data-flag="0" class="d-flex flex-column bg-white w-100 px-1 px-sm-2 select select--closed">
-          <button id="ustensilsButton" class="border-0 px-2 py-3 text-start position-relative select__button">
+          <button id="ustensilsButton" data-state="closed"
+            class="border-0 px-2 py-3 text-start position-relative select__button">
             Ustensiles
             <img id="ustensilsDown" class="float-end mt-1 mt-sm-2 select__icon-down" src="/assets/select/down.svg"
               alt="">
@@ -80,7 +82,7 @@
               src="/assets/select/up.svg" alt="">
           </button>
           <form id="ustensilsForm" class="mt-2 mb-3 px-2 position-relative opacity-0 select__input-wrapper">
-            <input id="ustensilsInput" class="h-100 w-100 select__search" data-state="notFocusable" type="text">
+            <input id="ustensilsInput" class="h-100 w-100 select__search" type="text">
             <img class="select__cross" src="/assets/select/input-cross.svg" alt="Effacer">
             <img class="select__search-icon" src="/assets/select/input.svg" alt="Rechercher">
           </form>

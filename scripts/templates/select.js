@@ -34,7 +34,7 @@ export default class Select {
     this.formElement.classList.remove("opacity-0")
     this.ulElement.classList.remove("opacity-0")
 
-    this.inputElement.dataset.state = "focusable"
+    this.buttonElement.dataset.state = "opened"
   }
 
   closeSelect() {
@@ -46,33 +46,23 @@ export default class Select {
     this.formElement.classList.add("opacity-0")
     this.ulElement.classList.add("opacity-0")
 
-    this.inputElement.dataset.state = "notFocusable"
+    this.buttonElement.dataset.state = "closed"
   }
 
   static renderSelect(...selectElements) {
     for (const element of selectElements) {
-      let flag = 0
       element.buttonElement.addEventListener("click", () => {
-        flag++ % 2 === 0 ? element.dropDownSelect() : element.closeSelect()
-      })
-
-      element.inputElement.addEventListener("focus", () => {
-        element.inputElement.dataset.state = "notFocusable"
-      })
-
-      element.inputElement.addEventListener("blur", () => {
-        element.inputElement.dataset.state = "notFocusable"
-        element.closeSelect()
+        element.buttonElement.dataset.state === "closed"
+          ? element.dropDownSelect()
+          : element.closeSelect()
       })
 
       document.addEventListener("click", event => {
         if (
           event.target !== element.buttonElement &&
           event.target !== element.inputElement
-        ) {
+        )
           element.closeSelect()
-          flag++
-        }
       })
     }
   }
