@@ -65,13 +65,6 @@ export default class Select {
         element.closeSelect()
       })
 
-      element.buttonElement.addEventListener("blur", () => {
-        if (element.inputElement.dataset.state === "notFocusable") {
-          element.closeSelect()
-          flag++
-        }
-      })
-
       document.addEventListener("click", event => {
         if (
           event.target !== element.buttonElement &&
