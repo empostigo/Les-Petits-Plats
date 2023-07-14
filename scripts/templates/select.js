@@ -11,7 +11,6 @@ export default class Select {
     this.inputElement = document.getElementById(selectId.concat("Input"))
 
     this.ulElement = document.getElementById(selectId.concat("List"))
-    this.nbRecipes = document.getElementById("nbRecipes")
   }
 
   fillSelectElement(itemsArray) {
