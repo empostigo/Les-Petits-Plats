@@ -81,6 +81,8 @@ body {
   position: absolute;
   top: 1.25em;
   right: 4em;
+  cursor: pointer;
+  transition: opacity 500ms ease-out;
 }
 @media (min-width: 576px) {
   .header__cross {
@@ -136,17 +138,6 @@ body {
   overflow: hidden;
   max-height: 400px;
   transition: max-height 500ms ease-out;
-  /*
-    &__icon {
-      &-down {
-        opacity: 1;
-      }
-
-      &-up {
-        opacity: 0;
-      }
-    }
-  */
 }
 @media (min-width: 576px) {
   .select {
@@ -176,6 +167,8 @@ body {
   position: absolute;
   top: 8px;
   right: 34px;
+  cursor: pointer;
+  transition: opacity 500ms ease-out 50ms;
 }
 @media (min-width: 576px) {
   .select__cross {

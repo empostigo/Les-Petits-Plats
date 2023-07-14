@@ -9,6 +9,9 @@ export default class Select {
 
     this.formElement = document.getElementById(selectId.concat("Form"))
     this.inputElement = document.getElementById(selectId.concat("Input"))
+    this.inputCrossElement = document.getElementById(
+      selectId.concat("InputCross")
+    )
 
     this.ulElement = document.getElementById(selectId.concat("List"))
   }
@@ -66,7 +69,8 @@ export default class Select {
       document.addEventListener("click", event => {
         if (
           event.target !== element.buttonElement &&
-          event.target !== element.inputElement
+          event.target !== element.inputElement &&
+          event.target !== element.inputCrossElement
         )
           element.closeSelect()
       })

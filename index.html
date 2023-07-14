@@ -24,7 +24,7 @@
         <form id="searchForm" class="col-8 mx-auto form-floating header__form" action="">
           <input id="searchInput" class="col-12 h-100 header__input" type="text"
             placeholder="Rechercher une recette, un ingrédient, ...">
-          <img class="header__cross" src="/assets/header/cross.svg" alt="">
+          <img id="searchInputCross" class="opacity-0 header__cross" src="/assets/header/cross.svg" alt="">
           <button class="header__floating-right h-100 p-lg-1">
             <img class="header__search-img h-100 p-1" src="/assets/header/search-button.svg" alt="">
             <img class="header__search-img--hovered h-100 w-100 position-absolute top-0 end-0 p-1 p-lg-2"
@@ -51,7 +51,8 @@
           </button>
           <form id="ingredientsForm" class="mt-2 mb-3 px-2 position-relative opacity-0 select__input-wrapper">
             <input id="ingredientsInput" class="h-100 w-100 select__search" type="text">
-            <img class="select__cross" src="/assets/select/input-cross.svg" alt="Effacer">
+            <img id="ingredientsInputCross" class="opacity-0 select__cross" src="/assets/select/input-cross.svg"
+              alt="Effacer">
             <img class="select__search-icon" src="/assets/select/input.svg" alt="Rechercher">
           </form>
           <ul id="ingredientsList" class="ps-0 opacity-0 select__ul">
@@ -67,7 +68,8 @@
           </button>
           <form id="appliancesForm" class="mt-2 mb-3 px-2 position-relative opacity-0 select__input-wrapper">
             <input id="appliancesInput" class="h-100 w-100 select__search" type="text">
-            <img class="select__cross" src="/assets/select/input-cross.svg" alt="Effacer">
+            <img id="appliancesInputCross" class="opacity-0 select__cross" src="/assets/select/input-cross.svg"
+              alt="Effacer">
             <img class="select__search-icon" src="/assets/select/input.svg" alt="Rechercher">
           </form>
           <ul id="appliancesList" class="ps-0 opacity-0 select__ul">
@@ -84,7 +86,8 @@
           </button>
           <form id="ustensilsForm" class="mt-2 mb-3 px-2 position-relative opacity-0 select__input-wrapper">
             <input id="ustensilsInput" class="h-100 w-100 select__search" type="text">
-            <img class="select__cross" src="/assets/select/input-cross.svg" alt="Effacer">
+            <img id="ustensilsInputCross" class="opacity-0 select__cross" src="/assets/select/input-cross.svg"
+              alt="Effacer">
             <img class="select__search-icon" src="/assets/select/input.svg" alt="Rechercher">
           </form>
           <ul id="ustensilsList" class="ps-0 opacity-0 select__ul">

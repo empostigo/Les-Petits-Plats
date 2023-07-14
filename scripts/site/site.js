@@ -1,16 +1,25 @@
 import Card from "../templates/cards.js"
-import DataProcessing from "./DataProcessing.js"
+import DataProcessing from "../utils/DataProcessing.js"
+import Input from "../utils/input.js"
 import Select from "../templates/select.js"
 
 export default class Site {
   constructor(recipes) {
     this.recipes = recipes
     this.nbRecipes = document.getElementById("nbRecipes")
+
     this.dom = document.getElementById("cardDom")
+
     this.recipeTerms = new DataProcessing(this.recipes)
+
     this.ingredients = new Select("ingredients")
     this.appliances = new Select("appliances")
     this.ustensils = new Select("ustensils")
+
+    this.searchInput = new Input("searchInput")
+    this.ingredientsInput = new Input("ingredientsInput")
+    this.appliancesInput = new Input("appliancesInput")
+    this.ustensilsInput = new Input("ustensilsInput")
   }
 
   init() {
@@ -25,5 +34,12 @@ export default class Site {
     this.ustensils.fillSelectElement(this.recipeTerms.ustensils)
 
     Select.renderSelect(this.ingredients, this.appliances, this.ustensils)
+
+    Input.waitForUserEntry(
+      this.searchInput,
+      this.ingredientsInput,
+      this.appliancesInput,
+      this.ustensilsInput
+    )
   }
 }

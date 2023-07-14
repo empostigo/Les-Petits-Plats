@@ -32,21 +32,12 @@
     }
   }
 
-  /*
-  &__icon {
-    &-down {
-      opacity: 1;
-    }
-
-    &-up {
-      opacity: 0;
-    }
-  }
-*/
   &__cross {
     position: absolute;
     top: 8px;
     right: 34px;
+    cursor: pointer;
+    transition: opacity 500ms ease-out 50ms;
 
     @media (min-width: 576px) {
       top: 12px;
