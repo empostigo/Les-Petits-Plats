@@ -19,10 +19,13 @@ export default class Select {
     div.classList.add("select__li-wrapper", "px-2")
     this.ulElement.append(div)
 
-    const liElements = itemsArray
-      .map(item => `<li class="select__li">${item}</li>`)
-      .join("\n")
-    div.insertAdjacentHTML("beforeEnd", liElements)
+    itemsArray.forEach(item => {
+      const liItem = document.createElement("li")
+      liItem.className = "select__li"
+      liItem.textContent = item
+      liItem.addEventListener("click", () => console.log(liItem.textContent))
+      div.append(liItem)
+    })
   }
 
   dropDownSelect() {
@@ -50,7 +53,7 @@ export default class Select {
   }
 
   static renderSelect(...selectElements) {
-    for (const element of selectElements) {
+    selectElements.forEach(element => {
       element.buttonElement.addEventListener("click", () => {
         element.buttonElement.dataset.state === "closed"
           ? element.dropDownSelect()
@@ -64,6 +67,6 @@ export default class Select {
         )
           element.closeSelect()
       })
-    }
+    })
   }
 }
