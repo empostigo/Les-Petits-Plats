@@ -52,13 +52,17 @@ export default class Select {
     this.buttonElement.dataset.state = "closed"
   }
 
+  toggleSelect() {
+    this.buttonElement.dataset.state === "closed"
+      ? this.dropDownSelect()
+      : this.closeSelect()
+  }
+
   static renderSelect(...selectElements) {
     selectElements.forEach(element => {
-      element.buttonElement.addEventListener("click", () => {
-        element.buttonElement.dataset.state === "closed"
-          ? element.dropDownSelect()
-          : element.closeSelect()
-      })
+      element.buttonElement.addEventListener("click", () =>
+        element.toggleSelect()
+      )
 
       document.addEventListener("click", event => {
         if (
