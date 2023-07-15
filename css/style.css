@@ -254,6 +254,9 @@ body {
   font-size: 14px;
   font-weight: 400;
 }
+.card__ingredients {
+  max-height: 202px;
+}
 .card__time {
   position: absolute;
   top: 22px;

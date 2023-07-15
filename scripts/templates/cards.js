@@ -4,7 +4,7 @@ export default class Card {
   constructor(cardInfos) {
     this.cardInfos = cardInfos
     this.ingredientsArray = this.cardInfos.ingredients.map(
-      i => `<div class="col-6 card__ingredients">
+      i => `<div class="col-6">
               <h4 class="card__h4">${i.ingredient}</h4>
               <p class="card__quantity">
                 ${i.quantity ? i.quantity : ""} ${i.unit ? i.unit : ""}
@@ -23,10 +23,10 @@ export default class Card {
                 <img src="/assets/recipes/${this.cardInfos.image}" class="card-img-top rounded-top-4 card__img" alt="${this.cardInfos.name}">
                 <div class="card-body card__desc">
                   <h2 class="card-title mt-2 mb-4 card__h2">${this.cardInfos.name}</h2>
-                  <h3 class="card__h3 mb-2">RECETTE</h3>
-                  <p class="card__text overflow-auto mb-4">${this.cardInfos.description}</p>
+                  <h3 class="mb-2 card__h3">RECETTE</h3>
+                  <p class="overflow-auto mb-4 card__text">${this.cardInfos.description}</p>
                   <h3 class="card__h3">INGRÉDIENTS</h3>
-                  <div class="d-flex flex-wrap">
+                  <div class="d-flex overflow-auto flex-wrap card__ingredients">
                     ${this.cardIngredients}
                   </div>
                 </div>
