@@ -254,5 +254,16 @@ body {
   font-size: 14px;
   font-weight: 400;
 }
+.card__time {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  font-family: "Manrope", sans-serif;
+  font-size: 12px;
+  background-color: #ffd15b;
+  padding: 5px 15px;
+  border-radius: 14px;
+  width: max-content;
+}
 
 /*# sourceMappingURL=style.css.map */

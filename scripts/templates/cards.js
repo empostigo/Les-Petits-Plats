@@ -30,6 +30,7 @@ export default class Card {
                     ${this.cardIngredients}
                   </div>
                 </div>
+                <div class="card__time">${this.cardInfos.time}min</div>
               </div>
             </div>`
   }

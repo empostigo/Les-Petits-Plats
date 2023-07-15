@@ -35,4 +35,16 @@
     font-size: 14px;
     font-weight: 400;
   }
+
+  &__time {
+    position: absolute;
+    top: 22px;
+    right: 22px;
+    font-family: $font-secondary;
+    font-size: 12px;
+    background-color: $time-colour;
+    padding: 5px 15px;
+    border-radius: 14px;
+    width: max-content;
+  }
 }
