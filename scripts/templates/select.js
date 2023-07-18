@@ -1,3 +1,5 @@
+import Search from "../Api/Search.js"
+
 export default class Select {
   constructor(selectId) {
     this.selectWrapper = document.getElementById("selectWrapper")
@@ -14,6 +16,8 @@ export default class Select {
     )
 
     this.ulElement = document.getElementById(selectId.concat("List"))
+
+    this.searchFun = new Search()
   }
 
   fillSelectElement(itemsArray) {
@@ -25,7 +29,9 @@ export default class Select {
       const liItem = document.createElement("li")
       liItem.className = "select__li"
       liItem.textContent = item
-      liItem.addEventListener("click", () => console.log(liItem.textContent))
+      liItem.addEventListener("click", () => {
+        this.searchFun.target = liItem.textContent
+      })
       div.append(liItem)
     })
   }

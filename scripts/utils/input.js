@@ -1,7 +1,10 @@
+import Search from "../Api/Search.js"
+
 export default class Input {
   constructor(inputId) {
     this.inputId = document.getElementById(inputId)
     this.inputCross = document.getElementById(inputId.concat("Cross"))
+    this.searchFun = new Search()
   }
 
   static waitForUserEntry(...inputs) {
@@ -15,7 +18,7 @@ export default class Input {
       input.inputId.addEventListener("input", content => {
         const re = /^([\p{L}]{3,}( ?[\p{L}]'?[\p{L}]*)*)/u
         if (re.test(content.target.value.trim()))
-          console.log(content.target.value)
+          input.searchFun.target = content.target.value
       })
 
       input.inputCross.addEventListener("click", () => {
