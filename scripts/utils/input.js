@@ -13,8 +13,9 @@ export default class Input {
       })
 
       input.inputId.addEventListener("input", content => {
-        if (content.target.value.length > 2)
-          content.target.dataset.search = "enable"
+        const re = /^([\p{L}]{3,}( ?[\p{L}]'?[\p{L}]*)*)/u
+        if (re.test(content.target.value.trim()))
+          console.log(content.target.value)
       })
 
       input.inputCross.addEventListener("click", () => {
