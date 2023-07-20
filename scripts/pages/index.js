@@ -1,7 +1,7 @@
-import FetchData from "../Api/FetchData.js"
+import Search from "../Api/Search.js"
 import Site from "../site/site.js"
 
-const recipes = await new FetchData("/data/recipes.json", "recipes").getData()
-const petitsPlats = new Site(recipes)
+const recipes = await new Search("/data/recipes.json", "recipes")
+const petitsPlats = new Site(recipes.recipes)
 
 petitsPlats.init()
