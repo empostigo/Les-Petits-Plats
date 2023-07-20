@@ -5,7 +5,7 @@ export default class Search {
     if (Search.exists) return Search.instance
 
     return (async () => {
-      this.recipes = await new FetchData(recipesUrl, data).getData()
+      this.recipesData = await new FetchData(recipesUrl, data).getData()
 
       Search.instance = this
       Search.exists = true
