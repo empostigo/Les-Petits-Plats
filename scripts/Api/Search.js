@@ -1,17 +1,13 @@
-import FetchData from "./FetchData.js"
-
 export default class Search {
-  constructor(recipesUrl, data) {
+  constructor(recipesData) {
     if (Search.exists) return Search.instance
 
-    return (async () => {
-      this.recipesData = await new FetchData(recipesUrl, data).getData()
+    this.recipesData = recipesData
 
-      Search.instance = this
-      Search.exists = true
+    Search.instance = this
+    Search.exists = true
 
-      return this
-    })()
+    return this
   }
 
   set target(str) {
