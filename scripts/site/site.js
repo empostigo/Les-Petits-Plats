@@ -1,3 +1,4 @@
+import Search from "../Api/Search.js"
 import Card from "../templates/cards.js"
 import DataProcessing from "../utils/DataProcessing.js"
 import Input from "../utils/input.js"
@@ -6,6 +7,8 @@ import Select from "../templates/select.js"
 export default class Site {
   constructor(recipes) {
     this.recipes = recipes
+    this.searchFun = new Search(this.recipes)
+
     this.nbRecipes = document.getElementById("nbRecipes")
 
     this.dom = document.getElementById("cardDom")
@@ -22,7 +25,7 @@ export default class Site {
     this.ustensilsInput = new Input("ustensilsInput")
   }
 
-  init() {
+  render() {
     this.nbRecipes.textContent = `${this.recipes.length} recettes`
 
     this.dom.innerHTML = "".concat(
@@ -34,6 +37,10 @@ export default class Site {
     this.ustensils.fillSelectElement(this.recipeTerms.ustensils)
 
     Select.renderSelect(this.ingredients, this.appliances, this.ustensils)
+  }
+
+  run() {
+    this.render()
 
     Input.waitForUserEntry(
       this.searchInput,

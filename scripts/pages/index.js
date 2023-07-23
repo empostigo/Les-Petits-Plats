@@ -7,4 +7,4 @@ Object.keys(recipesData).forEach(item =>
 )
 
 const petitsPlats = new Site(recipesData)
-petitsPlats.init()
+petitsPlats.run()
