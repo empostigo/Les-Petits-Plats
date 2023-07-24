@@ -40,17 +40,6 @@ export default class Select {
     div.classList.add("select__li-wrapper", "px-2")
     this.ulElement.append(div)
 
-    /*
-    this.liElements = itemsArray.map(item => {
-      const liItem = document.createElement("li")
-      liItem.className = "select__li"
-      liItem.textContent = item
-      div.append(liItem)
-
-      return liItem
-   })
-   */
-
     let idNumber = 0
     const liIdsArray = []
     itemsArray.forEach(item => {
