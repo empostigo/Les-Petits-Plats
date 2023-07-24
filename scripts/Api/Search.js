@@ -1,20 +1,11 @@
 export default class Search {
   constructor(recipesData) {
-    if (Search.exists) return Search.instance
-
     this.recipesData = recipesData
-
-    Search.instance = this
-    Search.exists = true
-
-    return this
   }
 
-  set target(str) {
-    this._target = str
-  }
-
-  get target() {
-    return this._target
+  searchResults(pattern) {
+    console.log(`Search Triggered!\nLooking for ${pattern}`)
+    sessionStorage.setItem("Pattern", pattern)
+    return this.recipesData
   }
 }

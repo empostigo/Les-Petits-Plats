@@ -1,7 +1,6 @@
-import Search from "../Api/Search.js"
-
 export default class Select {
   constructor(selectId) {
+    this.selectIdName = selectId
     this.selectWrapper = document.getElementById("selectWrapper")
     this.selectId = document.getElementById(selectId)
 
@@ -16,24 +15,54 @@ export default class Select {
     )
 
     this.ulElement = document.getElementById(selectId.concat("List"))
+  }
 
-    this.searchFun = new Search()
+  set liElementsArray(liElementsArray) {
+    this._liId = liElementsArray
+  }
+
+  get liElementsArray() {
+    return this._liElementsArray
+  }
+
+  set liIds(liIds) {
+    this._liIds = liIds
+  }
+
+  get liIds() {
+    return this._liIds
   }
 
   fillSelectElement(itemsArray) {
+    this.ulElement.innerHTML = ""
+
     const div = document.createElement("div")
     div.classList.add("select__li-wrapper", "px-2")
     this.ulElement.append(div)
 
-    itemsArray.forEach(item => {
+    /*
+    this.liElements = itemsArray.map(item => {
       const liItem = document.createElement("li")
       liItem.className = "select__li"
       liItem.textContent = item
-      liItem.addEventListener("click", () => {
-        this.searchFun.target = liItem.textContent
-      })
+      div.append(liItem)
+
+      return liItem
+   })
+   */
+
+    let idNumber = 0
+    const liIdsArray = []
+    itemsArray.forEach(item => {
+      const liItem = document.createElement("li")
+      liItem.className = "select__li"
+      liItem.id = `${this.selectIdName}LiItem${idNumber++}`
+      liIdsArray.push(liItem.id)
+      liItem.textContent = item
       div.append(liItem)
     })
+
+    this.liIds = liIdsArray
   }
 
   dropDownSelect() {

@@ -25,6 +25,36 @@ export default class Site {
     this.ustensilsInput = new Input("ustensilsInput")
   }
 
+  getSearchResults(pattern) {
+    const newRecipesArray = this.searchFun.searchResults(pattern)
+    this.recipes = newRecipesArray
+    this.recipeTerms = new DataProcessing(newRecipesArray)
+    this.render()
+  }
+
+  listenInputSearchResults(...inputs) {
+    inputs.forEach(input => {
+      input.inputId.addEventListener("input", content => {
+        const re = /^([\p{L}]{3,}( ?[\p{L}]'?[\p{L}]*)*)/u
+        if (re.test(content.target.value.trim())) {
+          this.getSearchResults(content.target.value)
+        }
+      })
+    })
+  }
+
+  listenSelectSearchResults(...selects) {
+    selects.forEach(select => {
+      select.liIds.forEach(liId =>
+        document
+          .getElementById(liId)
+          .addEventListener("click", selected =>
+            this.getSearchResults(selected.textContent)
+          )
+      )
+    })
+  }
+
   render() {
     this.nbRecipes.textContent = `${this.recipes.length} recettes`
 
@@ -47,6 +77,19 @@ export default class Site {
       this.ingredientsInput,
       this.appliancesInput,
       this.ustensilsInput
+    )
+
+    this.listenInputSearchResults(
+      this.searchInput,
+      this.ingredientsInput,
+      this.appliancesInput,
+      this.ustensilsInput
+    )
+
+    this.listenSelectSearchResults(
+      this.ingredients,
+      this.appliances,
+      this.ustensils
     )
   }
 }
