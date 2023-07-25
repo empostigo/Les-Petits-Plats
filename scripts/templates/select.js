@@ -3,6 +3,7 @@ export default class Select {
     this.selectIdName = selectId
     this.selectWrapper = document.getElementById("selectWrapper")
     this.selectId = document.getElementById(selectId)
+    console.log(this.selectId)
 
     this.buttonElement = document.getElementById(selectId.concat("Button"))
     this.buttonDown = document.getElementById(selectId.concat("Down"))
@@ -15,14 +16,6 @@ export default class Select {
     )
 
     this.ulElement = document.getElementById(selectId.concat("List"))
-  }
-
-  set liElementsArray(liElementsArray) {
-    this._liId = liElementsArray
-  }
-
-  get liElementsArray() {
-    return this._liElementsArray
   }
 
   set liIds(liIds) {
@@ -48,6 +41,7 @@ export default class Select {
       liItem.id = `${this.selectIdName}LiItem${idNumber++}`
       liIdsArray.push(liItem.id)
       liItem.textContent = item
+      //   liItem.addEventListener("click", () => this.closeSelect)
       div.append(liItem)
     })
 
@@ -95,6 +89,7 @@ export default class Select {
           event.target !== element.buttonElement &&
           event.target !== element.inputElement &&
           event.target !== element.inputCrossElement
+          //   event.target.tagName !== "LI"
         )
           element.closeSelect()
       })
