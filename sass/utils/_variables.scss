@@ -1,8 +1,11 @@
 // Body bg colour
 $bg-body: #e5e5e5;
-// h1 colour
-$h1-colour: #ffd15b;
-$time-colour: #ffd15b;
+// colour
+$yellow-colour: #ffd15b;
+
+$h1-colour: $yellow-colour;
+$time-colour: $yellow-colour;
+$tag-colour: $yellow-colour;
 
 // font-family
 $sans-serif: sans-serif;

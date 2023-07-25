@@ -40,6 +40,7 @@ export default class Select {
       liItem.id = `${this.selectIdName}LiItem${idNumber++}`
       liIdsArray.push(liItem.id)
       liItem.textContent = item
+
       div.append(liItem)
     })
 

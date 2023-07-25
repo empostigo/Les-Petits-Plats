@@ -207,7 +207,7 @@ body {
 .select__li {
   list-style: none;
   font-size: 12px;
-  font-weight: 4001336;
+  font-weight: 400;
   cursor: pointer;
 }
 @media (min-width: 576px) {
@@ -217,6 +217,9 @@ body {
 }
 .select__li::first-letter {
   text-transform: uppercase;
+}
+.select__li:hover {
+  background-color: #ffd15b;
 }
 .select__li-wrapper {
   max-height: 200px;
