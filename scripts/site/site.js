@@ -65,12 +65,11 @@ export default class Site {
     this.ingredients.fillSelectElement(this.recipeTerms.wholeRecipesIngredients)
     this.appliances.fillSelectElement(this.recipeTerms.appliancesList)
     this.ustensils.fillSelectElement(this.recipeTerms.ustensils)
-
-    Select.renderSelect(this.ingredients, this.appliances, this.ustensils)
   }
 
   run() {
     this.render()
+    Select.renderSelect(this.ingredients, this.appliances, this.ustensils)
 
     Input.waitForUserEntry(
       this.searchInput,

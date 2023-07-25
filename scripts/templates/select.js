@@ -3,7 +3,6 @@ export default class Select {
     this.selectIdName = selectId
     this.selectWrapper = document.getElementById("selectWrapper")
     this.selectId = document.getElementById(selectId)
-    console.log(this.selectId)
 
     this.buttonElement = document.getElementById(selectId.concat("Button"))
     this.buttonDown = document.getElementById(selectId.concat("Down"))
