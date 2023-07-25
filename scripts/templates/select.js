@@ -66,7 +66,7 @@ export default class Select {
     this.ulElement.classList.add("opacity-0")
   }
 
-  static renderSelect(...selectElements) {
+  static enableSelect(...selectElements) {
     selectElements.forEach(element => {
       element.buttonElement.addEventListener("click", () =>
         element.toggleSelect()

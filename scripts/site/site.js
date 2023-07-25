@@ -44,15 +44,14 @@ export default class Site {
   }
 
   listenSelectSearchResults(...selects) {
-    selects.forEach(select => {
-      select.liIds.forEach(liId =>
-        document
-          .getElementById(liId)
-          .addEventListener("click", selected =>
-            this.getSearchResults(selected.textContent)
-          )
-      )
-    })
+    selects.forEach(select =>
+      select.liIds.forEach(liId => {
+        const liIdTag = document.getElementById(liId)
+        liIdTag.addEventListener("click", () => {
+          this.getSearchResults(liIdTag.textContent)
+        })
+      })
+    )
   }
 
   render() {
@@ -65,11 +64,17 @@ export default class Site {
     this.ingredients.fillSelectElement(this.recipeTerms.wholeRecipesIngredients)
     this.appliances.fillSelectElement(this.recipeTerms.appliancesList)
     this.ustensils.fillSelectElement(this.recipeTerms.ustensils)
+
+    this.listenSelectSearchResults(
+      this.ingredients,
+      this.appliances,
+      this.ustensils
+    )
   }
 
   run() {
     this.render()
-    Select.renderSelect(this.ingredients, this.appliances, this.ustensils)
+    Select.enableSelect(this.ingredients, this.appliances, this.ustensils)
 
     Input.waitForUserEntry(
       this.searchInput,
@@ -83,12 +88,6 @@ export default class Site {
       this.ingredientsInput,
       this.appliancesInput,
       this.ustensilsInput
-    )
-
-    this.listenSelectSearchResults(
-      this.ingredients,
-      this.appliances,
-      this.ustensils
     )
   }
 }
