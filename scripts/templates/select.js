@@ -41,23 +41,20 @@ export default class Select {
       liItem.id = `${this.selectIdName}LiItem${idNumber++}`
       liIdsArray.push(liItem.id)
       liItem.textContent = item
-      //   liItem.addEventListener("click", () => this.closeSelect)
       div.append(liItem)
     })
 
     this.liIds = liIdsArray
   }
 
-  dropDownSelect() {
-    this.selectId.classList.remove("select--closed")
+  toggleSelect() {
+    this.selectId.classList.toggle("select--closed")
 
-    this.buttonDown.classList.add("opacity-0")
-    this.buttonUp.classList.remove("opacity-0")
+    this.buttonDown.classList.toggle("opacity-0")
+    this.buttonUp.classList.toggle("opacity-0")
 
-    this.formElement.classList.remove("opacity-0")
-    this.ulElement.classList.remove("opacity-0")
-
-    this.buttonElement.dataset.state = "opened"
+    this.formElement.classList.toggle("opacity-0")
+    this.ulElement.classList.toggle("opacity-0")
   }
 
   closeSelect() {
@@ -68,14 +65,6 @@ export default class Select {
 
     this.formElement.classList.add("opacity-0")
     this.ulElement.classList.add("opacity-0")
-
-    this.buttonElement.dataset.state = "closed"
-  }
-
-  toggleSelect() {
-    this.buttonElement.dataset.state === "closed"
-      ? this.dropDownSelect()
-      : this.closeSelect()
   }
 
   static renderSelect(...selectElements) {
@@ -89,7 +78,6 @@ export default class Select {
           event.target !== element.buttonElement &&
           event.target !== element.inputElement &&
           event.target !== element.inputCrossElement
-          //   event.target.tagName !== "LI"
         )
           element.closeSelect()
       })
