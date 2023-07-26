@@ -7,13 +7,13 @@ import Select from "../templates/select.js"
 export default class Site {
   constructor(recipes) {
     this.recipes = recipes
-    this.searchFun = new Search(this.recipes)
 
     this.nbRecipes = document.getElementById("nbRecipes")
 
     this.dom = document.getElementById("cardDom")
 
     this.recipeTerms = new DataProcessing(this.recipes)
+    this.searchEngine = new Search(this.recipes)
 
     this.ingredients = new Select("ingredients")
     this.appliances = new Select("appliances")
@@ -26,9 +26,9 @@ export default class Site {
   }
 
   getSearchResults(pattern) {
-    const newRecipesArray = this.searchFun.searchResults(pattern)
+    const newRecipesArray = this.searchEngine.searchResults(pattern)
     this.recipes = newRecipesArray
-    this.recipeTerms = new DataProcessing(newRecipesArray)
+    this.recipeTerms.recipesArray = newRecipesArray
     this.render()
   }
 
