@@ -38,9 +38,10 @@ export default class Select {
       const liItem = document.createElement("li")
       liItem.className = "select__li"
       liItem.id = `${this.selectIdName}LiItem${idNumber++}`
-      liIdsArray.push(liItem.id)
       liItem.textContent = item
+      liItem.dataset.category = "tags"
 
+      liIdsArray.push(liItem.id)
       div.append(liItem)
     })
 

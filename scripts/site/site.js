@@ -25,8 +25,8 @@ export default class Site {
     this.ustensilsInput = new Input("ustensilsInput")
   }
 
-  getSearchResults(pattern) {
-    const newRecipesArray = this.searchEngine.searchResults(pattern)
+  getSearchResults(pattern, category) {
+    const newRecipesArray = this.searchEngine.searchResults(pattern, category)
     this.recipes = newRecipesArray
     this.recipeTerms.recipesArray = newRecipesArray
     this.render()
@@ -37,7 +37,10 @@ export default class Site {
       input.inputId.addEventListener("input", content => {
         const re = /^([\p{L}]{3,}( ?[\p{L}]'?[\p{L}]*)*)/u
         if (re.test(content.target.value.trim())) {
-          this.getSearchResults(content.target.value)
+          this.getSearchResults(
+            content.target.value,
+            content.target.dataset.category
+          )
         }
       })
     })
@@ -48,7 +51,7 @@ export default class Site {
       select.liIds.forEach(liId => {
         const liIdTag = document.getElementById(liId)
         liIdTag.addEventListener("click", () => {
-          this.getSearchResults(liIdTag.textContent)
+          this.getSearchResults(liIdTag.textContent, liIdTag.dataset.category)
         })
       })
     )

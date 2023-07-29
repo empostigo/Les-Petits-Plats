@@ -6,8 +6,10 @@ export default class Search {
     this.searchEngine = new DataProcessing()
   }
 
-  searchResults(pattern) {
-    console.log(`Search Triggered!\nLooking for ${pattern}`)
+  searchResults(pattern, category) {
+    console.log(
+      `Search Triggered!\nLooking for ${pattern} for category ${category}`
+    )
     sessionStorage.setItem("Pattern", pattern)
     return []
   }
