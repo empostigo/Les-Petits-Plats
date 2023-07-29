@@ -1,5 +1,6 @@
 import Search from "../Api/Search.js"
 import Card from "../templates/cards.js"
+import Tags from "../templates/tags.js"
 import DataProcessing from "../utils/DataProcessing.js"
 import Input from "../utils/input.js"
 import Select from "../templates/select.js"
@@ -53,6 +54,8 @@ export default class Site {
         const liIdTag = document.getElementById(liId)
         liIdTag.addEventListener("click", () => {
           this.getSearchResults(liIdTag.textContent, liIdTag.dataset.category)
+          const tag = new Tags(liIdTag.textContent)
+          tag.displayTag()
         })
       })
     )

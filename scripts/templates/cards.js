@@ -18,7 +18,7 @@ export default class Card {
   }
 
   cardDom() {
-    return `<div class="col-12 col-md-4 pb-3">
+    return `<div class="col-12 col-md-4 pb-3 card-dom">
               <div class="card rounded-4">
                 <img src="/assets/recipes/${this.cardInfos.image}" class="card-img-top rounded-top-4 card__img" alt="${this.cardInfos.name}">
                 <div class="card-body card__desc">

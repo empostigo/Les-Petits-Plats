@@ -126,6 +126,11 @@ body {
   position: absolute;
   top: 130px;
   padding-bottom: 200px;
+  transition: top 500ms ease-out;
+}
+
+.tags-wrapper {
+  top: 130px;
 }
 
 .select {
@@ -269,6 +274,19 @@ body {
   background-color: #ffd15b;
   padding: 5px 15px;
   border-radius: 14px;
+}
+
+.tags {
+  font-family: "Manrope", sans-serif;
+  height: 54px;
+  max-width: 200px;
+}
+.tags__cross {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  height: 10px;
+  width: 10px;
 }
 
 /*# sourceMappingURL=style.css.map */
