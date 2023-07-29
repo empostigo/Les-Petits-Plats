@@ -8,7 +8,6 @@ export default class Search {
   }
 
   searchResults(pattern, category) {
-    console.log(this.recipesData)
     console.log(
       `Search Triggered!\nLooking for ${pattern} for category ${category}`
     )
