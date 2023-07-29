@@ -10,7 +10,6 @@ export default class Search {
     console.log(
       `Search Triggered!\nLooking for ${pattern} for category ${category}`
     )
-    sessionStorage.setItem("Pattern", pattern)
     return []
   }
 }
