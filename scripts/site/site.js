@@ -29,6 +29,7 @@ export default class Site {
     const newRecipesArray = this.searchEngine.searchResults(pattern, category)
     this.recipes = newRecipesArray
     this.recipeTerms.recipesArray = newRecipesArray
+    this.searchEngine.recipesData = newRecipesArray
     this.render()
   }
 
