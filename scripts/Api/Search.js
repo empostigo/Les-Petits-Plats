@@ -1,4 +1,3 @@
-import recipes from "../../data/recipes.js"
 import DataProcessing from "../utils/DataProcessing.js"
 
 export default class Search {
