@@ -38,7 +38,6 @@ export default class Tags {
     closingTag.addEventListener("click", () => {
       if (--Tags.flag === 0) {
         this.sibbling.style.top = `${Tags.sibblingOrigin}px`
-        console.log(this.sibbling.style.top)
       } else {
         const minusTranslation = this.sibbling.offsetTop - tag.offsetHeight
         this.sibbling.style.top = `${minusTranslation}px`
