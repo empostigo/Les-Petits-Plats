@@ -69,8 +69,8 @@ export default class Site {
     )
 
     this.ingredients.fillSelectElement(this.recipeTerms.wholeRecipesIngredients)
-    this.appliances.fillSelectElement(this.recipeTerms.appliancesList)
-    this.ustensils.fillSelectElement(this.recipeTerms.ustensils)
+    this.appliances.fillSelectElement(this.recipeTerms.wholeAppliancesList)
+    this.ustensils.fillSelectElement(this.recipeTerms.wholeUstensilsList)
 
     this.listenSelectSearchResults(
       this.ingredients,

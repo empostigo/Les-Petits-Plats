@@ -55,7 +55,7 @@ export default class DataProcessing {
   }
 
   // get appliances list ([])
-  get appliancesList() {
+  get wholeAppliancesList() {
     return [...new Set(this.recipesArray.map(recipe => recipe.appliance))]
   }
 
@@ -68,7 +68,7 @@ export default class DataProcessing {
     )
   }
 
-  get ustensils() {
+  get wholeUstensilsList() {
     return [
       ...new Set(
         this.recipesArray
