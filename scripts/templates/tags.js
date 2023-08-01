@@ -5,11 +5,15 @@ export default class Tags {
     this.sibbling = document.getElementById("cardDom")
   }
 
+  // Keep track of created tags
   static flag = 0
 
   static sibblingOrigin = 130
 
+  // Tags number id
   static id = 0
+
+  // Getters and setters
 
   set tagId(str) {
     this._tagId = str
@@ -65,7 +69,6 @@ export default class Tags {
       }
 
       document.getElementById(this.tagId).remove()
-      Tags.id--
     })
   }
 }
