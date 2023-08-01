@@ -9,10 +9,29 @@ export default class Tags {
 
   static sibblingOrigin = 130
 
+  static id = 0
+
+  set tagId(str) {
+    this._tagId = str
+  }
+
+  get tagId() {
+    return this._tagId
+  }
+
+  set closingTagId(str) {
+    this._closingTagId = str
+  }
+
+  get closingTagId() {
+    return this._closingTagId
+  }
+
   displayTag() {
     const tag = document.createElement("div")
     tag.classList.add("col", "tags")
-    tag.id = this.tag
+    tag.id = `tag_${Tags.id}`
+    this.tagId = tag.id
 
     const innerTag = document.createElement("div")
     innerTag.classList.add("position-relative", "d-flex", "tags__inner")
@@ -25,6 +44,8 @@ export default class Tags {
     closingTag.src = "/assets/tags/cross.svg"
     closingTag.setAttribute("alt", "Supprimer le tag")
     closingTag.className = "tags__cross"
+    closingTag.id = `closingTag_${Tags.id++}`
+    this.closingTagId = closingTag.id
 
     innerTag.append(tagText, closingTag)
     tag.append(innerTag)
@@ -43,7 +64,8 @@ export default class Tags {
         this.sibbling.style.top = `${minusTranslation}px`
       }
 
-      document.getElementById(this.tag).remove()
+      document.getElementById(this.tagId).remove()
+      Tags.id--
     })
   }
 }
