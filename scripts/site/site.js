@@ -61,6 +61,18 @@ export default class Site {
     )
   }
 
+  init() {
+    this.nbRecipes.textContent = `${this.recipes.length} recettes`
+
+    this.dom.innerHTML = "".concat(
+      ...this.recipes.map(r => new Card(r).cardDom())
+    )
+
+    this.ingredients.fillSelectElement(this.recipeTerms.wholeRecipesIngredients)
+    this.appliances.fillSelectElement(this.recipeTerms.wholeAppliancesList)
+    this.ustensils.fillSelectElement(this.recipeTerms.wholeUstensilsList)
+  }
+
   render() {
     this.nbRecipes.textContent = `${this.recipes.length} recettes`
 

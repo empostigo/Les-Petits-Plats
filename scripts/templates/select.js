@@ -30,6 +30,7 @@ export default class Select {
 
     const div = document.createElement("div")
     div.classList.add("select__li-wrapper", "px-2")
+    div.tabIndex = -1
     this.ulElement.append(div)
 
     let idNumber = 0

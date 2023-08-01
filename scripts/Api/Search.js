@@ -6,6 +6,14 @@ export default class Search {
     this.searchEngine = new DataProcessing()
   }
 
+  set ingredientsSelect(ingredients) {
+    this._ingredientsSelect = ingredients
+  }
+
+  get ingredientsSelect() {
+    return this._ingredientsSelect
+  }
+
   searchResults(pattern, category) {
     console.log(
       `Search Triggered!\nLooking for ${pattern} for category ${category}`
@@ -34,6 +42,13 @@ export default class Search {
           )
         )
 
+        this.ingredientsSelect = searchResultsArray.map(recipes =>
+          recipes.ingredients
+            .map(ingredients => ingredients.ingredient)
+            .filter(ingredient => ingredient.includes(toFind))
+        )
+
+        console.log(this.ingredientsSelect)
         break
 
       case "appliances":
@@ -67,6 +82,8 @@ export default class Search {
       default:
         break
     }
+
+    console.log(searchResultsArray)
     return searchResultsArray
   }
 }
