@@ -14,7 +14,7 @@
     "semi": ["warn", "never"],
     "no-console": "off",
     "consistent-return": "warn",
-    "indent": ["error", 2],
+    "indent": "off",
     "import/extensions": ["error", "always"],
     "no-constructor-return": "off",
     "no-underscore-dangle": "off" /* disable this rule for Factory Pattern*/,

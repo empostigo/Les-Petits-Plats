@@ -9,12 +9,47 @@ export default class Search {
     this.ustensilsSelect = this.recipeTerms.wholeUstensilsList
   }
 
-  set ingredientsSelect(ingredients) {
-    this._ingredientsSelect = ingredients
-  }
+  getRecipesStructure(pattern, category) {
+    const toFind = pattern.toLowerCase()
+    const searchResultsArray = this.searchResults(toFind, category)
 
-  get ingredientsSelect() {
-    return this._ingredientsSelect
+    this.recipesData = searchResultsArray
+    this.recipeTerms.recipesArray = searchResultsArray
+
+    switch (category) {
+      case "main":
+      case "appliances":
+        this.ingredientsSelect = this.recipeTerms.wholeIngredientsList
+        this.appliancesSelect = this.recipeTerms.wholeAppliancesList
+        this.ustensilsSelect = this.recipeTerms.wholeUstensilsList
+
+        break
+
+      case "ingredients":
+        this.ingredientsSelect = this.recipeTerms.wholeIngredientsList.filter(
+          element => element.includes(toFind)
+        )
+
+        this.appliancesSelect = this.recipeTerms.wholeAppliancesList
+        this.ustensilsSelect = this.recipeTerms.wholeUstensilsList
+
+        break
+
+      case "ustensils":
+        this.ustensilsSelect = this.recipeTerms.wholeUstensilsList.filter(
+          element => element.includes(toFind)
+        )
+
+        this.ingredientsSelect = this.recipeTerms.wholeIngredientsList
+        this.appliancesSelect = this.recipeTerms.wholeAppliancesList
+
+        break
+
+      default:
+        break
+    }
+
+    return searchResultsArray
   }
 
   searchResults(pattern, category) {
@@ -22,18 +57,16 @@ export default class Search {
       `Search Triggered!\nLooking for ${pattern} for category ${category}`
     )
 
-    const toFind = pattern.toLowerCase()
-
     let searchResultsArray = []
     switch (category) {
       case "main":
         searchResultsArray = this.recipesData.filter(
           recipes =>
-            recipes.name.toLowerCase().includes(toFind) ||
+            recipes.name.toLowerCase().includes(pattern) ||
             recipes.ingredients.some(ingredients =>
-              ingredients.ingredient.toLowerCase().includes(toFind)
+              ingredients.ingredient.toLowerCase().includes(pattern)
             ) ||
-            recipes.description.includes(toFind)
+            recipes.description.includes(pattern)
         )
 
         break
@@ -41,31 +74,22 @@ export default class Search {
       case "ingredients":
         searchResultsArray = this.recipesData.filter(recipes =>
           recipes.ingredients.some(ingredients =>
-            ingredients.ingredient.toLowerCase().includes(toFind)
+            ingredients.ingredient.toLowerCase().includes(pattern)
           )
         )
 
-        this.ingredientsSelect = searchResultsArray
-          .map(recipes =>
-            recipes.ingredients
-              .map(ingredients => ingredients.ingredient)
-              .filter(ingredient => ingredient.includes(toFind))
-          )
-          .flat()
-
-        console.log(this.ingredientsSelect)
         break
 
       case "appliances":
         searchResultsArray = this.recipesData.filter(recipes =>
-          recipes.appliance.toLowerCase().includes(toFind)
+          recipes.appliance.toLowerCase().includes(pattern)
         )
         break
 
       case "ustensils":
         searchResultsArray = this.recipesData.filter(recipes =>
           recipes.ustensils.some(ustensil =>
-            ustensil.toLowerCase().includes(toFind)
+            ustensil.toLowerCase().includes(pattern)
           )
         )
         break
@@ -74,11 +98,11 @@ export default class Search {
         searchResultsArray = this.recipesData.filter(
           recipes =>
             recipes.ingredients.some(ingredients =>
-              ingredients.ingredient.toLowerCase().includes(toFind)
+              ingredients.ingredient.toLowerCase().includes(pattern)
             ) ||
-            recipes.appliance.toLowerCase().includes(toFind) ||
+            recipes.appliance.toLowerCase().includes(pattern) ||
             recipes.ustensils.some(ustensil =>
-              ustensil.toLowerCase().includes(toFind)
+              ustensil.toLowerCase().includes(pattern)
             )
         )
 
@@ -88,7 +112,6 @@ export default class Search {
         break
     }
 
-    console.log(searchResultsArray)
     return searchResultsArray
   }
 }
