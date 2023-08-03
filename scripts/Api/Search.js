@@ -3,7 +3,7 @@ import DataProcessing from "../utils/DataProcessing.js"
 export default class Search {
   constructor(recipesData) {
     this.recipesData = recipesData
-    this.recipeTerms = new DataProcessing()
+    this.recipeTerms = new DataProcessing(this.recipesData)
     this.ingredientsSelect = this.recipeTerms.wholeIngredientsList
     this.appliancesSelect = this.recipeTerms.wholeAppliancesList
     this.ustensilsSelect = this.recipeTerms.wholeUstensilsList

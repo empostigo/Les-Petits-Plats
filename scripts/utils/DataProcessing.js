@@ -1,15 +1,6 @@
 export default class DataProcessing {
   constructor(recipesArray) {
-    if (DataProcessing.exists) {
-      return DataProcessing.instance
-    }
-
     this.recipesArray = recipesArray
-
-    DataProcessing.exists = true
-    DataProcessing.instance = this
-
-    return this
   }
 
   // Get ingredients[]

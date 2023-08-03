@@ -13,7 +13,6 @@ export default class Site {
 
     this.dom = document.getElementById("cardDom")
 
-    this.recipeTerms = new DataProcessing(this.recipes)
     this.searchEngine = new Search(this.recipes)
 
     this.ingredients = new Select("ingredients")
