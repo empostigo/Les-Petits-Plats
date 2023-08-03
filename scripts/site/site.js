@@ -56,6 +56,14 @@ export default class Site {
     )
   }
 
+  init(...inputs) {
+    Input.waitForUserEntry(...inputs)
+
+    this.listenInputSearchResults(...inputs)
+
+    Select.enableSelect(this.ingredients, this.appliances, this.ustensils)
+  }
+
   render() {
     this.nbRecipes.textContent = `${this.recipes.length} recettes`
 
@@ -72,24 +80,15 @@ export default class Site {
       this.appliances,
       this.ustensils
     )
-
-    Input.waitForUserEntry(
-      this.searchInput,
-      this.ingredientsInput,
-      this.appliancesInput,
-      this.ustensilsInput
-    )
-
-    this.listenInputSearchResults(
-      this.searchInput,
-      this.ingredientsInput,
-      this.appliancesInput,
-      this.ustensilsInput
-    )
   }
 
   run() {
+    this.init(
+      this.searchInput,
+      this.ingredientsInput,
+      this.appliancesInput,
+      this.ustensilsInput
+    )
     this.render()
-    Select.enableSelect(this.ingredients, this.appliances, this.ustensils)
   }
 }
