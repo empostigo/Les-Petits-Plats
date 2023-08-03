@@ -1,8 +1,7 @@
 import Search from "../Api/Search.js"
 import Card from "../templates/cards.js"
 import Tags from "../templates/tags.js"
-import DataProcessing from "../utils/DataProcessing.js"
-import Input from "../utils/input.js"
+import Input from "../templates/input.js"
 import Select from "../templates/select.js"
 
 export default class Site {
