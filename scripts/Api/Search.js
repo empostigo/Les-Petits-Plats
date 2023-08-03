@@ -3,7 +3,10 @@ import DataProcessing from "../utils/DataProcessing.js"
 export default class Search {
   constructor(recipesData) {
     this.recipesData = recipesData
-    this.searchEngine = new DataProcessing()
+    this.recipeTerms = new DataProcessing()
+    this.ingredientsSelect = this.recipeTerms.wholeIngredientsList
+    this.appliancesSelect = this.recipeTerms.wholeAppliancesList
+    this.ustensilsSelect = this.recipeTerms.wholeUstensilsList
   }
 
   set ingredientsSelect(ingredients) {
@@ -42,11 +45,13 @@ export default class Search {
           )
         )
 
-        this.ingredientsSelect = searchResultsArray.map(recipes =>
-          recipes.ingredients
-            .map(ingredients => ingredients.ingredient)
-            .filter(ingredient => ingredient.includes(toFind))
-        )
+        this.ingredientsSelect = searchResultsArray
+          .map(recipes =>
+            recipes.ingredients
+              .map(ingredients => ingredients.ingredient)
+              .filter(ingredient => ingredient.includes(toFind))
+          )
+          .flat()
 
         console.log(this.ingredientsSelect)
         break

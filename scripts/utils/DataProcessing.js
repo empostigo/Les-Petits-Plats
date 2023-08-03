@@ -22,7 +22,7 @@ export default class DataProcessing {
   }
 
   // Get all recipes ingredients in a unique array
-  get wholeRecipesIngredients() {
+  get wholeIngredientsList() {
     return [...new Set(this.ingredientsList.flat())]
   }
 

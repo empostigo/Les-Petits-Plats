@@ -61,18 +61,6 @@ export default class Site {
     )
   }
 
-  init() {
-    this.nbRecipes.textContent = `${this.recipes.length} recettes`
-
-    this.dom.innerHTML = "".concat(
-      ...this.recipes.map(r => new Card(r).cardDom())
-    )
-
-    this.ingredients.fillSelectElement(this.recipeTerms.wholeRecipesIngredients)
-    this.appliances.fillSelectElement(this.recipeTerms.wholeAppliancesList)
-    this.ustensils.fillSelectElement(this.recipeTerms.wholeUstensilsList)
-  }
-
   render() {
     this.nbRecipes.textContent = `${this.recipes.length} recettes`
 
@@ -80,9 +68,9 @@ export default class Site {
       ...this.recipes.map(r => new Card(r).cardDom())
     )
 
-    this.ingredients.fillSelectElement(this.recipeTerms.wholeRecipesIngredients)
-    this.appliances.fillSelectElement(this.recipeTerms.wholeAppliancesList)
-    this.ustensils.fillSelectElement(this.recipeTerms.wholeUstensilsList)
+    this.ingredients.fillSelectElement(this.searchEngine.ingredientsSelect)
+    this.appliances.fillSelectElement(this.searchEngine.appliancesSelect)
+    this.ustensils.fillSelectElement(this.searchEngine.ustensilsSelect)
 
     this.listenSelectSearchResults(
       this.ingredients,
