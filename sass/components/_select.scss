@@ -51,14 +51,19 @@
   }
 
   &__search {
-    &-icon {
+    &-button {
       position: absolute;
-      top: 6px;
-      right: 16px;
-      height: 12px;
+      top: 5px;
+      right: 13px;
+      background-repeat: no-repeat;
+      background-color: transparent;
+      border: none;
+      height: 14px;
+      width: 14px;
 
       @media (min-width: 576px) {
         top: 8px;
+        right: 16px;
         height: 14px;
       }
 
@@ -67,6 +72,11 @@
         right: 20px;
         height: 14px;
       }
+    }
+    &-icon {
+      position: absolute;
+      top: 0;
+      right: 0;
     }
   }
 

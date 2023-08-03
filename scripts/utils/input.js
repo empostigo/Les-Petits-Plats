@@ -2,6 +2,7 @@ export default class Input {
   constructor(inputId) {
     this.inputId = document.getElementById(inputId)
     this.inputCross = document.getElementById(inputId.concat("Cross"))
+    this.inputSearch = document.getElementById(inputId.concat("Search"))
   }
 
   static waitForUserEntry(...inputs) {
