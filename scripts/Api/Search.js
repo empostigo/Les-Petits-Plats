@@ -145,6 +145,8 @@ export default class Search {
           recipe.ustensils.some(ustensil => ustensil.toLowerCase() === pattern)
         )
 
+        break
+
       default:
         break
     }
