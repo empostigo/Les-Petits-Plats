@@ -40,7 +40,7 @@ export default class Select {
       liItem.className = "select__li"
       liItem.id = `${this.selectIdName}LiItem${idNumber++}`
       liItem.textContent = item
-      liItem.dataset.category = "tags"
+      liItem.dataset.category = `${this.selectIdName}Tags`
 
       liIdsArray.push(liItem.id)
       div.append(liItem)
