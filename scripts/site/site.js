@@ -72,11 +72,6 @@ export default class Site {
       this.appliances,
       this.ustensils
     )
-  }
-
-  run() {
-    this.render()
-    Select.enableSelect(this.ingredients, this.appliances, this.ustensils)
 
     Input.waitForUserEntry(
       this.searchInput,
@@ -91,5 +86,10 @@ export default class Site {
       this.appliancesInput,
       this.ustensilsInput
     )
+  }
+
+  run() {
+    this.render()
+    Select.enableSelect(this.ingredients, this.appliances, this.ustensils)
   }
 }
