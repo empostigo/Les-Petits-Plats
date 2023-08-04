@@ -10,12 +10,16 @@ export default class Search {
     this.ustensilsSelect = this.recipeTerms.wholeUstensilsList
   }
 
+  setRecipesInfos(recipesArray) {
+    this.recipesData = recipesArray
+    this.recipeTerms.recipesArray = recipesArray
+  }
+
   getRecipesStructure(pattern, category) {
     const toFind = pattern.toLowerCase()
     const searchResultsArray = this.searchResults(toFind, category)
 
-    this.recipesData = searchResultsArray
-    this.recipeTerms.recipesArray = searchResultsArray
+    this.setRecipesInfos(searchResultsArray)
 
     switch (category) {
       case "ingredients":

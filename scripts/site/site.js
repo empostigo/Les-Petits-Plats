@@ -6,12 +6,12 @@ import Select from "../templates/select.js"
 
 export default class Site {
   constructor(recipes) {
-    this.originalRecipes = recipes
+    this.originalRecipes = recipes // Original recipes array backup
     this.recipes = recipes
 
     this.nbRecipes = document.getElementById("nbRecipes")
 
-    this.dom = document.getElementById("cardDom")
+    this.dom = document.getElementById("cardDom") // cards parent element
 
     this.searchEngine = new Search(this.recipes)
 
@@ -55,8 +55,7 @@ export default class Site {
 
           const closingTag = document.getElementById(tag.closingTagId)
           closingTag.addEventListener("click", () => {
-            this.searchEngine.recipesData = this.originalRecipes
-            this.searchEngine.recipeTerms.recipesArray = this.originalRecipes
+            this.searchEngine.setRecipesInfos(this.originalRecipes)
             const tags = document.getElementsByClassName("tags__text")
             if (tags.length > 0) {
               Array.from(tags).forEach(element => {
