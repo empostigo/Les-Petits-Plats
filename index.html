@@ -35,11 +35,11 @@
     </div>
   </header>
   <main class="container pt-2 position-relative">
-    <div id="selectWrapper" class="row pb-3 pb-md-0 pt-md-3">
+    <section id="selectWrapper" class="row pb-3 pb-md-0 pt-md-3">
       <div
         class="col-12 order-2 order-md-1 col-md-9 d-flex justify-content-between justify-content-md-start gap-2 gap-md-4 gap-lg-5">
-        <div id="ingredients" class="d-flex flex-column bg-white w-100 px-1 px-sm-2 select select--closed">
-          <button id="ingredientsButton" class="border-0 px-2 py-3 text-start position-relative select__button">
+        <article id="ingredients" class="d-flex flex-column bg-white w-100 select select--closed">
+          <button id="ingredientsButton" class="border-0 px-2 px-sm-3 py-3 text-start position-relative select__button">
             Ingrédients
             <img id="ingredientsDown" class="float-end mt-1 mt-sm-2 select__icon-down" src="/assets/select/down.svg"
               alt="">
@@ -47,7 +47,7 @@
               class="float-end position-absolute end-0 mt-1 mt-sm-2 me-2 opacity-0 select__icon-up"
               src="/assets/select/up.svg" alt="">
           </button>
-          <form id="ingredientsForm" class="mt-2 mb-3 px-2 position-relative opacity-0 select__input-wrapper">
+          <form id="ingredientsForm" class="mt-2 mb-3 px-2 px-sm-3 position-relative opacity-0 select__input-wrapper">
             <input id="ingredientsInput" class="h-100 w-100 select__search" type="text" data-category="ingredients"
               tabindex="-1">
             <img id="ingredientsInputCross" class="opacity-0 select__cross" src="/assets/select/input-cross.svg"
@@ -57,15 +57,16 @@
           </form>
           <ul id="ingredientsList" class="ps-0 opacity-0 select__ul">
           </ul>
-        </div>
-        <div id="appliances" class="d-flex flex-column bg-white w-100 px-1 px-sm-2 select select--closed">
-          <button id="appliancesButton" class="border-0 px-2 py-3 text-start position-relative select__button">Appareils
+        </article>
+        <article id="appliances" class="d-flex flex-column bg-white w-100 select select--closed">
+          <button id="appliancesButton"
+            class="border-0 px-2 px-sm-3 py-3 text-start position-relative select__button">Appareils
             <img id="appliancesDown" class="float-end mt-1 mt-sm-2 select__icon-down" src="/assets/select/down.svg"
               alt="">
             <img id="appliancesUp" class="float-end position-absolute end-0 mt-1 mt-sm-2 me-2 opacity-0 select__icon-up"
               src="/assets/select/up.svg" alt="">
           </button>
-          <form id="appliancesForm" class="mt-2 mb-3 px-2 position-relative opacity-0 select__input-wrapper">
+          <form id="appliancesForm" class="mt-2 mb-3 px-2 px-sm-3 position-relative opacity-0 select__input-wrapper">
             <input id="appliancesInput" class="h-100 w-100 select__search" type="text" data-category="appliances"
               tabindex="-1">
             <img id="appliancesInputCross" class="opacity-0 select__cross" src="/assets/select/input-cross.svg"
@@ -75,16 +76,16 @@
           </form>
           <ul id="appliancesList" class="ps-0 opacity-0 select__ul">
           </ul>
-        </div>
-        <div id="ustensils" class="d-flex flex-column bg-white w-100 px-1 px-sm-2 select select--closed">
-          <button id="ustensilsButton" class="border-0 px-2 py-3 text-start position-relative select__button">
+        </article>
+        <article id="ustensils" class="d-flex flex-column bg-white w-100 select select--closed">
+          <button id="ustensilsButton" class="border-0 px-2 px-sm-3 py-3 text-start position-relative select__button">
             Ustensiles
             <img id="ustensilsDown" class="float-end mt-1 mt-sm-2 select__icon-down" src="/assets/select/down.svg"
               alt="">
             <img id="ustensilsUp" class="float-end position-absolute end-0 mt-1 mt-sm-2 me-2 opacity-0 select__icon-up"
               src="/assets/select/up.svg" alt="">
           </button>
-          <form id="ustensilsForm" class="mt-2 mb-3 px-2 position-relative opacity-0 select__input-wrapper">
+          <form id="ustensilsForm" class="mt-2 mb-3 px-2 px-sm-3 position-relative opacity-0 select__input-wrapper">
             <input id="ustensilsInput" class="h-100 w-100 select__search" type="text" data-category="ustensils"
               tabindex="-1">
             <img id="ustensilsInputCross" class="opacity-0 select__cross" src="/assets/select/input-cross.svg"
@@ -94,12 +95,12 @@
           </form>
           <ul id="ustensilsList" class="ps-0 opacity-0 select__ul">
           </ul>
-        </div>
+        </article>
       </div>
       <span id="nbRecipes"
         class="col col-md-3 order-1 order-md-2 text-center text-md-end mb-3 mb-md-0 mt-md-2 pt-md-1 fs-5">
       </span>
-    </div>
+    </section>
     <div id="tagsWrapper" class="row position-absolute flex-column gap-1 z-n1 tags-wrapper"></div>
     <div id="cardDom" class="row row-gap-5 z-n1 pe-2 cards">
     </div>

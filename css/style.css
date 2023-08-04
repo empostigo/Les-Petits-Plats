@@ -191,7 +191,7 @@ body {
 .select__search-button {
   position: absolute;
   top: 5px;
-  right: 13px;
+  right: 16px;
   background-repeat: no-repeat;
   background-color: transparent;
   border: none;
@@ -201,14 +201,14 @@ body {
 @media (min-width: 576px) {
   .select__search-button {
     top: 8px;
-    right: 16px;
+    right: 22px;
     height: 14px;
   }
 }
 @media (min-width: 992px) {
   .select__search-button {
     top: 11px;
-    right: 20px;
+    right: 24px;
     height: 14px;
   }
 }
@@ -218,6 +218,8 @@ body {
   right: 0;
 }
 .select__ul {
+  max-height: 200px;
+  overflow: auto;
   transition: opacity 500ms ease-out 50ms;
 }
 .select__li {
@@ -225,6 +227,12 @@ body {
   font-size: 12px;
   font-weight: 400;
   cursor: pointer;
+  /*
+  &-wrapper {
+    max-height: 200px;
+    overflow: auto;
+  }
+  */
 }
 @media (min-width: 576px) {
   .select__li {
@@ -236,10 +244,6 @@ body {
 }
 .select__li:hover {
   background-color: #ffd15b;
-}
-.select__li-wrapper {
-  max-height: 200px;
-  overflow: auto;
 }
 
 .card {

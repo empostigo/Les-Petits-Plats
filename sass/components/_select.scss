@@ -54,7 +54,7 @@
     &-button {
       position: absolute;
       top: 5px;
-      right: 13px;
+      right: 16px;
       background-repeat: no-repeat;
       background-color: transparent;
       border: none;
@@ -63,13 +63,13 @@
 
       @media (min-width: 576px) {
         top: 8px;
-        right: 16px;
+        right: 22px;
         height: 14px;
       }
 
       @media (min-width: 992px) {
         top: 11px;
-        right: 20px;
+        right: 24px;
         height: 14px;
       }
     }
@@ -81,6 +81,8 @@
   }
 
   &__ul {
+    max-height: 200px;
+    overflow: auto;
     transition: opacity 500ms ease-out 50ms;
   }
 
@@ -102,9 +104,11 @@
       background-color: $tag-colour;
     }
 
+    /*
     &-wrapper {
       max-height: 200px;
       overflow: auto;
     }
+    */
   }
 }

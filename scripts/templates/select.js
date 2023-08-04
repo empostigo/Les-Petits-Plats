@@ -28,22 +28,24 @@ export default class Select {
   fillSelectElement(itemsArray) {
     this.ulElement.innerHTML = ""
 
+    /*
     const div = document.createElement("div")
-    div.classList.add("select__li-wrapper", "px-2")
+    div.classList.add("select__li-wrapper")
     div.tabIndex = -1
     this.ulElement.append(div)
+*/
 
     let idNumber = 0
     const liIdsArray = []
     itemsArray.forEach(item => {
       const liItem = document.createElement("li")
-      liItem.className = "select__li"
+      liItem.classList.add("px-2", "px-sm-3", "select__li")
       liItem.id = `${this.selectIdName}LiItem${idNumber++}`
       liItem.textContent = item
       liItem.dataset.category = `${this.selectIdName}Tags`
 
       liIdsArray.push(liItem.id)
-      div.append(liItem)
+      this.ulElement.append(liItem)
     })
 
     this.liIds = liIdsArray
