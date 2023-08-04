@@ -2,6 +2,7 @@ import DataProcessing from "../utils/DataProcessing.js"
 
 export default class Search {
   constructor(recipesData) {
+    this.originalRecipes = recipesData
     this.recipesData = recipesData
     this.recipeTerms = new DataProcessing(this.recipesData)
     this.ingredientsSelect = this.recipeTerms.wholeIngredientsList
@@ -17,14 +18,6 @@ export default class Search {
     this.recipeTerms.recipesArray = searchResultsArray
 
     switch (category) {
-      case "main":
-      case "appliances":
-        this.ingredientsSelect = this.recipeTerms.wholeIngredientsList
-        this.appliancesSelect = this.recipeTerms.wholeAppliancesList
-        this.ustensilsSelect = this.recipeTerms.wholeUstensilsList
-
-        break
-
       case "ingredients":
         this.ingredientsSelect = this.recipeTerms.wholeIngredientsList.filter(
           element => element.includes(toFind)
@@ -77,6 +70,9 @@ export default class Search {
         break
 
       default:
+        this.ingredientsSelect = this.recipeTerms.wholeIngredientsList
+        this.appliancesSelect = this.recipeTerms.wholeAppliancesList
+        this.ustensilsSelect = this.recipeTerms.wholeUstensilsList
         break
     }
 
@@ -148,6 +144,7 @@ export default class Search {
         break
 
       default:
+        searchResultsArray = this.originalRecipes
         break
     }
 

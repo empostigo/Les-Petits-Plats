@@ -6,6 +6,7 @@ import Select from "../templates/select.js"
 
 export default class Site {
   constructor(recipes) {
+    this.originalRecipes = recipes
     this.recipes = recipes
 
     this.nbRecipes = document.getElementById("nbRecipes")
@@ -49,8 +50,32 @@ export default class Site {
         const liIdTag = document.getElementById(liId)
         liIdTag.addEventListener("click", () => {
           this.getSearchResults(liIdTag.textContent, liIdTag.dataset.category)
-          const tag = new Tags(liIdTag.textContent)
+          const tag = new Tags(liIdTag.textContent, liIdTag.dataset.category)
           tag.displayTag()
+
+          const closingTag = document.getElementById(tag.closingTagId)
+          closingTag.addEventListener("click", () => {
+            this.searchEngine.recipesData = this.originalRecipes
+            this.searchEngine.recipeTerms.recipesArray = this.originalRecipes
+            const tags = document.getElementsByClassName("tags__text")
+            if (tags.length > 0) {
+              Array.from(tags).forEach(element => {
+                this.getSearchResults(
+                  element.textContent,
+                  element.dataset.category
+                )
+              })
+            } else {
+              this.recipes = this.originalRecipes
+              this.searchEngine.ingredientsSelect =
+                this.searchEngine.recipeTerms.wholeIngredientsList
+              this.searchEngine.appliancesSelect =
+                this.searchEngine.recipeTerms.wholeAppliancesList
+              this.searchEngine.ustensilsSelect =
+                this.searchEngine.recipeTerms.wholeUstensilsList
+              this.render()
+            }
+          })
         })
       })
     )

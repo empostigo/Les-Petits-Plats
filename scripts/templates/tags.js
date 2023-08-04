@@ -1,6 +1,7 @@
 export default class Tags {
-  constructor(tag) {
+  constructor(tag, tagCategory) {
     this.tag = tag
+    this.tagCategory = tagCategory
     this.tagsWrapper = document.getElementById("tagsWrapper")
     this.sibbling = document.getElementById("cardDom")
   }
@@ -43,6 +44,7 @@ export default class Tags {
     const tagText = document.createElement("span")
     tagText.textContent = this.tag
     tagText.classList.add("p-3", "tags__text")
+    tagText.dataset.category = this.tagCategory
 
     const closingTag = document.createElement("img")
     closingTag.src = "/assets/tags/cross.svg"
