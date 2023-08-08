@@ -3,6 +3,8 @@
 export default class Card {
   constructor(cardInfos) {
     this.cardInfos = cardInfos
+    this.cardId = `recipe_${this.cardInfos.id}`
+    this.modalCard = document.getElementById("recipeDisplay")
     this.ingredientsArray = this.cardInfos.ingredients.map(
       i => `<div class="col-6">
               <h4 class="card__h4">${i.ingredient}</h4>
@@ -17,9 +19,12 @@ export default class Card {
     return "".concat(...this.ingredientsArray)
   }
 
-  cardDom() {
-    return `<div class="col-12 col-md-4 pb-3 card-dom">
-              <div class="card rounded-4">
+  cardDom(cardClass) {
+    const card = document.createElement("article")
+    card.id = this.cardId
+    card.classList.add("col-12", "col-md-4", "pb-3", cardClass)
+
+    card.innerHTML = `<div class="card rounded-4">
                 <img src="/assets/recipes/${this.cardInfos.image}" class="card-img-top rounded-top-4 card__img" alt="${this.cardInfos.name}">
                 <div class="card-body card__desc">
                   <h2 class="card-title mt-2 mb-4 card__h2">${this.cardInfos.name}</h2>
@@ -31,7 +36,19 @@ export default class Card {
                   </div>
                 </div>
                 <div class="card__time">${this.cardInfos.time}min</div>
-              </div>
-            </div>`
+              </div>`
+
+    card.addEventListener("click", () => this.getModalCard())
+
+    return card
+  }
+
+  getModalCard() {
+    this.modalCard.append(this.cardDom("modal__card"))
+    this.modalCard.addEventListener(
+      "close",
+      () => (this.modalCard.innerHTML = "")
+    )
+    this.modalCard.showModal()
   }
 }
