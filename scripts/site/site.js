@@ -27,6 +27,7 @@ export default class Site {
 
   getSearchResults(pattern, category) {
     this.recipes = this.searchEngine.getRecipesStructure(pattern, category)
+    this.dom.innerHTML = ""
     this.render()
   }
 
