@@ -92,9 +92,7 @@ export default class Site {
   render() {
     this.nbRecipes.textContent = `${this.recipes.length} recettes`
 
-    this.dom.append(
-      ...this.recipes.map(recipe => new Card(recipe).cardDom("cursor-pointer"))
-    )
+    this.dom.append(...this.recipes.map(recipe => new Card(recipe).cardDom()))
 
     this.ingredients.fillSelectElement(this.searchEngine.ingredientsSelect)
     this.appliances.fillSelectElement(this.searchEngine.appliancesSelect)

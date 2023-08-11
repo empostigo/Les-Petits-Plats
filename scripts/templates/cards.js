@@ -4,7 +4,8 @@ export default class Card {
   constructor(cardInfos) {
     this.cardInfos = cardInfos
     this.cardId = `recipe_${this.cardInfos.id}`
-    this.modalCard = document.getElementById("recipeDisplay")
+    this.cardImg = `/assets/recipes/${this.cardInfos.image}`
+    this.modalCard = document.getElementById("modalCard")
     this.ingredientsArray = this.cardInfos.ingredients.map(
       i => `<div class="col-6">
               <h4 class="card__h4">${i.ingredient}</h4>
@@ -19,15 +20,17 @@ export default class Card {
     return "".concat(...this.ingredientsArray)
   }
 
-  cardDom(cardClass) {
+  cardDom() {
     const card = document.createElement("article")
     card.id = this.cardId
-    card.classList.add("col-12", "col-md-4", "pb-3", cardClass)
+    card.classList.add("col-12", "col-md-4", "pb-3", "cursor-pointer")
+    card.dataset.bsToggle = "modal"
+    card.dataset.bsTarget = "#modalCard"
 
     card.innerHTML = `<div class="card rounded-4">
-                <img src="/assets/recipes/${this.cardInfos.image}" class="card-img-top rounded-top-4 card__img" alt="${this.cardInfos.name}">
+                <img src="${this.cardImg}" class="card-img-top rounded-top-4 card__img" alt="${this.cardInfos.name}">
                 <div class="card-body card__desc">
-                  <h2 class="card-title mt-2 mb-4 card__h2">${this.cardInfos.name}</h2>
+                  <h2 class="mt-2 mb-4 card__h2">${this.cardInfos.name}</h2>
                   <h3 class="mb-2 card__h3">RECETTE</h3>
                   <p class="overflow-auto mb-4 card__text">${this.cardInfos.description}</p>
                   <h3 class="card__h3">INGRÉDIENTS</h3>
@@ -44,11 +47,24 @@ export default class Card {
   }
 
   getModalCard() {
-    this.modalCard.append(this.cardDom("modal__card"))
-    this.modalCard.addEventListener(
-      "close",
-      () => (this.modalCard.innerHTML = "")
-    )
-    this.modalCard.showModal()
+    const modal = `
+        <div class="modal-content rounded-4 border-0 w-75 mx-auto">
+          <div class="modal-header p-0">
+            <img src="${this.cardImg}" class="card-img-top rounded-top-4 modal__img" alt="${this.cardInfos.name}">
+          </div>
+          <div class="modal-body modal__desc">
+            <h2 class="mt-2 mb-4 modal__h2">${this.cardInfos.name}</h2>
+            <h3 class="mb-2 modal__h3">RECETTE</h3>
+            <p class="overflow-auto mb-4 modal__text">${this.cardInfos.description}</p>
+            <h3 class="modal__h3">INGRÉDIENTS</h3>
+            <div class="d-flex overflow-auto flex-wrap">
+              ${this.cardIngredients}
+            </div>
+          </div>
+          <div class="modal__time">${this.cardInfos.time}min</div>
+          <button class="btn-close opacity-1 mx-auto mb-3 mx-md-0 mb-md-0 modal__close" data-bs-dismiss="modal"></button>
+        </div>`
+
+    this.modalCard.innerHTML = modal
   }
 }
