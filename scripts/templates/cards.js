@@ -48,8 +48,8 @@ export default class Card {
 
   getModalCard() {
     const modal = `
-        <div class="modal-content rounded-4 border-0 w-75 mx-auto">
-          <div class="modal-header p-0">
+        <div class="modal-content rounded-4 border-0 w-75 mx-auto modal__content">
+          <div class="modal-header p-0 rounded-4">
             <img src="${this.cardImg}" class="card-img-top rounded-top-4 modal__img" alt="${this.cardInfos.name}">
           </div>
           <div class="modal-body modal__desc">

@@ -1,10 +1,17 @@
 .modal {
+  &__content {
+    height: 88vh;
+    margin-top: 22px;
+  }
+
   &__img {
     @extend .card__img;
   }
 
   &__desc {
     font-family: $font-secondary;
+    overflow: auto;
+    scrollbar-width: none;
   }
 
   &__h2 {

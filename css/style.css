@@ -138,8 +138,14 @@ body {
   width: 100%;
 }
 
+.modal__content {
+  height: 88vh;
+  margin-top: 22px;
+}
 .modal__desc {
   font-family: "Manrope", sans-serif;
+  overflow: auto;
+  scrollbar-width: none;
 }
 .modal__text {
   font-size: 14px;
