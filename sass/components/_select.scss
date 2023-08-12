@@ -104,11 +104,10 @@
       background-color: $tag-colour;
     }
 
-    /*
-    &-wrapper {
-      max-height: 200px;
-      overflow: auto;
+    &--selected {
+      pointer-events: none;
+      background-color: $tag-colour;
+      font-weight: 700;
     }
-    */
   }
 }

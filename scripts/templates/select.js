@@ -28,13 +28,6 @@ export default class Select {
   fillSelectElement(itemsArray) {
     this.ulElement.innerHTML = ""
 
-    /*
-    const div = document.createElement("div")
-    div.classList.add("select__li-wrapper")
-    div.tabIndex = -1
-    this.ulElement.append(div)
-*/
-
     let idNumber = 0
     const liIdsArray = []
     itemsArray.forEach(item => {

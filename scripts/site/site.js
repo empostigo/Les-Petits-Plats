@@ -23,6 +23,8 @@ export default class Site {
     this.ingredientsInput = new Input("ingredientsInput")
     this.appliancesInput = new Input("appliancesInput")
     this.ustensilsInput = new Input("ustensilsInput")
+
+    this.selectTags = []
   }
 
   getSearchResults(pattern, category) {
@@ -50,6 +52,7 @@ export default class Site {
       select.liIds.forEach(liId => {
         const liIdTag = document.getElementById(liId)
         liIdTag.addEventListener("click", () => {
+          this.selectTags.push(liId)
           this.getSearchResults(liIdTag.textContent, liIdTag.dataset.category)
           const tag = new Tags(liIdTag.textContent, liIdTag.dataset.category)
           tag.displayTag()
@@ -102,6 +105,10 @@ export default class Site {
       this.ingredients,
       this.appliances,
       this.ustensils
+    )
+
+    this.selectTags.forEach(liItem =>
+      document.getElementById(liItem).classList.add("select__li--selected")
     )
   }
 

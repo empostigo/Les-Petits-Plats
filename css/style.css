@@ -255,12 +255,6 @@ body {
   font-size: 12px;
   font-weight: 400;
   cursor: pointer;
-  /*
-  &-wrapper {
-    max-height: 200px;
-    overflow: auto;
-  }
-  */
 }
 @media (min-width: 576px) {
   .select__li {
@@ -272,6 +266,11 @@ body {
 }
 .select__li:hover {
   background-color: #ffd15b;
+}
+.select__li--selected {
+  pointer-events: none;
+  background-color: #ffd15b;
+  font-weight: 700;
 }
 
 .card {
