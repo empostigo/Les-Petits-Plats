@@ -29,10 +29,6 @@ export default class Search {
   }
 
   searchResults(pattern, category) {
-    console.log(
-      `Search Triggered!\nLooking for ${pattern} for category ${category}`
-    )
-
     let searchResultsArray = []
     switch (category) {
       case "main":

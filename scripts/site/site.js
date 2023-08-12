@@ -52,16 +52,20 @@ export default class Site {
       select.liIds.forEach(liId => {
         const liIdTag = document.getElementById(liId)
         liIdTag.addEventListener("click", () => {
-          this.selectTags.push(liId)
+          this.selectTags.push(liIdTag.dataset.name)
           this.getSearchResults(liIdTag.textContent, liIdTag.dataset.category)
           const tag = new Tags(liIdTag.textContent, liIdTag.dataset.category)
           tag.displayTag()
 
           const closingTag = document.getElementById(tag.closingTagId)
           closingTag.addEventListener("click", () => {
+            this.selectTags.splice(
+              this.selectTags.indexOf(liIdTag.dataset.name),
+              1
+            )
             this.searchEngine.setRecipesInfos(this.originalRecipes)
             const tags = document.getElementsByClassName("tags__text")
-            if (tags.length > 0) {
+            if (tags.length) {
               Array.from(tags).forEach(element => {
                 this.getSearchResults(
                   element.textContent,
@@ -107,9 +111,12 @@ export default class Site {
       this.ustensils
     )
 
-    this.selectTags.forEach(liItem =>
-      document.getElementById(liItem).classList.add("select__li--selected")
-    )
+    if (this.selectTags.length)
+      this.selectTags.forEach(dataset =>
+        document
+          .querySelector(`[data-name="${dataset}"]`)
+          .classList.add("select__li--selected")
+      )
   }
 
   run() {

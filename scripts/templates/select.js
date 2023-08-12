@@ -36,6 +36,7 @@ export default class Select {
       liItem.id = `${this.selectIdName}LiItem${idNumber++}`
       liItem.textContent = item
       liItem.dataset.category = `${this.selectIdName}Tags`
+      liItem.dataset.name = liItem.textContent.toLowerCase()
 
       liIdsArray.push(liItem.id)
       this.ulElement.append(liItem)
