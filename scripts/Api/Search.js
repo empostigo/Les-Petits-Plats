@@ -21,64 +21,9 @@ export default class Search {
 
     this.setRecipesInfos(searchResultsArray)
 
-    switch (category) {
-      case "ingredients":
-        this.ingredientsSelect = this.recipeTerms.wholeIngredientsList.filter(
-          element => element.includes(toFind)
-        )
-
-        this.appliancesSelect = this.recipeTerms.wholeAppliancesList
-        this.ustensilsSelect = this.recipeTerms.wholeUstensilsList
-
-        break
-
-      case "ustensils":
-        this.ustensilsSelect = this.recipeTerms.wholeUstensilsList.filter(
-          element => element.includes(toFind)
-        )
-
-        this.ingredientsSelect = this.recipeTerms.wholeIngredientsList
-        this.appliancesSelect = this.recipeTerms.wholeAppliancesList
-
-        break
-
-      case "ingredientsTags":
-        this.ingredientsSelect = this.recipeTerms.wholeIngredientsList.filter(
-          ingredient => ingredient === pattern
-        )
-
-        this.appliancesSelect = this.recipeTerms.wholeAppliancesList
-        this.ustensilsSelect = this.recipeTerms.wholeUstensilsList
-
-        break
-
-      case "appliancesTags":
-        this.ingredientsSelect = this.recipeTerms.wholeIngredientsList
-
-        this.appliancesSelect = this.recipeTerms.wholeAppliancesList.filter(
-          appliance => appliance.toLowerCase() === toFind
-        )
-
-        this.ustensilsSelect = this.recipeTerms.wholeUstensilsList
-
-        break
-
-      case "ustensilsTags":
-        this.ingredientsSelect = this.recipeTerms.wholeIngredientsList
-        this.appliancesSelect = this.recipeTerms.wholeAppliancesList
-
-        this.ustensilsSelect = this.recipeTerms.wholeUstensilsList.filter(
-          ustensil => ustensil.toLowerCase() === toFind
-        )
-
-        break
-
-      default:
-        this.ingredientsSelect = this.recipeTerms.wholeIngredientsList
-        this.appliancesSelect = this.recipeTerms.wholeAppliancesList
-        this.ustensilsSelect = this.recipeTerms.wholeUstensilsList
-        break
-    }
+    this.ingredientsSelect = this.recipeTerms.wholeIngredientsList
+    this.appliancesSelect = this.recipeTerms.wholeAppliancesList
+    this.ustensilsSelect = this.recipeTerms.wholeUstensilsList
 
     return searchResultsArray
   }
