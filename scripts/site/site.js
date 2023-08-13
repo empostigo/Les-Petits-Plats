@@ -57,6 +57,13 @@ export default class Site {
           const tag = new Tags(liIdTag.textContent, liIdTag.dataset.category)
           tag.displayTag()
 
+          selects.forEach(select => {
+            select.inputElement.value = ""
+            document
+              .getElementById(select.selectIdName.concat("InputCross"))
+              .classList.add("opacity-0")
+          })
+
           const closingTag = document.getElementById(tag.closingTagId)
           closingTag.addEventListener("click", () => {
             this.selectTags.splice(

@@ -21,9 +21,34 @@ export default class Search {
 
     this.setRecipesInfos(searchResultsArray)
 
-    this.ingredientsSelect = this.recipeTerms.wholeIngredientsList
-    this.appliancesSelect = this.recipeTerms.wholeAppliancesList
-    this.ustensilsSelect = this.recipeTerms.wholeUstensilsList
+    switch (category) {
+      case "ingredients":
+        this.ingredientsSelect = this.recipeTerms.wholeIngredientsList.filter(
+          element => element.includes(toFind)
+        )
+
+        this.appliancesSelect = this.recipeTerms.wholeAppliancesList
+        this.ustensilsSelect = this.recipeTerms.wholeUstensilsList
+
+        break
+
+      case "ustensils":
+        this.ustensilsSelect = this.recipeTerms.wholeUstensilsList.filter(
+          element => element.includes(toFind)
+        )
+
+        this.ingredientsSelect = this.recipeTerms.wholeIngredientsList
+        this.appliancesSelect = this.recipeTerms.wholeAppliancesList
+
+        break
+
+      default:
+        this.ingredientsSelect = this.recipeTerms.wholeIngredientsList
+        this.appliancesSelect = this.recipeTerms.wholeAppliancesList
+        this.ustensilsSelect = this.recipeTerms.wholeUstensilsList
+
+        break
+    }
 
     return searchResultsArray
   }
