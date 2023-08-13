@@ -14,7 +14,7 @@ export default class DataProcessing {
 
   // Get all recipes ingredients in a unique array
   get wholeIngredientsList() {
-    return [...new Set(this.ingredientsList.flat())]
+    return [...new Set(this.ingredientsList.flat())].sort()
   }
 
   // split sentences in words array
@@ -47,7 +47,9 @@ export default class DataProcessing {
 
   // get appliances list ([])
   get wholeAppliancesList() {
-    return [...new Set(this.recipesArray.map(recipe => recipe.appliance))]
+    return [
+      ...new Set(this.recipesArray.map(recipe => recipe.appliance)),
+    ].sort()
   }
 
   get concatenatedAppliances() {
@@ -67,7 +69,7 @@ export default class DataProcessing {
           .flat()
           .map(u => u.toLowerCase())
       ),
-    ]
+    ].sort()
   }
 
   get ustensilsList() {

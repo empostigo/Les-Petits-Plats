@@ -7,7 +7,7 @@ import Select from "../templates/select.js"
 export default class Site {
   constructor(recipes) {
     this.originalRecipes = recipes // Original recipes array backup
-    this.recipes = recipes
+    this.recipes = recipes.sort((a, b) => a.name > b.name)
 
     this.nbRecipes = document.getElementById("nbRecipes")
 
