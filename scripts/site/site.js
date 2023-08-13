@@ -19,7 +19,7 @@ export default class Site {
     this.appliances = new Select("appliances")
     this.ustensils = new Select("ustensils")
 
-    this.searchInput = new Input("searchInput")
+    this.mainInput = new Input("mainInput")
     this.ingredientsInput = new Input("ingredientsInput")
     this.appliancesInput = new Input("appliancesInput")
     this.ustensilsInput = new Input("ustensilsInput")
@@ -35,7 +35,7 @@ export default class Site {
 
   listenInputSearchResults(...inputs) {
     inputs.forEach(input => {
-      input.inputId.addEventListener("input", content => {
+      input.inputTag.addEventListener("input", content => {
         const re = /^([\p{L}]{3,}( ?[\p{L}]'?[\p{L}]*)*)/u
         if (re.test(content.target.value.trim())) {
           this.getSearchResults(
@@ -63,6 +63,9 @@ export default class Site {
               .getElementById(select.selectIdName.concat("InputCross"))
               .classList.add("opacity-0")
           })
+
+          this.mainInput.inputTag.value = ""
+          this.mainInput.inputCross.classList.add("opacity-0")
 
           const closingTag = document.getElementById(tag.closingTagId)
           closingTag.addEventListener("click", () => {
@@ -128,7 +131,7 @@ export default class Site {
 
   run() {
     this.init(
-      this.searchInput,
+      this.mainInput,
       this.ingredientsInput,
       this.appliancesInput,
       this.ustensilsInput
