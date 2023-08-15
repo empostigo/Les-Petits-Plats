@@ -8,7 +8,7 @@ export default class Select {
     this.buttonDown = document.getElementById(selectId.concat("Down"))
     this.buttonUp = document.getElementById(selectId.concat("Up"))
 
-    this.formElement = document.getElementById(selectId.concat("Form"))
+    this.formElement = document.getElementById(selectId.concat("InputForm"))
     this.inputElement = document.getElementById(selectId.concat("Input"))
     this.inputCrossElement = document.getElementById(
       selectId.concat("InputCross")
@@ -23,6 +23,10 @@ export default class Select {
 
   get liIds() {
     return this._liIds
+  }
+
+  reset() {
+    this.formElement.reset()
   }
 
   fillSelectElement(itemsArray) {

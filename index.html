@@ -21,7 +21,7 @@
         </div>
         <h1 class="text-center text-uppercase lh-base mt-3 mt-sm-5 mb-4 pt-md-3 pt-lg-5 header__heading ">cherchez parmi
           plus de 1500 recettes<br>du quotidien, simples et délicieuses</h1>
-        <form id="searchForm" class="col-8 mx-auto form-floating header__form" action="">
+        <form id="mainInputForm" class="col-8 mx-auto form-floating header__form" action="">
           <input id="mainInput" class="col-12 h-100 header__input" type="text"
             placeholder="Rechercher une recette, un ingrédient, ..." data-category="main">
           <img id="mainInputCross" class="opacity-0 header__cross" src="/assets/header/cross.svg" alt="">
@@ -47,7 +47,8 @@
               class="float-end position-absolute end-0 mt-1 mt-sm-2 me-2 opacity-0 select__icon-up"
               src="/assets/select/up.svg" alt="">
           </button>
-          <form id="ingredientsForm" class="mt-2 mb-3 px-2 px-sm-3 position-relative opacity-0 select__input-wrapper">
+          <form id="ingredientsInputForm"
+            class="mt-2 mb-3 px-2 px-sm-3 position-relative opacity-0 select__input-wrapper">
             <input id="ingredientsInput" class="h-100 w-100 select__search" type="text" data-category="ingredients"
               tabindex="-1">
             <img id="ingredientsInputCross" class="opacity-0 select__cross" src="/assets/select/input-cross.svg"
@@ -66,7 +67,8 @@
             <img id="appliancesUp" class="float-end position-absolute end-0 mt-1 mt-sm-2 me-2 opacity-0 select__icon-up"
               src="/assets/select/up.svg" alt="">
           </button>
-          <form id="appliancesForm" class="mt-2 mb-3 px-2 px-sm-3 position-relative opacity-0 select__input-wrapper">
+          <form id="appliancesInputForm"
+            class="mt-2 mb-3 px-2 px-sm-3 position-relative opacity-0 select__input-wrapper">
             <input id="appliancesInput" class="h-100 w-100 select__search" type="text" data-category="appliances"
               tabindex="-1">
             <img id="appliancesInputCross" class="opacity-0 select__cross" src="/assets/select/input-cross.svg"
@@ -85,7 +87,8 @@
             <img id="ustensilsUp" class="float-end position-absolute end-0 mt-1 mt-sm-2 me-2 opacity-0 select__icon-up"
               src="/assets/select/up.svg" alt="">
           </button>
-          <form id="ustensilsForm" class="mt-2 mb-3 px-2 px-sm-3 position-relative opacity-0 select__input-wrapper">
+          <form id="ustensilsInputForm"
+            class="mt-2 mb-3 px-2 px-sm-3 position-relative opacity-0 select__input-wrapper">
             <input id="ustensilsInput" class="h-100 w-100 select__search" type="text" data-category="ustensils"
               tabindex="-1">
             <img id="ustensilsInputCross" class="opacity-0 select__cross" src="/assets/select/input-cross.svg"

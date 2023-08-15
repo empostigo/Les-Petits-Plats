@@ -1,8 +1,12 @@
 export default class Input {
   constructor(inputId) {
     this.inputElement = document.getElementById(inputId)
+    this.inputForm = document.getElementById(inputId.concat("Form"))
     this.inputCross = document.getElementById(inputId.concat("Cross"))
-    this.inputSearch = document.getElementById(inputId.concat("Search"))
+  }
+
+  reset() {
+    this.inputForm.reset()
   }
 
   static waitForUserEntry(...inputs) {
@@ -14,7 +18,7 @@ export default class Input {
       })
 
       input.inputCross.addEventListener("click", () => {
-        input.inputElement.value = ""
+        input.reset()
         input.inputCross.classList.add("opacity-0")
       })
     })

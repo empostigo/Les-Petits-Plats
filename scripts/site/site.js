@@ -68,13 +68,13 @@ export default class Site {
           tag.displayTag()
 
           selects.forEach(select => {
-            select.inputElement.value = ""
+            select.reset()
             document
               .getElementById(select.selectIdName.concat("InputCross"))
               .classList.add("opacity-0")
           })
 
-          this.mainInput.inputElement.value = ""
+          this.mainInput.reset()
           this.mainInput.inputCross.classList.add("opacity-0")
 
           const closingTag = document.getElementById(tag.closingTagId)
