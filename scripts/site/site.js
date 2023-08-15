@@ -35,14 +35,24 @@ export default class Site {
 
   listenInputSearchResults(...inputs) {
     inputs.forEach(input => {
-      input.inputTag.addEventListener("input", content => {
-        const re = /^([\p{L}]{3,}( ?[\p{L}]'?[\p{L}]*)*)/u
-        if (re.test(content.target.value.trim())) {
+      let previousRecipesArray = []
+      input.inputElement.addEventListener("input", content => {
+        if (content.target.value.trim().length > 2) {
+          previousRecipesArray = this.recipes
           this.getSearchResults(
             content.target.value,
             content.target.dataset.category
           )
         }
+        /*
+        if (content.target.value.trim().length > 0) {
+          this.searchEngine.setRecipesInfos(previousRecipesArray)
+          this.getSearchResults(
+            content.target.value,
+            content.target.dataset.category
+          )
+        }
+        */
       })
     })
   }
@@ -64,7 +74,7 @@ export default class Site {
               .classList.add("opacity-0")
           })
 
-          this.mainInput.inputTag.value = ""
+          this.mainInput.inputElement.value = ""
           this.mainInput.inputCross.classList.add("opacity-0")
 
           const closingTag = document.getElementById(tag.closingTagId)
