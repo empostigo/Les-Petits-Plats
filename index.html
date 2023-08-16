@@ -23,7 +23,7 @@
           plus de 1500 recettes<br>du quotidien, simples et délicieuses</h1>
         <form id="mainInputForm" class="col-8 mx-auto form-floating header__form" action="">
           <input id="mainInput" class="col-12 h-100 header__input" type="text"
-            placeholder="Rechercher une recette, un ingrédient, ..." data-category="main">
+            placeholder="Rechercher une recette, un ingrédient, ..." data-category="main" data-search-length="0">
           <img id="mainInputCross" class="opacity-0 header__cross" src="/assets/header/cross.svg" alt="">
           <button id="mainSearch" class="header__floating-right h-100 p-lg-1">
             <img class="header__search-img h-100 p-1" src="/assets/header/search-button.svg" alt="">
@@ -50,7 +50,7 @@
           <form id="ingredientsInputForm"
             class="mt-2 mb-3 px-2 px-sm-3 position-relative opacity-0 select__input-wrapper">
             <input id="ingredientsInput" class="h-100 w-100 select__search" type="text" data-category="ingredients"
-              tabindex="-1">
+              data-search-length="0" tabindex="-1">
             <img id="ingredientsInputCross" class="opacity-0 select__cross" src="/assets/select/input-cross.svg"
               alt="Effacer">
             <button id="ingredientsSearch" class="select__search-button"><img class="select__search-icon"
@@ -70,7 +70,7 @@
           <form id="appliancesInputForm"
             class="mt-2 mb-3 px-2 px-sm-3 position-relative opacity-0 select__input-wrapper">
             <input id="appliancesInput" class="h-100 w-100 select__search" type="text" data-category="appliances"
-              tabindex="-1">
+              data-search-length="0" tabindex="-1">
             <img id="appliancesInputCross" class="opacity-0 select__cross" src="/assets/select/input-cross.svg"
               alt="Effacer">
             <button id="appliancesSearch" class="select__search-button"><img class="select__search-icon"
@@ -90,7 +90,7 @@
           <form id="ustensilsInputForm"
             class="mt-2 mb-3 px-2 px-sm-3 position-relative opacity-0 select__input-wrapper">
             <input id="ustensilsInput" class="h-100 w-100 select__search" type="text" data-category="ustensils"
-              tabindex="-1">
+              data-search-length="0" tabindex="-1">
             <img id="ustensilsInputCross" class="opacity-0 select__cross" src="/assets/select/input-cross.svg"
               alt="Effacer">
             <button id="ustensilsSearch" class="select__search-button"><img class="select__search-icon"

@@ -27,7 +27,20 @@ export default class Site {
     this.selectTags = []
   }
 
+  set previousRecipesArray(array) {
+    this._previousRecipesArray = array
+  }
+
+  get previousRecipesArray() {
+    return this._previousRecipesArray
+  }
+
   getSearchResults(pattern, category) {
+    if (pattern === "") {
+      this.recipes = this.originalRecipes
+      this.searchEngine.setRecipesInfos(this.originalRecipes)
+    }
+
     this.recipes = this.searchEngine.getRecipesStructure(pattern, category)
     this.dom.innerHTML = ""
     this.render()
@@ -35,24 +48,22 @@ export default class Site {
 
   listenInputSearchResults(...inputs) {
     inputs.forEach(input => {
-      let previousRecipesArray = []
       input.inputElement.addEventListener("input", content => {
-        if (content.target.value.trim().length > 2) {
-          previousRecipesArray = this.recipes
+        this.searchEngine.setRecipesInfos(this.originalRecipes)
+        const patternLength = content.target.value.trim().length
+        if (patternLength > 2) {
           this.getSearchResults(
-            content.target.value,
+            content.target.value.trim(),
             content.target.dataset.category
           )
-        }
-        /*
-        if (content.target.value.trim().length > 0) {
-          this.searchEngine.setRecipesInfos(previousRecipesArray)
-          this.getSearchResults(
-            content.target.value,
-            content.target.dataset.category
-          )
-        }
-        */
+        } else this.getSearchResults("", content.target.dataset.category)
+      })
+
+      input.inputCross.addEventListener("click", () => {
+        this.searchEngine.setRecipesInfos(this.originalRecipes)
+        this.recipes = this.originalRecipes
+        this.dom.innerHTML = ""
+        this.render()
       })
     })
   }
