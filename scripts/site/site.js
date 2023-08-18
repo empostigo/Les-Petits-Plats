@@ -45,13 +45,10 @@ export default class Site {
         category: this.ustensilsInput.inputElement.dataset.category,
       },
     ].concat(
-      Array.from(document.getElementsByClassName("tags__text")).map(
-        item =>
-          new Object({
-            pattern: item.textContent,
-            category: item.dataset.category,
-          })
-      )
+      Array.from(document.getElementsByClassName("tags__text")).map(item => ({
+        pattern: item.textContent,
+        category: item.dataset.category,
+      }))
     )
 
     this.recipes =
