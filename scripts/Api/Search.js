@@ -20,11 +20,16 @@ export default class Search {
     const searchResultsArray = this.searchResults(toFind, category)
 
     this.setRecipesInfos(searchResultsArray)
+    this.setSelectItems(toFind, category)
 
+    return searchResultsArray
+  }
+
+  setSelectItems(pattern, category) {
     switch (category) {
       case "ingredients":
         this.ingredientsSelect = this.recipeTerms.wholeIngredientsList.filter(
-          element => element.includes(toFind)
+          element => element.includes(pattern)
         )
 
         this.appliancesSelect = this.recipeTerms.wholeAppliancesList
@@ -34,7 +39,7 @@ export default class Search {
 
       case "ustensils":
         this.ustensilsSelect = this.recipeTerms.wholeUstensilsList.filter(
-          element => element.includes(toFind)
+          element => element.includes(pattern)
         )
 
         this.ingredientsSelect = this.recipeTerms.wholeIngredientsList
@@ -49,8 +54,6 @@ export default class Search {
 
         break
     }
-
-    return searchResultsArray
   }
 
   searchResults(pattern, category) {

@@ -23,25 +23,51 @@ export default class Site {
     this.ingredientsInput = new Input("ingredientsInput")
     this.appliancesInput = new Input("appliancesInput")
     this.ustensilsInput = new Input("ustensilsInput")
-
-    this.selectTags = []
   }
 
-  set previousRecipesArray(array) {
-    this._previousRecipesArray = array
+  searchInPatternsArray() {
+    this.searchEngine.setRecipesInfos(this.originalRecipes)
+    const patternsArray = [
+      {
+        pattern: this.mainInput.inputElement.value,
+        category: this.mainInput.inputElement.dataset.category,
+      },
+      {
+        pattern: this.ingredientsInput.inputElement.value,
+        category: this.ingredientsInput.inputElement.dataset.category,
+      },
+      {
+        pattern: this.appliancesInput.inputElement.value,
+        category: this.appliancesInput.inputElement.dataset.category,
+      },
+      {
+        pattern: this.ustensils.inputElement.value,
+        category: this.ustensilsInput.inputElement.dataset.category,
+      },
+    ].concat(
+      Array.from(document.getElementsByClassName("tags__text")).map(
+        item =>
+          new Object({
+            pattern: item.textContent,
+            category: item.dataset.category,
+          })
+      )
+    )
+
+    this.recipes =
+      patternsArray
+        .filter(element => element.pattern.length > 0)
+        .map(pattern =>
+          this.searchEngine.getRecipesStructure(
+            pattern.pattern,
+            pattern.category
+          )
+        )
+        .pop() ?? this.originalRecipes
   }
 
-  get previousRecipesArray() {
-    return this._previousRecipesArray
-  }
-
-  getSearchResults(pattern, category) {
-    if (pattern === "") {
-      this.recipes = this.originalRecipes
-      this.searchEngine.setRecipesInfos(this.originalRecipes)
-    }
-
-    this.recipes = this.searchEngine.getRecipesStructure(pattern, category)
+  getSearchResults() {
+    this.searchInPatternsArray()
     this.dom.innerHTML = ""
     this.render()
   }
@@ -49,21 +75,12 @@ export default class Site {
   listenInputSearchResults(...inputs) {
     inputs.forEach(input => {
       input.inputElement.addEventListener("input", content => {
-        this.searchEngine.setRecipesInfos(this.originalRecipes)
         const patternLength = content.target.value.trim().length
-        if (patternLength > 2) {
-          this.getSearchResults(
-            content.target.value.trim(),
-            content.target.dataset.category
-          )
-        } else this.getSearchResults("", content.target.dataset.category)
+        if (patternLength > 2) this.getSearchResults()
       })
 
       input.inputCross.addEventListener("click", () => {
-        this.searchEngine.setRecipesInfos(this.originalRecipes)
-        this.recipes = this.originalRecipes
-        this.dom.innerHTML = ""
-        this.render()
+        this.getSearchResults()
       })
     })
   }
@@ -73,10 +90,9 @@ export default class Site {
       select.liIds.forEach(liId => {
         const liIdTag = document.getElementById(liId)
         liIdTag.addEventListener("click", () => {
-          this.selectTags.push(liIdTag.dataset.name)
-          this.getSearchResults(liIdTag.textContent, liIdTag.dataset.category)
           const tag = new Tags(liIdTag.textContent, liIdTag.dataset.category)
           tag.displayTag()
+          this.getSearchResults()
 
           selects.forEach(select => {
             select.reset()
@@ -90,29 +106,7 @@ export default class Site {
 
           const closingTag = document.getElementById(tag.closingTagId)
           closingTag.addEventListener("click", () => {
-            this.selectTags.splice(
-              this.selectTags.indexOf(liIdTag.dataset.name),
-              1
-            )
-            this.searchEngine.setRecipesInfos(this.originalRecipes)
-            const tags = document.getElementsByClassName("tags__text")
-            if (tags.length) {
-              Array.from(tags).forEach(element => {
-                this.getSearchResults(
-                  element.textContent,
-                  element.dataset.category
-                )
-              })
-            } else {
-              this.recipes = this.originalRecipes
-              this.searchEngine.ingredientsSelect =
-                this.searchEngine.recipeTerms.wholeIngredientsList
-              this.searchEngine.appliancesSelect =
-                this.searchEngine.recipeTerms.wholeAppliancesList
-              this.searchEngine.ustensilsSelect =
-                this.searchEngine.recipeTerms.wholeUstensilsList
-              this.render()
-            }
+            this.getSearchResults()
           })
         })
       })
@@ -136,18 +130,31 @@ export default class Site {
     this.appliances.fillSelectElement(this.searchEngine.appliancesSelect)
     this.ustensils.fillSelectElement(this.searchEngine.ustensilsSelect)
 
+    // DEBUG
+    console.log(
+      `Nb  d'ingrédients: ${
+        document.getElementsByClassName("select__li").length
+      }`
+    )
+
     this.listenSelectSearchResults(
       this.ingredients,
       this.appliances,
       this.ustensils
     )
 
-    if (this.selectTags.length)
-      this.selectTags.forEach(dataset =>
-        document
-          .querySelector(`[data-name="${dataset}"]`)
-          .classList.add("select__li--selected")
-      )
+    const liToDisable = Array.from(
+      document.getElementsByClassName("tags__text")
+    )
+
+    if (liToDisable.length) {
+      liToDisable.forEach(tag => {
+        const liItem = document.querySelector(
+          `[data-name="${tag.textContent.toLowerCase()}"]`
+        )
+        if (liItem) liItem.classList.add("select__li--selected")
+      })
+    }
   }
 
   run() {
