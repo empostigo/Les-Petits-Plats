@@ -249,6 +249,7 @@ body {
   max-height: 200px;
   overflow: auto;
   transition: opacity 500ms ease-out 50ms;
+  margin-bottom: 0;
 }
 .select__li {
   list-style: none;
