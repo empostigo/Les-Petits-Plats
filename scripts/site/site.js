@@ -6,8 +6,7 @@ import Select from "../templates/select.js"
 
 export default class Site {
   constructor(recipes) {
-    this.originalRecipes = recipes // Original recipes array backup
-    this.recipes = recipes.sort((a, b) => a.name > b.name)
+    this.recipes = recipes
 
     this.nbRecipes = document.getElementById("nbRecipes")
 
@@ -25,8 +24,7 @@ export default class Site {
     this.ustensilsInput = new Input("ustensilsInput")
   }
 
-  searchInPatternsArray() {
-    this.searchEngine.setRecipesInfos(this.originalRecipes)
+  getPatternsArray() {
     const patternsArray = [
       {
         pattern: this.mainInput.inputElement.value,
@@ -51,20 +49,28 @@ export default class Site {
       }))
     )
 
+    return patternsArray
+  }
+
+  getSearchResults() {
+    this.searchEngine.setRecipesInfos(this.searchEngine.originalRecipes)
     this.recipes =
-      patternsArray
-        .filter(element => element.pattern.length > 0)
+      this.getPatternsArray()
+        .filter(element => element.pattern.length > 2)
         .map(pattern =>
           this.searchEngine.getRecipesStructure(
             pattern.pattern,
             pattern.category
           )
         )
-        .pop() ?? this.originalRecipes
+        .pop() ?? this.searchEngine.getOriginalStructure()
+
+    this.dom.innerHTML = ""
+    this.render()
   }
 
-  getSearchResults() {
-    this.searchInPatternsArray()
+  renderOriginalPage() {
+    this.recipes = this.searchEngine.getOriginalStructure()
     this.dom.innerHTML = ""
     this.render()
   }
@@ -73,7 +79,15 @@ export default class Site {
     inputs.forEach(input => {
       input.inputElement.addEventListener("input", content => {
         const patternLength = content.target.value.trim().length
-        if (patternLength > 2) this.getSearchResults()
+        if (patternLength > 2) {
+          input.inputElement.dataset.searchEnabled = "true"
+          this.getSearchResults()
+        }
+
+        if (patternLength === 2 && input.inputElement.dataset.searchEnabled) {
+          input.inputElement.dataset.searchEnabled = "false"
+          this.getSearchResults()
+        }
       })
 
       input.inputCross.addEventListener("click", () => {
@@ -126,13 +140,6 @@ export default class Site {
     this.ingredients.fillSelectElement(this.searchEngine.ingredientsSelect)
     this.appliances.fillSelectElement(this.searchEngine.appliancesSelect)
     this.ustensils.fillSelectElement(this.searchEngine.ustensilsSelect)
-
-    // DEBUG
-    console.log(
-      `Nb  d'ingrédients: ${
-        document.getElementsByClassName("select__li").length
-      }`
-    )
 
     this.listenSelectSearchResults(
       this.ingredients,

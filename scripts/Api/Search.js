@@ -10,9 +10,11 @@ export default class Search {
     this.ustensilsSelect = this.recipeTerms.wholeUstensilsList
   }
 
-  setRecipesInfos(recipesArray) {
-    this.recipesData = recipesArray
-    this.recipeTerms.recipesArray = recipesArray
+  getOriginalStructure() {
+    this.setRecipesInfos(this.originalRecipes)
+    this.setSelectItems()
+
+    return this.originalRecipes
   }
 
   getRecipesStructure(pattern, category) {
@@ -25,7 +27,12 @@ export default class Search {
     return searchResultsArray
   }
 
-  setSelectItems(pattern, category) {
+  setRecipesInfos(recipesArray) {
+    this.recipesData = recipesArray
+    this.recipeTerms.recipesArray = recipesArray
+  }
+
+  setSelectItems(pattern = "", category = "") {
     switch (category) {
       case "ingredients":
         this.ingredientsSelect = this.recipeTerms.wholeIngredientsList.filter(
