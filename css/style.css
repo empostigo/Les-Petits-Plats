@@ -254,6 +254,8 @@ body {
   list-style: none;
   font-size: 12px;
   font-weight: 400;
+  line-height: 1;
+  height: 36px;
   cursor: pointer;
 }
 @media (min-width: 576px) {
@@ -261,7 +263,7 @@ body {
     font-size: 1em;
   }
 }
-.select__li::first-letter {
+.select__litext::first-letter {
   text-transform: uppercase;
 }
 .select__li:hover {

@@ -97,7 +97,7 @@ export default class Site {
   }
 
   listenSelectSearchResults(...selects) {
-    selects.forEach(select =>
+    selects.forEach(select => {
       select.liIds.forEach(liId => {
         const liIdTag = document.getElementById(liId)
         liIdTag.addEventListener("click", () => {
@@ -121,7 +121,7 @@ export default class Site {
           })
         })
       })
-    )
+    })
   }
 
   init(...inputs) {
@@ -156,7 +156,12 @@ export default class Site {
         const liItem = document.querySelector(
           `[data-name="${tag.textContent.toLowerCase()}"]`
         )
-        if (liItem) liItem.classList.add("select__li--selected")
+        if (liItem) {
+          liItem.classList.add("select__li--selected")
+          const closingLi = liItem.lastChild
+          console.log(closingLi)
+          closingLi.classList.toggle("opacity-0")
+        }
       })
     }
   }
