@@ -13,6 +13,10 @@ body {
   cursor: pointer;
 }
 
+.pointer-auto {
+  pointer-events: auto;
+}
+
 .header {
   background: url(/assets/header/meal.png) no-repeat;
   padding-bottom: 10%;

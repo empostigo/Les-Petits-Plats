@@ -32,10 +32,22 @@ export default class Tags {
     return this._closingTagId
   }
 
+  removeTag(tag) {
+    if (--Tags.flag === 0) {
+      this.sibbling.style.top = `${Tags.sibblingOrigin}px`
+    } else {
+      const minusTranslation = this.sibbling.offsetTop - tag.offsetHeight
+      this.sibbling.style.top = `${minusTranslation}px`
+    }
+
+    document.getElementById(this.tagId).remove()
+  }
+
   displayTag() {
     const tag = document.createElement("div")
     tag.classList.add("col", "tags")
     tag.id = `tag_${Tags.id}`
+    tag.dataset.tagName = this.tag.toLowerCase()
     this.tagId = tag.id
 
     const innerTag = document.createElement("div")
@@ -63,14 +75,7 @@ export default class Tags {
     this.sibbling.style.top = `${translation}px`
 
     closingTag.addEventListener("click", () => {
-      if (--Tags.flag === 0) {
-        this.sibbling.style.top = `${Tags.sibblingOrigin}px`
-      } else {
-        const minusTranslation = this.sibbling.offsetTop - tag.offsetHeight
-        this.sibbling.style.top = `${minusTranslation}px`
-      }
-
-      document.getElementById(this.tagId).remove()
+      this.removeTag(tag)
     })
   }
 }

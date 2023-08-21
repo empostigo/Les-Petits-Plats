@@ -22,6 +22,8 @@ export default class Site {
     this.ingredientsInput = new Input("ingredientsInput")
     this.appliancesInput = new Input("appliancesInput")
     this.ustensilsInput = new Input("ustensilsInput")
+
+    this.displayedTags = []
   }
 
   getPatternsArray() {
@@ -54,6 +56,7 @@ export default class Site {
 
   getSearchResults() {
     this.searchEngine.setRecipesInfos(this.searchEngine.originalRecipes)
+
     this.recipes =
       this.getPatternsArray()
         .filter(element => element.pattern.length > 2)
@@ -64,6 +67,10 @@ export default class Site {
           )
         )
         .pop() ?? this.searchEngine.getOriginalStructure()
+  }
+
+  displaySearchResults() {
+    this.getSearchResults()
 
     this.dom.innerHTML = ""
     this.render()
@@ -81,17 +88,17 @@ export default class Site {
         const patternLength = content.target.value.trim().length
         if (patternLength > 2) {
           input.inputElement.dataset.searchEnabled = "true"
-          this.getSearchResults()
+          this.displaySearchResults()
         }
 
         if (patternLength === 2 && input.inputElement.dataset.searchEnabled) {
           input.inputElement.dataset.searchEnabled = "false"
-          this.getSearchResults()
+          this.displaySearchResults()
         }
       })
 
       input.inputCross.addEventListener("click", () => {
-        this.getSearchResults()
+        this.displaySearchResults()
       })
     })
   }
@@ -102,8 +109,9 @@ export default class Site {
         const liIdTag = document.getElementById(liId)
         liIdTag.addEventListener("click", () => {
           const tag = new Tags(liIdTag.textContent, liIdTag.dataset.category)
+          this.displayedTags.push(tag)
           tag.displayTag()
-          this.getSearchResults()
+          this.displaySearchResults()
 
           selects.forEach(select => {
             select.reset()
@@ -117,9 +125,29 @@ export default class Site {
 
           const closingTag = document.getElementById(tag.closingTagId)
           closingTag.addEventListener("click", () => {
-            this.getSearchResults()
+            this.displayedTags.splice(this.displayedTags.indexOf(tag), 1)
+            this.displaySearchResults()
           })
         })
+      })
+    })
+  }
+
+  liTagToDisable() {
+    this.displayedTags.forEach(tag => {
+      const liItem = document.querySelector(
+        `[data-li-name="${tag.tag.toLowerCase()}"]`
+      )
+      liItem.classList.toggle("select__li--selected")
+      const closingLi = liItem.lastChild
+      closingLi.classList.toggle("opacity-0")
+
+      closingLi.addEventListener("click", event => {
+        event.stopPropagation()
+        tag.removeTag(tag)
+        this.displayedTags.splice(this.displayedTags.indexOf(tag), 1)
+
+        this.displaySearchResults()
       })
     })
   }
@@ -147,23 +175,7 @@ export default class Site {
       this.ustensils
     )
 
-    const liToDisable = Array.from(
-      document.getElementsByClassName("tags__text")
-    )
-
-    if (liToDisable.length) {
-      liToDisable.forEach(tag => {
-        const liItem = document.querySelector(
-          `[data-name="${tag.textContent.toLowerCase()}"]`
-        )
-        if (liItem) {
-          liItem.classList.add("select__li--selected")
-          const closingLi = liItem.lastChild
-          console.log(closingLi)
-          closingLi.classList.toggle("opacity-0")
-        }
-      })
-    }
+    this.liTagToDisable()
   }
 
   run() {
@@ -173,6 +185,7 @@ export default class Site {
       this.appliancesInput,
       this.ustensilsInput
     )
+
     this.render()
   }
 }

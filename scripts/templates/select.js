@@ -25,12 +25,12 @@ export default class Select {
     return this._liIds
   }
 
-  set liClosingId(id) {
-    this._liClosingId = id
+  set liClosingIds(id) {
+    this._liClosingIds = id
   }
 
-  get liClosingId() {
-    return this._liClosingId
+  get liClosingIds() {
+    return this._liClosingIds
   }
 
   reset() {
@@ -43,6 +43,7 @@ export default class Select {
     let liIdNumber = 0
     let crossIdNumber = 0
     const liIdsArray = []
+    const liClosingIdsArray = []
     itemsArray.forEach(item => {
       const liText = document.createElement("span")
       liText.textContent = item
@@ -50,11 +51,18 @@ export default class Select {
 
       const liClosingCross = document.createElement("img")
       liClosingCross.src = "/assets/select/closing-li.svg"
-      liClosingCross.classList.add("opacity-0", "h-50", "align-self-center")
+      liClosingCross.alt = "Supprimer le tag"
+      liClosingCross.classList.add(
+        "opacity-0",
+        "h-50",
+        "align-self-center",
+        "cursor-pointer",
+        "pointer-auto"
+      )
       liClosingCross.id = `${
         this.selectIdName
       }LiClosingCross_${crossIdNumber++}`
-      this.liClosingId = liClosingCross.id
+      liClosingIdsArray.push(liClosingCross.id)
 
       const liItem = document.createElement("li")
       liItem.classList.add(
@@ -68,13 +76,15 @@ export default class Select {
       liItem.dataset.category = `${this.selectIdName}Tags`
 
       liItem.append(liText, liClosingCross)
-      liItem.dataset.name = liText.textContent.toLowerCase()
+      liItem.dataset.liName = liText.textContent.toLowerCase()
 
       liIdsArray.push(liItem.id)
+
       this.ulElement.append(liItem)
     })
 
     this.liIds = liIdsArray
+    this.liClosingIds = liClosingIdsArray
   }
 
   toggleSelect() {
