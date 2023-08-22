@@ -144,7 +144,7 @@ export default class Site {
 
       closingLi.addEventListener("click", event => {
         event.stopPropagation()
-        tag.removeTag(tag)
+        tag.removeTag()
         this.displayedTags.splice(this.displayedTags.indexOf(tag), 1)
 
         this.displaySearchResults()
