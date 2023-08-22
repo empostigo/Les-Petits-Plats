@@ -138,17 +138,19 @@ export default class Site {
       const liItem = document.querySelector(
         `[data-li-name="${tag.tag.toLowerCase()}"]`
       )
-      liItem.classList.toggle("select__li--selected")
-      const closingLi = liItem.lastChild
-      closingLi.classList.toggle("opacity-0")
+      if (liItem) {
+        liItem.classList.toggle("select__li--selected")
+        const closingLi = liItem.lastChild
+        closingLi.classList.toggle("opacity-0")
 
-      closingLi.addEventListener("click", event => {
-        event.stopPropagation()
-        tag.removeTag()
-        this.displayedTags.splice(this.displayedTags.indexOf(tag), 1)
+        closingLi.addEventListener("click", event => {
+          event.stopPropagation()
+          tag.removeTag()
+          this.displayedTags.splice(this.displayedTags.indexOf(tag), 1)
 
-        this.displaySearchResults()
-      })
+          this.displaySearchResults()
+        })
+      }
     })
   }
 
