@@ -16,6 +16,14 @@ export default class Tags {
 
   // Getters and setters
 
+  set tagOffsetHeight(height) {
+    this._tagOffsetHeight = height
+  }
+
+  get tagOffsetHeight() {
+    return this._tagOffsetHeight
+  }
+
   set tagId(str) {
     this._tagId = str
   }
@@ -32,11 +40,11 @@ export default class Tags {
     return this._closingTagId
   }
 
-  removeTag(tag) {
+  removeTag() {
     if (--Tags.flag === 0) {
       this.sibbling.style.top = `${Tags.sibblingOrigin}px`
     } else {
-      const minusTranslation = this.sibbling.offsetTop - tag.offsetHeight
+      const minusTranslation = this.sibbling.offsetTop - this.tagOffsetHeight
       this.sibbling.style.top = `${minusTranslation}px`
     }
 
@@ -68,6 +76,7 @@ export default class Tags {
     innerTag.append(tagText, closingTag)
     tag.append(innerTag)
     this.tagsWrapper.append(tag)
+    this.tagOffsetHeight = tag.offsetHeight
     Tags.flag++
 
     const translation =
@@ -75,7 +84,7 @@ export default class Tags {
     this.sibbling.style.top = `${translation}px`
 
     closingTag.addEventListener("click", () => {
-      this.removeTag(tag)
+      this.removeTag()
     })
   }
 }
