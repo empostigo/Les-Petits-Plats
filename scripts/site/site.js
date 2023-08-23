@@ -24,6 +24,7 @@ export default class Site {
     this.ustensilsInput = new Input("ustensilsInput")
 
     this.displayedTags = []
+    this.lastPattern = ""
   }
 
   getPatternsArray() {
@@ -72,6 +73,7 @@ export default class Site {
   displaySearchResults() {
     this.getSearchResults()
 
+    this.dom.classList.remove("w-100")
     this.dom.innerHTML = ""
     this.render()
   }
@@ -88,6 +90,7 @@ export default class Site {
         const patternLength = content.target.value.trim().length
         if (patternLength > 2) {
           input.inputElement.dataset.searchEnabled = "true"
+          this.lastPattern = content.target.value.trim()
           this.displaySearchResults()
         }
 
@@ -164,6 +167,11 @@ export default class Site {
 
   render() {
     this.nbRecipes.textContent = `${this.recipes.length} recettes`
+    if (this.recipes.length === 0) {
+      this.dom.classList.add("w-100")
+      this.dom.innerHTML = `<p class="text-center cards__norecipes">Aucune recette ne contient \
+      «${this.lastPattern}», vous pouvez chercher<br>«tarte aux pommes», «poisson», etc.</div>`
+    }
 
     this.dom.append(...this.recipes.map(recipe => new Card(recipe).cardDom()))
 

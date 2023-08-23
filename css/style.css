@@ -136,6 +136,25 @@ body {
   padding-bottom: 200px;
   transition: top 500ms ease-out;
 }
+.cards__norecipes {
+  font-size: 16px;
+  color: #ffd15b;
+}
+@media (min-width: 576px) {
+  .cards__norecipes {
+    font-size: 22px;
+  }
+}
+@media (min-width: 768px) {
+  .cards__norecipes {
+    font-size: 33px;
+  }
+}
+@media (min-width: 992px) {
+  .cards__norecipes {
+    font-size: 44px;
+  }
+}
 
 .tags-wrapper {
   top: 130px;

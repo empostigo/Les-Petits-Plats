@@ -3,4 +3,21 @@
   top: 130px;
   padding-bottom: 200px;
   transition: top 500ms ease-out;
+
+  &__norecipes {
+    font-size: 16px;
+    color: $yellow-colour;
+
+    @media (min-width: 576px) {
+      font-size: 22px;
+    }
+
+    @media (min-width: 768px) {
+      font-size: 33px;
+    }
+
+    @media (min-width: 992px) {
+      font-size: 44px;
+    }
+  }
 }
