@@ -48,17 +48,8 @@ export default class DataProcessing {
   // get appliances list ([])
   get wholeAppliancesList() {
     return [
-      ...new Set(this.recipesArray.map(recipe => recipe.appliance)),
+      ...new Set(this.recipesArray.map(recipe => recipe.appliance))
     ].sort()
-  }
-
-  get concatenatedAppliances() {
-    return this.appliancesList.map(appliance =>
-      appliance
-        .split(" ")
-        .filter(a => a.length > 2)
-        .flat()
-    )
   }
 
   get wholeUstensilsList() {
@@ -68,31 +59,7 @@ export default class DataProcessing {
           .map(recipe => recipe.ustensils)
           .flat()
           .map(u => u.toLowerCase())
-      ),
-    ].sort()
-  }
-
-  get ustensilsList() {
-    return [
-      ...new Set(
-        this.recipesArray.map(recipe =>
-          recipe.ustensils
-            .map(ustensil => ustensil.split(" ").filter(u => u.length > 2))
-            .flat()
-        )
-      ),
-    ]
-  }
-
-  get allRecipeTerms() {
-    return this.concatenatedIngredients
-      .map((item, index) =>
-        item.concat(
-          this.concatenatedAppliances[index],
-          this.ustensilsList[index]
-        )
       )
-      .map(i => [...new Set(i)])
-      .map(i => i.sort((a, b) => a.toUpperCase() > b.toUpperCase()))
+    ].sort()
   }
 }
