@@ -31,24 +31,24 @@ export default class Site {
     const patternsArray = [
       {
         pattern: this.mainInput.inputElement.value,
-        category: this.mainInput.inputElement.dataset.category,
+        category: this.mainInput.inputElement.dataset.category
       },
       {
         pattern: this.ingredientsInput.inputElement.value,
-        category: this.ingredientsInput.inputElement.dataset.category,
+        category: this.ingredientsInput.inputElement.dataset.category
       },
       {
         pattern: this.appliancesInput.inputElement.value,
-        category: this.appliancesInput.inputElement.dataset.category,
+        category: this.appliancesInput.inputElement.dataset.category
       },
       {
         pattern: this.ustensils.inputElement.value,
-        category: this.ustensilsInput.inputElement.dataset.category,
-      },
+        category: this.ustensilsInput.inputElement.dataset.category
+      }
     ].concat(
       Array.from(document.getElementsByClassName("tags__text")).map(item => ({
         pattern: item.textContent,
-        category: item.dataset.category,
+        category: item.dataset.category
       }))
     )
 
@@ -186,6 +186,8 @@ export default class Site {
     )
 
     this.liTagToDisable()
+
+    console.log(this.searchEngine.recipeTerms.concatenatedIngredients)
   }
 
   run() {
