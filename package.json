@@ -31,6 +31,7 @@
     "arrowParens": "avoid",
     "semi": false,
     "bracketSpacing": false,
+    "trailingComma": "none",
     "singleAttributePerLine": false
   }
 }
