@@ -186,8 +186,6 @@ export default class Site {
     )
 
     this.liTagToDisable()
-
-    console.log(this.searchEngine.recipeTerms.concatenatedIngredients)
   }
 
   run() {
