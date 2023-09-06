@@ -70,10 +70,10 @@ export default class Search {
         searchResultsArray = this.recipesData.filter(
           recipe =>
             recipe.name.toLowerCase().includes(pattern) ||
+            recipe.description.includes(pattern) ||
             recipe.ingredients.some(ingredients =>
               ingredients.ingredient.toLowerCase().includes(pattern)
-            ) ||
-            recipe.description.includes(pattern)
+            )
         )
 
         break
