@@ -67,14 +67,22 @@ export default class Search {
     let searchResultsArray = []
     switch (category) {
       case "main":
-        searchResultsArray = this.recipesData.filter(
-          recipe =>
-            recipe.name.toLowerCase().includes(pattern) ||
-            recipe.description.includes(pattern) ||
-            recipe.ingredients.some(ingredients =>
-              ingredients.ingredient.toLowerCase().includes(pattern)
-            )
-        )
+        for (let recipe of this.recipesData) {
+          const {name, description, ingredients} = recipe
+          if (
+            name.toLowerCase().includes(pattern) ||
+            description.toLowerCase().includes(pattern)
+          )
+            searchResultsArray.push(recipe)
+          else {
+            for (let ingredient of ingredients) {
+              if (ingredient.ingredient.toLowerCase().includes(pattern)) {
+                searchResultsArray.push(recipe)
+                break
+              }
+            }
+          }
+        }
 
         break
 
