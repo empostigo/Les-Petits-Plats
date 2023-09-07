@@ -89,11 +89,10 @@ export default class Site {
       input.inputElement.addEventListener("input", content => {
         const re = /[</>]/g
         const pattern = content.target.value.trim().replaceAll(re, "")
-        console.log(pattern)
+        this.lastPattern = pattern
         const patternLength = pattern.length
         if (patternLength > 2) {
           input.inputElement.dataset.searchEnabled = "true"
-          this.lastPattern = pattern
           this.displaySearchResults()
         }
 
