@@ -30,19 +30,27 @@ export default class Site {
   getPatternsArray() {
     const patternsArray = [
       {
-        pattern: this.mainInput.inputElement.value,
+        pattern: this.mainInput.inputElement.value
+          .trim()
+          .replaceAll(/[</>]/g, ""),
         category: this.mainInput.inputElement.dataset.category
       },
       {
-        pattern: this.ingredientsInput.inputElement.value,
+        pattern: this.ingredientsInput.inputElement.value
+          .trim()
+          .replaceAll(/[</>]/g, ""),
         category: this.ingredientsInput.inputElement.dataset.category
       },
       {
-        pattern: this.appliancesInput.inputElement.value,
+        pattern: this.appliancesInput.inputElement.value
+          .trim()
+          .replaceAll(/[</>]/g, ""),
         category: this.appliancesInput.inputElement.dataset.category
       },
       {
-        pattern: this.ustensils.inputElement.value,
+        pattern: this.ustensils.inputElement.value
+          .trim()
+          .replaceAll(/[</>]/g, ""),
         category: this.ustensilsInput.inputElement.dataset.category
       }
     ].concat(
