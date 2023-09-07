@@ -87,14 +87,17 @@ export default class Site {
   listenInputSearchResults(...inputs) {
     inputs.forEach(input => {
       input.inputElement.addEventListener("input", content => {
-        const patternLength = content.target.value.trim().length
+        const re = /[</>]/g
+        const pattern = content.target.value.trim().replaceAll(re, "")
+        console.log(pattern)
+        const patternLength = pattern.length
         if (patternLength > 2) {
           input.inputElement.dataset.searchEnabled = "true"
-          this.lastPattern = content.target.value.trim()
+          this.lastPattern = pattern
           this.displaySearchResults()
         }
 
-        if (patternLength === 2 && input.inputElement.dataset.searchEnabled) {
+        if (patternLength <= 2 && input.inputElement.dataset.searchEnabled) {
           input.inputElement.dataset.searchEnabled = "false"
           this.displaySearchResults()
         }
