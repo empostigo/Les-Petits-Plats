@@ -9,6 +9,10 @@ export default class Input {
     this.inputForm.reset()
   }
 
+  sanitize() {
+    return this.inputElement.value.trim().replaceAll(/[</>]/g, "")
+  }
+
   static waitForUserEntry(...inputs) {
     inputs.forEach(input => {
       input.inputElement.addEventListener("input", content => {
