@@ -6,7 +6,7 @@ import Select from "../templates/select.js"
 
 export default class Site {
   constructor(recipes) {
-    this.recipes = recipes
+    this.recipes = recipes // recipes array
 
     this.nbRecipes = document.getElementById("nbRecipes")
 
@@ -23,11 +23,17 @@ export default class Site {
     this.appliancesInput = new Input("appliancesInput")
     this.ustensilsInput = new Input("ustensilsInput")
 
-    this.displayedTags = []
-    this.lastPattern = ""
+    this.displayedTags = [] // Array to track all selected tags
+    this.lastPattern = "" // The last input search
   }
 
   getPatternsArray() {
+    // Create an object array to collect tags and input searches
+    // All with their categories (mainInput, ingredientsInputs, etc.)
+    // We then run through this array with the search function,
+    // i.e. this.searchEngine.getRecipesStructure() to get
+    // the corresponding recipes array this.recipes
+
     const patternsArray = [
       {
         pattern: this.mainInput.sanitize(),
@@ -56,8 +62,14 @@ export default class Site {
   }
 
   getSearchResults() {
+    // Init the Search class object with the original recipes array
+    // See Search.js for what is initialized
     this.searchEngine.setRecipesInfos(this.searchEngine.originalRecipes)
 
+    // Matches each pattern with a recipe array, and only keeps the last one,
+    // the one that groups all the searches.
+    // If it is undefined, it means the user clear all tags/inputs
+    // And this.recipes is affected the original recipes array
     this.recipes =
       this.getPatternsArray()
         .filter(element => element.pattern.length > 2)
@@ -70,6 +82,7 @@ export default class Site {
         .pop() ?? this.searchEngine.getOriginalStructure()
   }
 
+  // Get search results and rendering it
   displaySearchResults() {
     this.getSearchResults()
 
@@ -87,21 +100,22 @@ export default class Site {
   listenInputSearchResults(...inputs) {
     inputs.forEach(input => {
       input.inputElement.addEventListener("input", content => {
-        const re = /[</>]/g
+        const re = /[</>]/g // Pattern to avoid html injection, used to get the user input
         const pattern = content.target.value.trim().replaceAll(re, "")
         this.lastPattern = pattern
         const patternLength = pattern.length
         if (patternLength > 2) {
-          input.inputElement.dataset.searchEnabled = "true"
+          input.inputElement.dataset.searchEnabled = "true" // To enable the search stuff
           this.displaySearchResults()
         }
 
         if (patternLength <= 2 && input.inputElement.dataset.searchEnabled) {
-          input.inputElement.dataset.searchEnabled = "false"
+          input.inputElement.dataset.searchEnabled = "false" // Disable search, so we can trigger line 108
           this.displaySearchResults()
         }
       })
 
+      // When input is cleared, trigger a search
       input.inputCross.addEventListener("click", () => {
         this.displaySearchResults()
       })
@@ -115,9 +129,10 @@ export default class Site {
         liIdTag.addEventListener("click", () => {
           const tag = new Tags(liIdTag.textContent, liIdTag.dataset.category)
           this.displayedTags.push(tag)
-          tag.displayTag()
+          tag.displayTag() // Tags rendering method
           this.displaySearchResults()
 
+          // Reset input fields and hide erasing cross
           selects.forEach(select => {
             select.reset()
             document
@@ -125,6 +140,7 @@ export default class Site {
               .classList.add("opacity-0")
           })
 
+          // Idem for main input
           this.mainInput.reset()
           this.mainInput.inputCross.classList.add("opacity-0")
 
@@ -138,6 +154,7 @@ export default class Site {
     })
   }
 
+  // Render selects items
   liTagToDisable() {
     this.displayedTags.forEach(tag => {
       const liItem = document.querySelector(
@@ -159,6 +176,7 @@ export default class Site {
     })
   }
 
+  // Initialize some part of the page
   init(...inputs) {
     Input.waitForUserEntry(...inputs)
 
@@ -167,6 +185,7 @@ export default class Site {
     Select.enableSelect(this.ingredients, this.appliances, this.ustensils)
   }
 
+  // Called in the beginning, and when recipes array change
   render() {
     this.nbRecipes.textContent = `${this.recipes.length} recettes`
     if (this.recipes.length === 0) {
