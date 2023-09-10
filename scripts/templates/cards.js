@@ -1,4 +1,4 @@
-// Display a card
+// Class to display a card
 
 export default class Card {
   constructor(cardInfos) {
@@ -16,10 +16,12 @@ export default class Card {
     )
   }
 
+  // get string for card innerHTML
   get cardIngredients() {
     return "".concat(...this.ingredientsArray)
   }
 
+  // Card display on the page
   cardDom() {
     const card = document.createElement("article")
     card.id = this.cardId
@@ -46,6 +48,7 @@ export default class Card {
     return card
   }
 
+  // Modal recipe display when clicking on card
   getModalCard() {
     const modal = `
         <div class="modal-content rounded-4 border-0 w-75 mx-auto modal__content">
