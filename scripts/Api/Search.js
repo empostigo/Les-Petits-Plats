@@ -4,6 +4,8 @@ export default class Search {
   constructor(recipesData) {
     this.originalRecipes = recipesData
     this.recipesData = recipesData
+
+    // Fill the select with data from recipes.js
     this.recipeTerms = new DataProcessing(this.recipesData)
     this.ingredientsSelect = this.recipeTerms.wholeIngredientsList
     this.appliancesSelect = this.recipeTerms.wholeAppliancesList
@@ -17,6 +19,7 @@ export default class Search {
     return this.originalRecipes
   }
 
+  // Update selects, recipes to be displayed, arrays from which to search
   getRecipesStructure(pattern, category) {
     const toFind = pattern.toLowerCase()
     const searchResultsArray = this.searchResults(toFind, category)
@@ -27,11 +30,13 @@ export default class Search {
     return searchResultsArray
   }
 
+  // When a search is finished, to other searches need to be made from the last recipes array
   setRecipesInfos(recipesArray) {
     this.recipesData = recipesArray
     this.recipeTerms.recipesArray = recipesArray
   }
 
+  // Determine with what to fill selects
   setSelectItems(pattern = "", category = "") {
     switch (category) {
       case "ingredients":
@@ -63,10 +68,14 @@ export default class Search {
     }
   }
 
+  // The search method, categories are for ingredients, appliances, tags, etc.
   searchResults(pattern, category) {
     let searchResultsArray = []
     switch (category) {
       case "main":
+        // THis is the search algorithm which will be test in jsben.ch
+        // in the block named "for...of method"
+        // See "fiche-investigation-fonctionnalité-recherche-principale.pdf"
         for (let recipe of this.recipesData) {
           const {name, description, ingredients} = recipe
           if (
