@@ -1,3 +1,5 @@
+// Tags appear when you select an ingredient/device/utensil in the selects
+
 export default class Tags {
   constructor(tag, tagCategory) {
     this.tag = tag
@@ -9,6 +11,8 @@ export default class Tags {
   // Keep track of created tags
   static flag = 0
 
+  // The cards container has css rule position: absolute
+  // So we need to place it manually, when adding and removing tags
   static sibblingOrigin = 130
 
   // Tags number id
@@ -16,6 +20,7 @@ export default class Tags {
 
   // Getters and setters
 
+  // Keep track of tag position
   set tagOffsetHeight(height) {
     this._tagOffsetHeight = height
   }
@@ -24,6 +29,7 @@ export default class Tags {
     return this._tagOffsetHeight
   }
 
+  // tag id
   set tagId(str) {
     this._tagId = str
   }
@@ -32,6 +38,7 @@ export default class Tags {
     return this._tagId
   }
 
+  // tag's removing cross
   set closingTagId(str) {
     this._closingTagId = str
   }
@@ -52,6 +59,11 @@ export default class Tags {
   }
 
   displayTag() {
+    // Tag strutcture:
+    // <div.tags>
+    //  <div.tags__inner>
+    //    <span.tags__text>
+    //    <img.tags__cross>
     const tag = document.createElement("div")
     tag.classList.add("col", "tags")
     tag.id = `tag_${Tags.id}`
@@ -79,6 +91,7 @@ export default class Tags {
     this.tagOffsetHeight = tag.offsetHeight
     Tags.flag++
 
+    // Calculate cards container Y translation
     const translation =
       this.tagsWrapper.offsetHeight + this.tagsWrapper.offsetTop + 44
     this.sibbling.style.top = `${translation}px`
