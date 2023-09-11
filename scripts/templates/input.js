@@ -19,9 +19,9 @@ export default class Input {
   static waitForUserEntry(...inputs) {
     inputs.forEach(input => {
       input.inputElement.addEventListener("input", content => {
-        content.target.value.length > 0
-          ? input.inputCross.classList.remove("opacity-0")
-          : input.inputCross.classList.add("opacity-0")
+        const valueLength = content.target.value.length > 0
+        if (valueLength) input.inputCross.classList.remove("opacity-0")
+        else input.inputCross.classList.add("opacity-0")
       })
 
       input.inputCross.addEventListener("click", () => {
