@@ -3,7 +3,7 @@ export default class DataProcessing {
     this.recipesArray = recipesArray
   }
 
-  // Get ingredients[]
+  // Get ingredients[] for every recipe
   get ingredientsList() {
     return this.recipesArray.map(recipe =>
       recipe.ingredients
@@ -12,18 +12,19 @@ export default class DataProcessing {
     )
   }
 
-  // Get all recipes ingredients in a unique array
+  // get all recipes ingredients in a unique array (displayed in select#ingredients)
   get wholeIngredientsList() {
     return [...new Set(this.ingredientsList.flat())].sort()
   }
 
-  // get appliances list ([])
+  // get all recipes appliances list (displayed in select#appliances)
   get wholeAppliancesList() {
     return [
       ...new Set(this.recipesArray.map(recipe => recipe.appliance))
     ].sort()
   }
 
+  // get all recipes ustensils list (displayed in select#ustensils)
   get wholeUstensilsList() {
     return [
       ...new Set(
