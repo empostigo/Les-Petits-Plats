@@ -73,25 +73,17 @@ export default class Search {
     let searchResultsArray = []
     switch (category) {
       case "main":
-        // THis is the search algorithm which will be test in jsben.ch
+        // This is the search algorithm which will be test in jsben.ch
         // in the block named "for...of method"
         // See "fiche-investigation-fonctionnalité-recherche-principale.pdf"
-        for (const recipe of this.recipesData) {
-          const { name, description, ingredients } = recipe
-          if (
-            name.toLowerCase().includes(pattern) ||
-            description.toLowerCase().includes(pattern)
-          ) {
-            searchResultsArray.push(recipe)
-          } else {
-            for (const ingredient of ingredients) {
-              if (ingredient.ingredient.toLowerCase().includes(pattern)) {
-                searchResultsArray.push(recipe)
-                break
-              }
-            }
-          }
-        }
+        searchResultsArray = this.recipesData.filter(
+          recipe =>
+            recipe.name.toLowerCase().includes(pattern) ||
+            recipe.description.includes(pattern) ||
+            recipe.ingredients.some(ingredients =>
+              ingredients.ingredient.toLowerCase().includes(pattern)
+            )
+        )
 
         break
 
