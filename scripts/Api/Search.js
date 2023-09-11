@@ -76,15 +76,15 @@ export default class Search {
         // THis is the search algorithm which will be test in jsben.ch
         // in the block named "for...of method"
         // See "fiche-investigation-fonctionnalité-recherche-principale.pdf"
-        for (let recipe of this.recipesData) {
-          const {name, description, ingredients} = recipe
+        for (const recipe of this.recipesData) {
+          const { name, description, ingredients } = recipe
           if (
             name.toLowerCase().includes(pattern) ||
             description.toLowerCase().includes(pattern)
-          )
+          ) {
             searchResultsArray.push(recipe)
-          else {
-            for (let ingredient of ingredients) {
+          } else {
+            for (const ingredient of ingredients) {
               if (ingredient.ingredient.toLowerCase().includes(pattern)) {
                 searchResultsArray.push(recipe)
                 break
