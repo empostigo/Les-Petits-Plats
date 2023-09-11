@@ -122,8 +122,9 @@ export default class Select {
           event.target !== element.buttonElement &&
           event.target !== element.inputElement &&
           event.target !== element.inputCrossElement
-        )
+        ) {
           element.closeSelect()
+        }
       })
     })
   }
