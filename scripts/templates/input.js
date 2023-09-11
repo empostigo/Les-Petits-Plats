@@ -5,14 +5,17 @@ export default class Input {
     this.inputCross = document.getElementById(inputId.concat("Cross"))
   }
 
+  // Clear input
   reset() {
     this.inputForm.reset()
   }
 
+  // Avoid html injection
   sanitize() {
     return this.inputElement.value.trim().replaceAll(/[</>]/g, "")
   }
 
+  // Render erasing cross in inputs
   static waitForUserEntry(...inputs) {
     inputs.forEach(input => {
       input.inputElement.addEventListener("input", content => {

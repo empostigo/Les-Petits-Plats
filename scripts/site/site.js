@@ -134,14 +134,14 @@ export default class Site {
 
           // Reset input fields and hide erasing cross
           selects.forEach(select => {
-            select.reset()
+            select.reset() // Select.reset()
             document
               .getElementById(select.selectIdName.concat("InputCross"))
               .classList.add("opacity-0")
           })
 
           // Idem for main input
-          this.mainInput.reset()
+          this.mainInput.reset() // Input.reset()
           this.mainInput.inputCross.classList.add("opacity-0")
 
           const closingTag = document.getElementById(tag.closingTagId)
