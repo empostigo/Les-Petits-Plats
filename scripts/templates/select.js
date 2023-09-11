@@ -1,13 +1,13 @@
 export default class Select {
   constructor(selectId) {
-    this.selectIdName = selectId
-    this.selectWrapper = document.getElementById("selectWrapper")
-    this.selectId = document.getElementById(selectId)
+    this.selectIdName = selectId // Used to create ids
+    this.selectWrapper = document.getElementById("selectWrapper") // div container for selects
+    this.selectId = document.getElementById(selectId) // The select element
 
+    // Select element structure
     this.buttonElement = document.getElementById(selectId.concat("Button"))
     this.buttonDown = document.getElementById(selectId.concat("Down"))
     this.buttonUp = document.getElementById(selectId.concat("Up"))
-
     this.formElement = document.getElementById(selectId.concat("InputForm"))
     this.inputElement = document.getElementById(selectId.concat("Input"))
     this.inputCrossElement = document.getElementById(
@@ -17,6 +17,7 @@ export default class Select {
     this.ulElement = document.getElementById(selectId.concat("List"))
   }
 
+  // Keep track of <li> in selects
   set liIds(liIds) {
     this._liIds = liIds
   }
@@ -25,6 +26,7 @@ export default class Select {
     return this._liIds
   }
 
+  // And <li> closing cross
   set liClosingIds(id) {
     this._liClosingIds = id
   }
@@ -87,6 +89,7 @@ export default class Select {
     this.liClosingIds = liClosingIdsArray
   }
 
+  // Opening and closing the select dropdown
   toggleSelect() {
     this.selectId.classList.toggle("select--closed")
 
@@ -107,6 +110,7 @@ export default class Select {
     this.ulElement.classList.add("opacity-0")
   }
 
+  // Use in Site.init() when opening the page
   static enableSelect(...selectElements) {
     selectElements.forEach(element => {
       element.buttonElement.addEventListener("click", () =>
