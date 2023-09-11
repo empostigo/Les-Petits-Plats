@@ -73,7 +73,7 @@ export default class Search {
     let searchResultsArray = []
     switch (category) {
       case "main":
-        // THis is the search algorithm which will be test in jsben.ch
+        // This is the search algorithm which will be test in jsben.ch
         // in the block named "for...of method"
         // See "fiche-investigation-fonctionnalité-recherche-principale.pdf"
         for (const recipe of this.recipesData) {
