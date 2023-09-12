@@ -163,7 +163,18 @@ body {
 
 .modal__content {
   height: 88vh;
+  width: 90%;
   margin-top: 22px;
+}
+@media (min-width: 768px) {
+  .modal__content {
+    width: 75%;
+  }
+}
+@media (min-width: 1200px) {
+  .modal__content {
+    width: 50%;
+  }
 }
 .modal__desc {
   font-family: "Manrope", sans-serif;
