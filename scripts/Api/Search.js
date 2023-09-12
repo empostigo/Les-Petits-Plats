@@ -74,7 +74,7 @@ export default class Search {
     switch (category) {
       case "main":
         // This is the search algorithm which will be test in jsben.ch
-        // in the block named "Array.prototype.filter() method"
+        // in the block named "for...of method"
         // See "fiche-investigation-fonctionnalité-recherche-principale.pdf"
         for (const recipe of this.recipesData) {
           const { name, description, ingredients } = recipe
