@@ -51,7 +51,7 @@ export default class Card {
   // Modal recipe display when clicking on card
   getModalCard() {
     const modal = `
-        <div class="modal-content rounded-4 border-0 w-75 mx-auto modal__content">
+        <div class="modal-content rounded-4 border-0 mx-auto modal__content">
           <div class="modal-header p-0 rounded-4">
             <img src="${this.cardImg}" class="card-img-top rounded-top-4 modal__img" alt="${this.cardInfos.name}">
           </div>
