@@ -108,8 +108,14 @@ export default class Site {
           this.displaySearchResults()
         }
 
-        if (patternLength <= 2 && input.inputElement.dataset.searchEnabled) {
+        if (
+          patternLength <= 2 &&
+          input.inputElement.dataset.searchEnabled === true
+        ) {
           input.inputElement.dataset.searchEnabled = "false" // Disable search, so we can trigger line 108
+          this.displaySearchResults()
+        } else {
+          this.searchEngine.setRecipesInfos(this.searchEngine.originalRecipes)
           this.displaySearchResults()
         }
       })
