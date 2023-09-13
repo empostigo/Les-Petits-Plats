@@ -100,8 +100,7 @@ export default class Site {
   listenInputSearchResults(...inputs) {
     inputs.forEach(input => {
       input.inputElement.addEventListener("input", content => {
-        const re = /[</>]/g // Pattern to avoid html injection, used to get the user input
-        const pattern = content.target.value.trim().replaceAll(re, "")
+        const pattern = content.target.value.trim().replaceAll("<", "&lt;")
         this.lastPattern = pattern
         const patternLength = pattern.length
         if (patternLength > 2) {
@@ -191,7 +190,7 @@ export default class Site {
     if (this.recipes.length === 0) {
       this.dom.classList.add("w-100")
       this.dom.innerHTML = `<p class="text-center cards__norecipes">Aucune recette ne contient \
-      «${this.lastPattern}», vous pouvez chercher<br>«tarte aux pommes», «poisson», etc.</div>`
+      « <em>${this.lastPattern}</em> », vous pouvez chercher<br>«tarte aux pommes», «poisson», etc.</div>`
     }
 
     this.dom.append(...this.recipes.map(recipe => new Card(recipe).cardDom()))
