@@ -12,7 +12,7 @@ export default class Input {
 
   // Avoid html injection
   sanitize() {
-    return this.inputElement.value.trim().replaceAll(/[</>]/g, "")
+    return this.inputElement.value.trim().replaceAll("<", "&lt;")
   }
 
   // Render erasing cross in inputs
